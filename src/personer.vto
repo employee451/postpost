@@ -1,0 +1,36 @@
+---
+layout: layout.vto
+---
+
+{{ comp Broedkrummer }}
+  {{ comp Broedkrumme }}
+	Personer
+  {{ /comp }}
+{{ /comp }}
+
+<div class="space-y-8">
+  <div class="bg-gradient-to-b from-zinc-300 to-zinc-400 border border-zinc-600 rounded-xl p-6">
+    <h1 class="font-serif text-4xl mb-2">Personer</h1>
+    <div class="text-sm tracking-wider text-zinc-700">Dem der laver ting på postpost</div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+    {{ for person of search.pages("type=person") }}
+    <a href="{{ person.url }}" class="block">
+      {{ comp Kasse }}
+        <div class="flex items-center gap-4">
+          <div class="w-16 h-16 rounded-full bg-violet-800"></div>
+          <div>
+            <h2 class="font-serif text-2xl tracking-wide text-zinc-900">
+              {{ person.fornavn }} {{ person.efternavn }}
+            </h2>
+            <p class="text-xs tracking-wider text-zinc-700">
+              {{ person.hurtigtekst }}
+            </p>
+          </div>
+        </div>
+      {{ /comp }}
+    </a>
+    {{ /for }}
+  </div>
+</div>

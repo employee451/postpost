@@ -1,0 +1,145 @@
+---
+title: postpost
+---
+
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>{{ title }}</title>
+  </head>
+  <!--
+  hamrebræt
+  Tegner ting<br/>
+  Tegner mønster
+      &#9;Tegner høner
+  Tegner ting
+  Tegner træer
+      Tegner gæster
+  Tegner ting
+  Tegner stjerner
+      Tegner skyer
+  Tegner ting
+  Tegner ænder
+      Tegner syre
+  Tegner venner
+      Tegner verdner
+  Tegner ting
+
+  Tegner: papir, blyant, tusch, farve
+  Tergner: for-, bag-, inder-, yderside
+  Tegner: -
+  -->
+  <div id="cursor-trail"></div>
+  <body class="min-h-screen bg-zinc-300 text-zinc-900 cursor-none">
+    <div class="mx-auto max-w-5xl p-8">
+      <header class="relative mb-16 text-center">
+        <div class="absolute -top-2 right-0 flex items-center gap-4 font-mono text-sm">
+          <div class="border border-zinc-700 bg-gray-300 px-3 py-1">
+            ⚡ {visitors} online
+          </div>
+          <div class="border border-zinc-700 bg-gray-300 px-3 py-1">
+            <span class="text-red-500 animate-ping">●</span> live
+          </div>
+        </div>
+
+        <h1 class="mb-4 bg-gradient-to-b from-violet-700 to-violet-900 bg-clip-text font-serif text-7xl text-transparent underline">
+          {{ title }}
+        </h1>
+
+        <div class="absolute left-0 top-0 flex items-center gap-4 font-mono text-sm">
+          <div class="flex flex-col items-center border border-zinc-700 bg-gray-300 p-3">
+            <div class="mb-1 text-zinc-900">
+              Hvad er klokken?
+            </div>
+            <div class="text-xs opacity-60">
+              Idk
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="border border-zinc-700 bg-gray-300 px-3 py-1">
+              ♫ musik?
+            </div>
+            <div class="border border-zinc-700 bg-gray-300 px-3 py-1">
+              ⚬ mood: lort
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="mb-12 grid grid-cols-1 gap-8">
+        {{ content }}
+      </main>
+
+      <div class="mt-16 flex items-center justify-center gap-2 font-serif">
+          <button class="flex h-12 w-12 items-center justify-center border border-zinc-600 transition-all hover:border-violet-700 hover:text-violet-300">
+              ←
+          </button>
+          <div class="flex gap-1">
+            <button class="h-12 w-12 border-zinc-900 flex items-center justify-center transition-all hover:border-violet-700 hover:text-violet-300 cursor-default hover:border-zinc-600 hover:text-zinc-200">
+                1
+            </button>
+          </div>
+          <button class="flex h-12 w-12 items-center justify-center border border-zinc-600 transition-all hover:border-violet-700 hover:text-violet-300">
+              →
+          </button>
+      </div>
+
+      <footer class="mt-16 text-center space-y-4">
+          <div class="h-px w-48 mx-auto bg-violet-800"></div>
+          <div class="font-serif text-sm tracking-widest space-x-8 opacity-80">
+            <a href="/hvad-er-det-her" class="hover:text-violet-800 cursor-pointer transition-colors">Hvad er det her?!</a>
+            <a href="/personer" class="hover:text-violet-800 cursor-pointer transition-colors">Personer</a>
+            <span class="hover:text-violet-800 cursor-pointer transition-colors">Indsend</span>
+          </div>
+        </footer>
+    </div>
+    <script>
+    // Cursor trail effect
+    function createTrail() {
+      const trailContainer = document.getElementById('cursor-trail');
+      const dots = [];
+      const maxDots = 15;
+
+      function createDot(x, y) {
+        const dot = document.createElement('div');
+        dot.className = 'trail-dot';
+        dot.style.left = x + 'px';
+        dot.style.top = y + 'px';
+        return dot;
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        const dot = createDot(e.clientX, e.clientY);
+        trailContainer.appendChild(dot);
+        dots.push(dot);
+
+        // Fade out effect
+        let opacity = 1;
+        const fadeOut = setInterval(() => {
+          opacity -= 0.1;
+          dot.style.opacity = opacity;
+          dot.style.transform = `scale(${opacity})`;
+          
+          if (opacity <= 0) {
+            clearInterval(fadeOut);
+            dot.remove();
+          }
+        }, 50);
+
+        // Remove old dots
+        if (dots.length > maxDots) {
+          const oldDot = dots.shift();
+          oldDot.remove();
+        }
+      });
+    }
+
+    // Initialize when the page loads
+    document.addEventListener('DOMContentLoaded', createTrail);
+    </script>
+  </body>
+</html>

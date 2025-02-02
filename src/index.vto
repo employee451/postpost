@@ -1,0 +1,27 @@
+---
+layout: layout.vto
+---
+
+{{ for opslag of search.pages("type=opslag") }}
+<div>
+    <a href="{{ opslag.url }}" class="hover:underline">
+    {{ comp Kasse }}
+        {{ comp Kassetitel }}
+            {{ opslag.titel }}
+        {{ /comp }}
+        {{ comp Kassetekst }}
+            {{ opslag.uddrag }}
+        {{ /comp }}
+        {{ comp Kassefod }}
+            {{ comp Kasseperson }}
+                {{ opslag.person.fornavn }}
+            {{ /comp }}
+            {{ comp Kassedato }}
+                {{ opslag.dato }}
+            {{ /comp }}
+        {{ /comp }}
+    {{ /comp }}
+    </a>
+    <div class="mx-auto mt-8 w-1/2 border border-dashed border-violet-800" />
+</div>
+{{ /for }}
