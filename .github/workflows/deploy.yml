@@ -14,9 +14,6 @@ jobs:
         with:
           deno-version: "2.1.6"
 
-      - name: Install Lume
-        run: deno run -A https://lume.land/init.ts
-
       - name: Build site
         run: deno task lume
 
