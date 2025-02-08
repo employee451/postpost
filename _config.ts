@@ -12,10 +12,7 @@ site.use(tailwindcss({
 	extensions: ['.vto', '.html']
 }));
 site.use(postcss());
-site.use(sitemap({
-	hostname: "https://www.kristianmandrup.dk",
-	prettyUrls: true,
-}))
+site.use(sitemap())
 
 site.use(relations({
 	foreignKeys: {
