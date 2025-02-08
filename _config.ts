@@ -6,6 +6,7 @@ import sitemap from "lume/plugins/sitemap.ts";
 
 const site = lume({
 	src: './src',
+	location: new URL("https://post-post.dk")
 });
 
 site.use(tailwindcss({
