@@ -1,7 +1,7 @@
 ---
 layout: layout.vto
 ---
-<main class="mb-12 grid grid-cols-1 gap-8">
+{{ comp Sideindhold }}
 {{ comp Broedkrummer }}
   {{ comp Broedkrumme }}
     {{ titel }}
@@ -19,7 +19,7 @@ layout: layout.vto
       {{ /comp }}
     {{ /comp }}
     {{ comp Indholdskasseindhold }}
-      <div class="prose">
+      <div class="prose overflow-x-hidden">
         {{ content }}
       </div>
     {{ /comp }}
@@ -38,4 +38,4 @@ layout: layout.vto
     </a>
   {{ /comp }}
 </article>
-</main>
+{{ /comp }}
