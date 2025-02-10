@@ -1,7 +1,7 @@
 ---
 layout: layout.vto
 ---
-
+<main class="mb-12 grid grid-cols-1 gap-8">
 {{ for opslag of search.pages("type=opslag") }}
 <div>
     <a href="{{ opslag.url }}" class="hover:underline">
@@ -25,3 +25,17 @@ layout: layout.vto
     <div class="mx-auto mt-8 w-1/2 border border-dashed border-violet-800" />
 </div>
 {{ /for }}
+</main>
+<div class="mt-16 flex items-center justify-center gap-2 font-serif">
+    <button class="flex h-12 w-12 items-center justify-center border border-zinc-600 transition-all hover:border-violet-700 hover:text-violet-300">
+        ←
+    </button>
+    <div class="flex gap-1">
+    <button class="h-12 w-12 border-zinc-900 flex items-center justify-center transition-all hover:border-violet-700 hover:text-violet-300 cursor-default hover:border-zinc-600 hover:text-zinc-200">
+        1
+    </button>
+    </div>
+    <button class="flex h-12 w-12 items-center justify-center border border-zinc-600 transition-all hover:border-violet-700 hover:text-violet-300">
+        →
+    </button>
+</div>
