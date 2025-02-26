@@ -3,6 +3,8 @@ function tilfaeldigtTalMellemEtOgTusind() {
 }
 
 function opdaterOnline() {
+	console.log("hmm hvor mange er online??")
+
     const randomNumber = tilfaeldigtTalMellemEtOgTusind();
     const visitorCountElement = document.getElementById("visitor-count");
     
