@@ -15,4 +15,4 @@ function opdaterOnline() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", opdaterOnline);
+opdaterOnline();
