@@ -13,7 +13,9 @@ site.use(tailwindcss({
 	extensions: ['.vto', '.html']
 }));
 site.use(postcss());
-site.use(sitemap())
+site.use(sitemap());
+
+site.copy("kodederskalgoereting.js");
 
 site.use(relations({
 	foreignKeys: {
