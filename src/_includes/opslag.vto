@@ -15,7 +15,7 @@ layout: layout.vto
         {{ titel }}
       {{ /comp }}
       {{ comp Indholdskassesubtitel }}
-        {{ dato }}
+        <time>{{ dato |> date("HUMAN_DATE", "da") }}</time>
       {{ /comp }}
     {{ /comp }}
     {{ comp Indholdskasseindhold }}

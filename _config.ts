@@ -3,6 +3,8 @@ import tailwindcss from "lume/plugins/tailwindcss.ts";
 import postcss from "lume/plugins/postcss.ts";
 import relations from "lume/plugins/relations.ts";
 import sitemap from "lume/plugins/sitemap.ts";
+import date from "lume/plugins/date.ts";
+import { da } from "npm:date-fns/locale/da";
 
 const site = lume({
 	src: './src',
@@ -14,6 +16,9 @@ site.use(tailwindcss({
 }));
 site.use(postcss());
 site.use(sitemap());
+site.use(date({
+	locales: { da },
+}));
 
 site.copy("kodederskalgoereting.js");
 
