@@ -6,12 +6,12 @@ function opdaterOnline() {
 	console.log("hmm hvor mange er online??")
 
     const randomNumber = tilfaeldigtTalMellemEtOgTusind();
-    const visitorCountElement = document.getElementById("hvor-mange-er-online?");
+    const visitorCountElement = document.getElementById("hvor-mange-er-online");
     
     if (visitorCountElement) {
         visitorCountElement.textContent = randomNumber;
     } else {
-        console.error("Element med id 'visitor-count' blev ikke fundet:(");
+        console.error("Element med id 'hvor-mange-er-online' blev ikke fundet:(");
     }
 }
 
