@@ -54,3 +54,14 @@
 	pointer-events: none;
 	transition: transform 0.1s ease-out;
 }
+
+.linjelinjelinjelinje {
+	background: purple; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, purple, red, orange, yellow, green, blue, indigo, purple);
+    background: -o-linear-gradient(right, purple, red, orange, yellow, green, blue, indigo, purple);
+    background: -moz-linear-gradient(right, purple, red, orange, yellow, green, blue, indigo, purple);
+    background: linear-gradient(to right, purple, red, orange, yellow, green, blue, indigo, purple);
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+}
