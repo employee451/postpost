@@ -56,11 +56,11 @@
 }
 
 .linjelinjelinjelinje {
-	background: purple; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left, purple, red, orange, yellow, green, blue, indigo, purple);
-    background: -o-linear-gradient(right, purple, red, orange, yellow, green, blue, indigo, purple);
-    background: -moz-linear-gradient(right, purple, red, orange, yellow, green, blue, indigo, purple);
-    background: linear-gradient(to right, purple, red, orange, yellow, green, blue, indigo, purple);
+	background: #7e22ce; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #7e22ce, fuchsia, red, orange, yellow, green, #7e22ce);
+    background: -o-linear-gradient(right, #7e22ce, fuchsia, red, orange, yellow, green, #7e22ce);
+    background: -moz-linear-gradient(right, #7e22ce, fuchsia, red, orange, yellow, green, #7e22ce);
+    background: linear-gradient(to right, #7e22ce, fuchsia, red, orange, yellow, green, #7e22ce);
 	background-clip: text;
 	-webkit-background-clip: text;
 	color: transparent;
