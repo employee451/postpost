@@ -37,11 +37,8 @@ title: postpost
   <div id="cursor-trail"></div>
   <body class="min-h-screen bg-zinc-300 text-zinc-900 cursor-none">
     <div class="mx-auto max-w-5xl py-8 px-2 md:px-8">
-      <header class="relative mb-16 text-center">
-        <!-- Using grid for consistent layout between mobile and desktop -->
+      <header class="relative mb-12 text-center">
         <div class="mb-4 md:mb-0 w-full grid grid-cols-2 md:grid-cols-4 gap-4 font-mono">
-          <!-- Left side widgets - takes full width on mobile, half on desktop -->
-            <!-- Time widget - full height -->
             <div class="border border-zinc-700 flex items-center justify-center bg-gray-300 p-3 shadow-inner hover:border-violet-700 transition-all">
               <div>
               <div class="mb-1 text-zinc-900" id="klok1">Hvad er klokken?</div>
@@ -49,7 +46,6 @@ title: postpost
               </div>
             </div>
             
-            <!-- Stacked widgets -->
             <div class="grid grid-rows-2 gap-4">
               <div class="border border-zinc-700 bg-gray-300 px-3 py-1 shadow-inner hover:border-violet-700 transition-all">
                 ♫ musik?
@@ -74,7 +70,7 @@ title: postpost
             </div>
         </div>
 
-        <h1 class="mb-4 bg-gradient-to-b from-violet-700 to-violet-900 bg-clip-text font-serif text-7xl text-transparent">
+        <h1 class="mt-8 bg-gradient-to-b from-violet-700 to-violet-900 bg-clip-text font-serif text-7xl text-transparent">
           <a href="/" class="hover:text-violet-700 hover:underline">
             {{ title }}
           </a>
