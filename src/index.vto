@@ -2,31 +2,32 @@
 layout: layout.vto
 ---
 {{ comp Sideindhold }}
-{{ for opslag of search.pages("type=opslag") }}
-<div>
+{{ for opslag of search.pages("type=opslag", "dato=desc") }}
+<div class="space-y-8">
     <a href="{{ opslag.url }}" class="hover:underline">
-    {{ comp Kasse }}
-        {{ comp Kassetitel }}
-            {{ opslag.titel }}
-        {{ /comp }}
-        {{ comp Kassetekst }}
-            {{ opslag.uddrag }}
-        {{ /comp }}
-        {{ comp Kassefod }}
-            {{ comp Kasseperson }}
-                {{ opslag.person.fornavn }}
+        {{ comp Kasse }}
+            {{ comp Kassetitel }}
+                {{ opslag.titel }}
             {{ /comp }}
-            {{ comp Kassedato }}
-                <time>{{ opslag.dato |> date("HUMAN_DATE", "da") }}</time>
+            {{ comp Kassetekst }}
+                {{ opslag.uddrag }}
+            {{ /comp }}
+            {{ comp Kassefod }}
+                {{ comp Kasseperson }}
+                    {{ opslag.person.fornavn }}
+                {{ /comp }}
+                {{ comp Kassedato }}
+                    <time>{{ opslag.dato |> date("HUMAN_DATE", "da") }}</time>
+                {{ /comp }}
             {{ /comp }}
         {{ /comp }}
-    {{ /comp }}
     </a>
-    <div class="mx-auto mt-8 w-1/2 border border-dashed border-violet-800" />
+    {{ comp Mindregrupopvaekkendelinje }}
+    {{ /comp }}
 </div>
 {{ /for }}
 {{ /comp }}
-<div class="mt-16 flex items-center justify-center gap-2 font-serif">
+<div class="mt-14 flex items-center justify-center gap-2 font-serif">
     <button class="flex h-12 w-12 items-center justify-center border border-zinc-600 transition-all hover:border-violet-700 hover:text-violet-300">
         ←
     </button>

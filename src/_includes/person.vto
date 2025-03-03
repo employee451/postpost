@@ -23,28 +23,31 @@ layout: layout.vto
     </div>
   {{ /comp }}
 
-  <div class="space-y-4">
-    <h2 class="font-serif text-2xl">Opslag</h2>
-    {{ for opslag of search.pages("type=opslag", "person_id=person") }}
-    <div>
-      <a href="{{ opslag.url }}" class="block">
-        {{ comp Kasse }}
-          {{ comp Kassetitel }}
-            {{ opslag.titel }}
-          {{ /comp }}
-          {{ comp Kassetekst }}
-            {{ opslag.uddrag }}
-          {{ /comp }}
-          {{ comp Kassefod }}
-            {{ comp Kassedato }}
-              {{ opslag.dato |> date("HUMAN_DATE", "da") }}
+  <div>
+    <h2 class="mb-4 font-serif text-2xl">Opslag</h2>
+    <div class="space-y-8">
+      {{ for opslag of search.pages("type=opslag", "dato=desc person_id=person") }}
+      <div class="space-y-8">
+          <a href="{{ opslag.url }}" class="hover:underline">
+          {{ comp Kasse }}
+            {{ comp Kassetitel }}
+              {{ opslag.titel }}
+            {{ /comp }}
+            {{ comp Kassetekst }}
+              {{ opslag.uddrag }}
+            {{ /comp }}
+            {{ comp Kassefod }}
+              {{ comp Kassedato }}
+                {{ opslag.dato |> date("HUMAN_DATE", "da") }}
+              {{ /comp }}
             {{ /comp }}
           {{ /comp }}
+        </a>
+        {{ comp Mindregrupopvaekkendelinje }}
         {{ /comp }}
-      </a>
-      <div class="mx-auto mt-8 w-1/2 border border-dashed border-violet-800" />
+      </div>
+      {{ /for }}
     </div>
-    {{ /for }}
   </div>
 </div>
 {{ /comp }}
