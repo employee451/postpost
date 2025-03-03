@@ -63,6 +63,7 @@ function tilfaeldigVejr() {
     console.log(vejretNu);
     if (vejrElement) {
         vejrElement.classList.remove("hidden");
+        vejrElement.classList.add("flex");
     } else {
         console.error("Element med id '" + vejretNu + "' blev ikke fundet:(");
     }
