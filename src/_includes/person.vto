@@ -11,7 +11,7 @@ layout: layout.vto
 <div class="space-y-8">
   {{ comp Indholdskasse }}
     <div class="flex items-center gap-8 mb-8">
-      <picture>
+      <picture class="flex-none">
         <source srcset="/billeder/personer/{{ id }}-lille.webp" type="image/webp">
         <source srcset="/billeder/personer/{{ id }}-lille.jpg" type="image/jpeg">
         <img src="/billeder/personer/{{ id }}-lille.jpg" alt="{{ fornavn }} {{ efternavn }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
