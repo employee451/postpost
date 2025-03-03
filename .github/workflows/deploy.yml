@@ -1,4 +1,4 @@
-name: telepater til raspberry pi
+name: telepater postpost til raspberry pi
 on:
   push:
     branches: [ main ]
@@ -9,15 +9,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Setup Deno
+      - name: vi sætter deno op
         uses: denoland/setup-deno@v2
         with:
           deno-version: "2.1.6"
 
-      - name: Build site
+      - name: vi bygger siden
         run: deno task lume
 
-      - name: telepater til raspberry pi
+      - name: telepaterer til raspberry pi
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
