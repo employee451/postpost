@@ -37,7 +37,7 @@ layout: layout.vto
           {{ /comp }}
           {{ comp Kassefod }}
             {{ comp Kassedato }}
-              {{ opslag.dato }}
+              {{ opslag.dato |> date("HUMAN_DATE", "da") }}
             {{ /comp }}
           {{ /comp }}
         {{ /comp }}
