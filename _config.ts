@@ -35,4 +35,13 @@ site.use(relations({
 
 site.use(robots());
 
+site.copy("vejret/maane.svg");
+site.copy("vejret/regnsky.svg");
+site.copy("vejret/regnskyogsol.svg");
+site.copy("vejret/sky.svg");
+site.copy("vejret/skyogmaane.svg");
+site.copy("vejret/skyogsol.svg");
+site.copy("vejret/sneogsol.svg");
+site.copy("vejret/sol.svg");
+
 export default site;

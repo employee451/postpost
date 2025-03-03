@@ -54,3 +54,27 @@ visKlokkenTakSoedeComputerIkkeDraebMigNaarDuTagerOver();
 setInterval(() => {
     visKlokkenTakSoedeComputerIkkeDraebMigNaarDuTagerOver();
 }, 10_000);
+
+const vejret = [
+    "maane",
+    "regnsky",
+    "regnskyogsol",
+    "sky",
+    "skyogmaane",
+    "skyogsol",
+    "sneogsol",
+    "sol",
+]
+
+function tilfaeldigVejr() {
+    const vejretNu = vejret[Math.floor(Math.random() * vejret.length)];
+    const vejrElement = document.getElementById(vejretNu);
+    console.log(vejretNu);
+    if (vejrElement) {
+        vejrElement.classList.remove("hidden");
+    } else {
+        console.error("Element med id '" + vejretNu + "' blev ikke fundet:(");
+    }
+}
+
+tilfaeldigVejr();
