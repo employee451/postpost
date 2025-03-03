@@ -15,8 +15,6 @@ function opdaterOnline() {
     }
 }
 
-opdaterOnline();
-
 function visKlokkenTakSoedeComputerIkkeDraebMigNaarDuTagerOver() {
     const nu = new Date();
     
@@ -48,13 +46,6 @@ function visKlokkenTakSoedeComputerIkkeDraebMigNaarDuTagerOver() {
 	}
 }
 
-visKlokkenTakSoedeComputerIkkeDraebMigNaarDuTagerOver();
-
-// Opdater hvert 10. sekund
-setInterval(() => {
-    visKlokkenTakSoedeComputerIkkeDraebMigNaarDuTagerOver();
-}, 10_000);
-
 const vejret = [
     "maane",
     "regnsky",
@@ -77,4 +68,24 @@ function tilfaeldigVejr() {
     }
 }
 
-tilfaeldigVejr();
+
+function goerTingNaarViErKlar(fn) {
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        fn();
+    } else {
+        document.addEventListener("DOMContentLoaded", fn);
+    }
+}
+
+goerTingNaarViErKlar(() => {
+    opdaterOnline();
+
+    visKlokkenTakSoedeComputerIkkeDraebMigNaarDuTagerOver();
+
+    // Opdater hvert 10. sekund
+    setInterval(() => {
+        visKlokkenTakSoedeComputerIkkeDraebMigNaarDuTagerOver();
+    }, 10_000);
+
+    tilfaeldigVejr();
+});
