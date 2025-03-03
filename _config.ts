@@ -5,6 +5,7 @@ import relations from "lume/plugins/relations.ts";
 import sitemap from "lume/plugins/sitemap.ts";
 import date from "lume/plugins/date.ts";
 import { da } from "npm:date-fns/locale/da";
+import transformImages from "lume/plugins/transform_images.ts";
 
 const site = lume({
 	src: './src',
@@ -21,6 +22,8 @@ site.use(date({
 }));
 
 site.copy("kodederskalgoereting.js");
+
+site.use(transformImages());
 
 site.use(relations({
 	foreignKeys: {
