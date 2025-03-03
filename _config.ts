@@ -6,6 +6,8 @@ import sitemap from "lume/plugins/sitemap.ts";
 import date from "lume/plugins/date.ts";
 import { da } from "npm:date-fns/locale/da";
 import transformImages from "lume/plugins/transform_images.ts";
+import robots from "lume/plugins/robots.ts";
+
 
 const site = lume({
 	src: './src',
@@ -31,5 +33,7 @@ site.use(relations({
 		person: "person_id",
 	  }
 }));
+
+site.use(robots());
 
 export default site;
