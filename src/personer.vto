@@ -19,7 +19,11 @@ layout: layout.vto
     <a href="{{ person.url }}" class="block">
       {{ comp Kasse }}
         <div class="flex items-center gap-4">
-          <img class="w-16 h-16 aspect-square rounded-full bg-violet-800" src="/billeder/personer/{{ person.id }}-lille.jpg" />
+          <picture>
+            <source srcset="/billeder/personer/{{ person.id }}-lille.webp" type="image/webp">
+            <source srcset="/billeder/personer/{{ person.id }}-lille.jpg" type="image/jpeg">
+            <img src="/billeder/personer/{{ person.id }}-lille.jpg" alt="{{ person.fornavn }} {{ person.efternavn }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
+          </picture>
           <div>
             <h2 class="font-serif text-2xl tracking-wide text-zinc-900">
               {{ person.fornavn }} {{ person.efternavn }}

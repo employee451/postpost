@@ -11,7 +11,11 @@ layout: layout.vto
 <div class="space-y-8">
   {{ comp Indholdskasse }}
     <div class="flex items-center gap-8 mb-8">
-      <img class="w-16 h-16 aspect-square rounded-full bg-violet-800" src="/billeder/personer/{{ id }}-lille.jpg" />
+      <picture>
+        <source srcset="/billeder/personer/{{ id }}-lille.webp" type="image/webp">
+        <source srcset="/billeder/personer/{{ id }}-lille.jpg" type="image/jpeg">
+        <img src="/billeder/personer/{{ id }}-lille.jpg" alt="{{ fornavn }} {{ efternavn }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
+      </picture>
       <div>
         <h1 class="font-serif text-4xl mb-2">{{ fornavn }} {{ efternavn }}</h1>
         <!--<div class="text-sm tracking-wider text-zinc-700">Joined {{ joined }}</div>-->
