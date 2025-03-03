@@ -25,19 +25,19 @@ layout: layout.vto
 
   <div class="space-y-4">
     <h2 class="font-serif text-2xl">Opslag</h2>
-    {{ for post of search.pages("type=opslag", "person_id=person") }}
+    {{ for opslag of search.pages("type=opslag", "person_id=person") }}
     <div>
-      <a href="{{ post.url }}" class="block">
+      <a href="{{ opslag.url }}" class="block">
         {{ comp Kasse }}
           {{ comp Kassetitel }}
-            {{ post.titel }}
+            {{ opslag.titel }}
           {{ /comp }}
           {{ comp Kassetekst }}
-            {{ post.uddrag }}
+            {{ opslag.uddrag }}
           {{ /comp }}
           {{ comp Kassefod }}
             {{ comp Kassedato }}
-              {{ post.dato }}
+              {{ opslag.dato }}
             {{ /comp }}
           {{ /comp }}
         {{ /comp }}
