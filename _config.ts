@@ -8,7 +8,6 @@ import { da } from "npm:date-fns/locale/da";
 import transformImages from "lume/plugins/transform_images.ts";
 import robots from "lume/plugins/robots.ts";
 
-
 const site = lume({
 	src: './src',
 	location: new URL("https://post-post.dk")
