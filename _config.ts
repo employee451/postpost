@@ -22,7 +22,7 @@ site.use(date({
 	locales: { da },
 }));
 
-site.copy("kodederskalgoereting.js");
+site.copy("kodederskalgoereting-2025-03-04.js");
 
 site.use(transformImages());
 
