@@ -25,21 +25,23 @@ layout: layout.vto
     {{ /comp }}
   {{ /comp }}
 
-  {{ comp Indholdskasse }}
-    <div class="flex items-center gap-4 mb-4">
-      <picture>
-        <source srcset="/billeder/personer/{{ person.id }}-lille.webp" type="image/webp">
-        <source srcset="/billeder/personer/{{ person.id }}-lille.jpg" type="image/jpeg">
-        <img src="/billeder/personer/{{ person.id }}-lille.jpg" alt="{{ person.fornavn }} {{ person.efternavn }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
-      </picture>
-      <div>
-        <div class="font-serif text-lg">{{ person.fornavn }} {{ person.efternavn }}</div>
-        <div class="text-sm text-zinc-700">{{ person.hurtigtekst }}</div>
+  {{ if person }}
+    {{ comp Indholdskasse }}
+      <div class="flex items-center gap-4 mb-4">
+        <picture>
+          <source srcset="/billeder/personer/{{ person.id }}-lille.webp" type="image/webp">
+          <source srcset="/billeder/personer/{{ person.id }}-lille.jpg" type="image/jpeg">
+          <img src="/billeder/personer/{{ person.id }}-lille.jpg" alt="{{ person.fornavn }} {{ person.efternavn }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
+        </picture>
+        <div>
+          <div class="font-serif text-lg">{{ person.fornavn }} {{ person.efternavn }}</div>
+          <div class="text-sm text-zinc-700">{{ person.hurtigtekst }}</div>
+        </div>
       </div>
-    </div>
-    <a href="{{ person.url }}" class="inline-block border border-zinc-600 px-4 py-2 hover:border-violet-700 hover:text-violet-800 transition-all">
-      Gå til {{ person.fornavn }}s side
-    </a>
-  {{ /comp }}
+      <a href="{{ person.url }}" class="inline-block border border-zinc-600 px-4 py-2 hover:border-violet-700 hover:text-violet-800 transition-all">
+        Gå til {{ person.fornavn }}s side
+      </a>
+    {{ /comp }}
+  {{ /if }}
 </article>
 {{ /comp }}
