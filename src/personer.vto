@@ -16,7 +16,7 @@ layout: layout.vto
 
   <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
     {{ for person of search.pages("type=person") }}
-    <a href="{{ person.url }}" class="block">
+    <div class="relative block">
       {{ comp Kasse }}
         <div class="flex items-center gap-4">
           <picture>
@@ -26,7 +26,10 @@ layout: layout.vto
           </picture>
           <div>
             <h2 class="font-serif text-2xl tracking-wide text-zinc-900">
-              {{ person.fornavn }} {{ person.efternavn }}
+              <a href="{{ person.url }}">
+                <span class="absolute inset-0"></span>
+                {{ person.fornavn }} {{ person.efternavn }}
+              </a>
             </h2>
             <p class="text-xs tracking-wider text-zinc-700">
               {{ person.hurtigtekst }}
@@ -34,7 +37,7 @@ layout: layout.vto
           </div>
         </div>
       {{ /comp }}
-    </a>
+    </div>
     {{ /for }}
   </div>
 </div>

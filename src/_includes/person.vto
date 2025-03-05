@@ -32,10 +32,13 @@ layout: layout.vto
     <div class="space-y-8">
       {{ for opslag of search.pages("type=opslag", "dato=desc person_id=person") }}
       <div class="space-y-8">
-          <a href="{{ opslag.url }}" class="hover:underline">
+        <div class="relative hover:underline">
           {{ comp Kasse }}
             {{ comp Kassetitel }}
-              {{ opslag.titel }}
+              <a href="{{ opslag.url }}">
+                <span class="absolute inset-0"></span>
+                {{ opslag.titel }}
+              </a>
             {{ /comp }}
             {{ comp Kassetekst }}
               {{ opslag.uddrag }}
@@ -46,7 +49,7 @@ layout: layout.vto
               {{ /comp }}
             {{ /comp }}
           {{ /comp }}
-        </a>
+        </div>
         {{ comp Mindregrupopvaekkendelinje }}
         {{ /comp }}
       </div>
