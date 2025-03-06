@@ -1,2 +1,5 @@
 layout: opslag.vto
 type: opslag
+openGraphLayout: /og_billede_opslag.jsx
+metas:
+  type: article

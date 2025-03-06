@@ -1,2 +1,6 @@
 layout: person.vto
 type: person
+metas:
+  type: profile
+  "profile:first_name": =fornavn
+  "profile:last_name": =etternavn
