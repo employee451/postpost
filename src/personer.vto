@@ -23,9 +23,9 @@ titel: Personer
           <picture>
             <source srcset="/billeder/personer/{{ person.id }}-lille.webp" type="image/webp">
             <source srcset="/billeder/personer/{{ person.id }}-lille.jpg" type="image/jpeg">
-            <img src="/billeder/personer/{{ person.id }}-lille.jpg" alt="{{ person.fornavn }} {{ person.efternavn }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
+            <img src="/billeder/personer/{{ person.id }}-lille.jpg" alt="{{ person.fornavn }} {{ person.efternavn }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800 flex-none">
           </picture>
-          <div>
+          <div class="flex-1">
             <h2 class="font-serif text-2xl tracking-wide text-zinc-900">
               <a href="{{ person.url }}">
                 <span class="absolute inset-0"></span>
