@@ -10,6 +10,7 @@ import robots from "lume/plugins/robots.ts";
 import ogImages from "lume/plugins/og_images.ts";
 import { read } from "lume/core/utils/read.ts";
 import metas from "lume/plugins/metas.ts";
+import jsonLd from "lume/plugins/json_ld.ts";
 
 const site = lume({
 	src: './src',
@@ -45,6 +46,7 @@ site.copy("kodederskalgoereting-2025-03-04.js");
 site.copy("vejret");
 
 site.use(transformImages());
+site.use(jsonLd());
 
 site.use(relations({
 	foreignKeys: {
