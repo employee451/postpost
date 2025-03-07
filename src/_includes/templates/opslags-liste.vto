@@ -1,0 +1,31 @@
+<ul class="grid grid-cols-1 gap-8">
+	{{ for opslag of opslagsListe }}
+	<li class="space-y-8">
+		<div class="relative hover:underline">
+			{{ comp Kasse }}
+				{{ comp Kassetitel }}
+					<a href="{{ opslag.url }}">
+						<span class="absolute inset-0"></span>
+						{{ opslag.titel }}
+					</a>
+				{{ /comp }}
+				{{ comp Kassetekst }}
+					{{ opslag.uddrag }}
+				{{ /comp }}
+				{{ comp Kassefod }}
+					{{ if opslag.person }}
+						{{ comp Kasseperson }}
+							{{ opslag.person.fornavn }}
+						{{ /comp }}
+					{{ /if }}
+					{{ comp Kassedato }}
+						<time>{{ opslag.dato |> date("HUMAN_DATE", "da") }}</time>
+					{{ /comp }}
+				{{ /comp }}
+			{{ /comp }}
+		</div>
+		{{ comp Mindregrupopvaekkendelinje }}
+		{{ /comp }}
+	</li>
+	{{ /for }}
+</ul>
