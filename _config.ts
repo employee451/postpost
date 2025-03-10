@@ -57,6 +57,13 @@ site.use(relations({
 	  }
 }));
 
-site.use(robots());
+site.use(robots({
+	rules: [
+		{
+			userAgent: "*",
+			disallow: "/nyt",
+		},
+	],
+}));
 
 export default site;
