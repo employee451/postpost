@@ -27,6 +27,8 @@ site.use(date({
 }));
 site.use(ogImages({
 	satori: {
+		width: 1200,
+		height: 600,
 		fonts: [
 			{
 				name: "georgia",
