@@ -21,7 +21,9 @@ site.use(tailwindcss({
 	extensions: ['.vto', '.html']
 }));
 site.use(postcss());
-site.use(sitemap());
+site.use(sitemap({
+	query: "isRedirect!=true udgivet!=nej"
+}));
 site.use(date({
 	locales: { da },
 }));
