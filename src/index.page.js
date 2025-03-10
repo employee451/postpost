@@ -3,7 +3,7 @@ export const titel = "postpost";
 export const openGraphLayout = "/og_billede_normal_side.jsx";
 
 export default function* ({ search, paginate }) {
-  const posts = search.pages("type=opslag", "dato=desc");
+  const posts = search.pages("type=opslag udgivet=ja", "dato=desc");
   const options = {
     url: (n) => n === 1 ? '/' : `/side/${n}/`,
     size: 3,

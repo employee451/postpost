@@ -18,7 +18,7 @@ openGraphLayout: /og_billede_normal_side.jsx
   </div>
 
   <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-    {{ for person of search.pages("type=person") }}
+    {{ for person of search.pages("type=person udgivet=ja") }}
     <div class="relative block">
       {{ comp Kasse }}
         <div class="flex items-center gap-4">
