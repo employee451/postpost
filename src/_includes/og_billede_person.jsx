@@ -1,8 +1,11 @@
 /** @jsxImportSource npm:react@18.2.0 */
 
-export default function ({ fornavn, efternavn, hurtigtekst, id }) {
-	const imagePath = `http://localhost:3000/billeder/personer/${id}-medium.jpg`;
-	
+export default async function (props) {
+	const { fornavn, efternavn, hurtigtekst, id } = props
+	const imageUrl = `https://post-post.dk/billeder/personer/${id}-medium.jpg`;
+	const imageTestResponse = await fetch(imageUrl);
+	const shouldUseImage = imageTestResponse.status === 200;
+
 	return (
 	  <article style={{
 		borderRadius: '0.75rem',
@@ -22,26 +25,28 @@ export default function ({ fornavn, efternavn, hurtigtekst, id }) {
 		  alignItems: 'center',
 		  gap: '1.5rem'
 		}}>
-		  <div style={{
-			width: '150px',
-			height: '150px',
-			borderRadius: '150px',
-			overflow: 'hidden',
-			display: 'flex',
-			justifyContent: 'center',
-			alignItems: 'center',
-			backgroundColor: '#f3f4f6'
-		  }}>
-			<img 
-			  src={imagePath}
-			  style={{
-				width: '100%',
-				height: '100%',
-				objectFit: 'cover',
-				display: 'block'
-			  }}
-			/>
-		  </div>
+		  {shouldUseImage && (
+			<div style={{
+				width: '150px',
+				height: '150px',
+				borderRadius: '150px',
+				overflow: 'hidden',
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				backgroundColor: '#f3f4f6'
+			  }}>
+				<img 
+				  src={imageUrl}
+				  style={{
+					width: '150',
+					height: '150',
+					objectFit: 'cover',
+					display: 'block'
+				  }}
+				/>
+			</div>
+		  )}
 		  <div style={{
 			display: 'flex',
 			flexDirection: 'column'
