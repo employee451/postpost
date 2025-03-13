@@ -1,0 +1,61 @@
+---
+layout: layout.vto
+titel: postpost
+---
+{{ comp Sideindhold }}
+{{ include "templates/opslags-liste.vto" { opslagsListe: results } }}
+{{ /comp }}
+{{ if pagination.totalPages !== 1 }}
+<div class="mt-14 flex items-center justify-center gap-2 font-serif">
+	{{- if pagination.previous }}
+    <a href="{{ pagination.previous }}" class="mr-2 flex h-12 w-12 items-center justify-center border border-zinc-600 transition-all hover:border-violet-700 hover:text-violet-800">
+        ←
+    </a>
+	{{ else }}
+	<div class="mr-2 flex h-12 w-12 items-center justify-center border border-zinc-600">
+    	←
+    </div>
+	{{ /if }}	
+
+	<div class="flex gap-4">
+		{{- if pagination.page === pagination.totalPages }}
+		<a href="{{ '/side/' + (pagination.page - 2) }}" class="h-12 border-zinc-900 flex items-center justify-center transition-all hover:border-violet-700 hover:text-violet-700 cursor-default hover:border-zinc-600">
+			{{ pagination.page - 2 }}
+		</a>
+		{{ /if }}
+		{{- if pagination.page > 2 }}
+		<a href="{{ '/side/' + (pagination.page - 1) }}" class="h-12 border-zinc-900 flex items-center justify-center transition-all hover:border-violet-700 hover:text-violet-700 cursor-default hover:border-zinc-600">
+			{{ pagination.page - 1 }}
+		</a>
+		{{ /if }}
+		{{- if pagination.page === 2 }}
+		<a href="/" class="h-12 border-zinc-900 flex items-center justify-center transition-all hover:border-violet-700 hover:text-violet-700 cursor-default hover:border-zinc-600">
+			1
+		</a>
+		{{ /if }}
+		<div class="h-12 flex items-center justify-center text-violet-800 font-bold">
+			{{ pagination.page }}
+		</div>
+		{{- if pagination.page < pagination.totalPages }}
+		<a href="{{ '/side/' + (pagination.page + 1) }}" class="h-12 border-zinc-900 flex items-center justify-center transition-all hover:border-violet-700 hover:text-violet-700 cursor-default hover:border-zinc-600">
+			{{ pagination.page + 1 }}
+		</a>
+		{{ /if }}
+		{{- if pagination.page === 1  }}
+		<a  href="/side/3" class="h-12 border-zinc-900 flex items-center justify-center transition-all hover:border-violet-700 hover:text-violet-700 cursor-default hover:border-zinc-600">
+			3
+		</a>
+		{{ /if }}
+    </div>
+
+	{{- if pagination.next }}
+    <a href="{{ pagination.next }}" class="ml-2 flex h-12 w-12 items-center justify-center border border-zinc-600 transition-all hover:border-violet-700 hover:text-violet-800">
+        →
+    </a>
+	{{ else }}
+	<div class="ml-2 flex h-12 w-12 items-center justify-center border border-zinc-600">
+    	→
+    </div>
+	{{ /if }}
+</div>
+{{ /if }}
