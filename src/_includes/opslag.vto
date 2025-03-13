@@ -25,6 +25,34 @@ layout: layout.vto
     {{ /comp }}
   {{ /comp }}
 
+  {{ for svar of search.pages(`type=svar opslag_id=${id}`, "dato=asc") }}
+    {{ comp Indholdskasse }}
+      {{ comp Indholdskassehoved }}
+        <h2 class="font-serif text-3xl mb-2">{{ svar.titel }}</h2>
+        {{ comp Indholdskassesubtitel }}
+          <time>{{ svar.dato |> date("HUMAN_DATE", "da") }}</time>
+        {{ /comp }}
+      {{ /comp }}
+      {{ comp Indholdskasseindhold }}
+        <div class="prose overflow-x-hidden">
+          {{ svar.content }}
+        </div>
+      {{ /comp }}
+      {{ if svar.person }}
+        <div class="flex items-center gap-4 mt-8">
+          <picture>
+            <source srcset="/billeder/personer/{{ svar.person.id }}-lille.webp" type="image/webp">
+            <source srcset="/billeder/personer/{{ svar.person.id }}-lille.jpg" type="image/jpeg">
+            <img src="/billeder/personer/{{ svar.person.id }}-lille.jpg" alt="{{ svar.person.fornavn }} {{ svar.person.efternavn }}" class="w-12 h-12 aspect-square rounded-full bg-violet-800">
+          </picture>
+          <div>
+            <a href="{{ svar.person.url }}" class="font-serif text-lg hover:underline">{{ svar.person.fornavn }} {{ svar.person.efternavn }}</a>
+          </div>
+        </div>
+      {{ /if }}
+    {{ /comp }}
+  {{ /for }}
+
   {{ if person }}
     {{ comp Indholdskasse }}
       <div class="flex items-center gap-4 mb-4">
