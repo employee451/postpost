@@ -30,7 +30,7 @@ layout: layout.vto
   <div>
     <h2 class="mb-4 font-serif text-2xl">Opslag</h2>
     <div class="space-y-8">
-      {{ for opslag of search.pages(`type=opslag person_id=${id} udgivet=ja`, "dato=desc") }}
+      {{ for opslag of search.pages(`type=opslag|svar person_id=${id} udgivet=ja`, "dato=desc") }}
       <div class="space-y-8">
         <div class="relative hover:underline">
           {{ comp Kasse }}
