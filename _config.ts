@@ -55,6 +55,7 @@ site.use(jsonLd());
 site.use(relations({
 	foreignKeys: {
 		opslag: "opslag_id",
+		korrespondance: "korrespondance_id",
 		person: "person_id",
 	  }
 }));

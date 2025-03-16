@@ -3,9 +3,9 @@ export const titel = "postpost";
 export const openGraphLayout = "/og_billede_normal_side.jsx";
 
 export default function* ({ search, paginate }) {
-  const posts = search.pages("type=opslag udgivet=nej", "dato=desc");
+  const posts = search.pages("type=opslag|korrespondance udgivet=nej", "dato=desc");
   const options = {
-    url: (n) => n === 1 ? '/nyt' : `/nyt/side/${n}/`,
+    url: (n) => n === 1 ? '/nyt.html' : `/nyt/side/${n}/`,
     size: 3,
   };
 
