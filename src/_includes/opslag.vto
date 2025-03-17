@@ -24,9 +24,11 @@ layout: layout.vto
       </div>
     {{ /comp }}
     {{ if korrespondance }}
-    <a href="{{ korrespondance.url }}" class="inline-block mt-4 border border-zinc-600 px-4 py-2 hover:border-violet-700 hover:text-violet-800 transition-all">
-        Find hele {{ korrespondance.titel }}
-    </a>
+    <div class="px-2 lg:px-0">
+      <a href="{{ korrespondance.url }}" class="inline-block mt-4 border border-zinc-600 px-4 py-2 hover:border-violet-700 hover:text-violet-800 transition-all">
+          Find hele {{ korrespondance.titel }}
+      </a>
+    </div>
     {{ /if }}
   {{ /comp }}
 
