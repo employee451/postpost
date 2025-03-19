@@ -4,13 +4,17 @@
 		<div class="relative hover:underline">
 			{{ comp Kasse }}
 				{{ comp Kassetitel }}
-					<a href="{{ opslag.url }}">
+					<a href="{{ opslag.type === "svar" ? opslag.url.includes("svar-1") ? opslag.korrespondance.url : `${opslag.korrespondance.url}#${opslag.id}` : opslag.url }}">
 						<span class="absolute inset-0"></span>
 						{{ opslag.titel }}
 					</a>
 				{{ /comp }}
 				{{ comp Kassetekst }}
+					{{ if opslag.type === "svar" }}
+					{{ opslag.korrespondance.uddrag }}
+					{{ else }}
 					{{ opslag.uddrag }}
+					{{ /if }}
 				{{ /comp }}
 				{{ comp Kassefod }}
 					{{ if opslag.person }}
