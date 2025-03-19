@@ -19,7 +19,7 @@
 				{{ comp Kassefod }}
 					{{ if opslag.person }}
 						{{ comp Kasseperson }}
-							{{ opslag.person.fornavn }}
+							{{ opslag.person.fornavn }} {{ opslag.person.efternavn }}
 						{{ /comp }}
 					{{ else }}
 						<div></div>
