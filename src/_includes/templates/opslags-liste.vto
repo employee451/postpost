@@ -17,6 +17,8 @@
 						{{ comp Kasseperson }}
 							{{ opslag.person.fornavn }}
 						{{ /comp }}
+					{{ else }}
+						<div></div>
 					{{ /if }}
 					{{ comp Kassedato }}
 						<time>{{ opslag.dato |> date("HUMAN_DATE", "da") }}</time>
