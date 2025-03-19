@@ -49,7 +49,7 @@ layout: layout.vto
           {{ /comp }}
           {{ if svar.person }}
             <div class="flex items-center gap-4 mt-8">
-              <picture>
+              <picture class="flex-none">
                 <source srcset="/billeder/personer/{{ svar.person.id }}-lille.webp" type="image/webp">
                 <source srcset="/billeder/personer/{{ svar.person.id }}-lille.jpg" type="image/jpeg">
                 <img src="/billeder/personer/{{ svar.person.id }}-lille.jpg" alt="{{ svar.person.fornavn }} {{ svar.person.efternavn }}" class="w-12 h-12 aspect-square rounded-full bg-violet-800">
