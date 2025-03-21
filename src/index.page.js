@@ -6,7 +6,7 @@ export default function* ({ search, paginate }) {
   const posts = search.pages("type=opslag|svar udgivet=ja", "dato=desc");
   const options = {
     url: (n) => n === 1 ? '/' : `/side/${n}/`,
-    size: 3,
+    size: 4,
   };
 
   for (const page of paginate(posts, options)) {
