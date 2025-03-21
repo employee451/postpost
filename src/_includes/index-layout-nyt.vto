@@ -18,7 +18,7 @@ titel: postpost
 	{{ /if }}	
 
 	<div class="flex gap-4">
-		{{- if pagination.page === pagination.totalPages }}
+		{{- if pagination.page === pagination.totalPages && pagination.page > 2 }}
 		<a href="{{ '/side/' + (pagination.page - 2) }}" class="h-12 border-zinc-900 flex items-center justify-center transition-all hover:border-violet-700 hover:text-violet-700 cursor-default hover:border-zinc-600">
 			{{ pagination.page - 2 }}
 		</a>
@@ -41,7 +41,7 @@ titel: postpost
 			{{ pagination.page + 1 }}
 		</a>
 		{{ /if }}
-		{{- if pagination.page === 1  }}
+		{{- if pagination.page === 1 && pagination.totalPages > 2  }}
 		<a  href="/side/3" class="h-12 border-zinc-900 flex items-center justify-center transition-all hover:border-violet-700 hover:text-violet-700 cursor-default hover:border-zinc-600">
 			3
 		</a>
