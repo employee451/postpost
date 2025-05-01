@@ -17,9 +17,9 @@
 					{{ /if }}
 				{{ /comp }}
 				{{ comp Kassefod }}
-					{{ if opslag.person }}
-						{{ comp Kasseperson }}
-							{{ opslag.person.fornavn }} {{ opslag.person.efternavn }}
+					{{ if opslag.kunstner }}
+						{{ comp Kassekunstner }}
+							{{ opslag.kunstner.titel }}
 						{{ /comp }}
 					{{ else }}
 						<div></div>

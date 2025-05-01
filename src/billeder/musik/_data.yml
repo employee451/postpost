@@ -1,0 +1,3 @@
+  - resize: [500, 500]
+    format: [webp, jpg]
+    suffix: -medium

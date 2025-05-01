@@ -1,7 +1,0 @@
-layout: person.vto
-type: person
-openGraphLayout: /og_billede_person.jsx
-metas:
-  type: profile
-  "profile:first_name": =fornavn
-  "profile:last_name": =etternavn
