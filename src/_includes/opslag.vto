@@ -33,7 +33,7 @@ layout: layout.vto
   {{ /comp }}
 
   <ul class="grid grid-cols-1 gap-8">
-    {{ for svar of search.pages(`type=svar korrespondance_id=${id}`, "dato=asc") }}
+    {{ for svar of search.pages(`type=svar korrespondance_id=${id} udgivet=ja`, "dato=asc") }}
       <li class="space-y-8" id="{{ svar.id }}">
         {{ comp Indholdskasse }}
           {{ comp Indholdskassehoved }}

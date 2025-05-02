@@ -3,7 +3,7 @@ layout: layout.vto
 titel: postpost
 ---
 {{ comp Sideindhold }}
-{{ include "templates/opslags-liste.vto" { opslagsListe: results } }}
+{{ include "templates/opslags-liste.vto" { opslagsListe: results, nyt: true } }}
 {{ /comp }}
 {{ if pagination.totalPages !== 1 }}
 <div class="mt-14 flex items-center justify-center gap-2 font-serif">
