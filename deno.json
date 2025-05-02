@@ -3,6 +3,7 @@
     "lume/": "https://deno.land/x/lume@v2.5.3/",
     "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@v0.10.2/"
   },
+  "nodeModulesDir": "auto",
   "tasks": {
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
     "build": "deno task lume",
