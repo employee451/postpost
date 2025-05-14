@@ -50,6 +50,8 @@ site.copy("kodederskalgoereting-2025-03-04.js");
 site.copy("vejret");
 site.copy("musik");
 
+site.copy("videoer");
+
 site.use(transformImages());
 site.use(jsonLd());
 
