@@ -1,0 +1,39 @@
+---
+layout: layout.vto
+---
+{{ comp Sideindhold }}
+{{ comp Broedkrummer }}
+  {{ comp Broedkrumme }}
+    {{ titel }}
+  {{ /comp }}
+{{ /comp }}
+
+<article class="space-y-8">
+  {{ comp Indholdskassetitel }}
+    {{ titel }}
+  {{ /comp }}
+  {{ comp Indholdskassesubtitel }}
+    <time>{{ dato |> date("HUMAN_DATE", "da") }}</time>
+  {{ /comp }}
+  {{ content }}
+
+  {{ if kunstner }}
+    {{ comp Indholdskasse }}
+      <div class="flex items-center gap-4 mb-4">
+        <picture class="flex-none">
+          <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.webp" type="image/webp">
+          <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" type="image/jpeg">
+          <img src="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" alt="{{ kunstner.titel }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
+        </picture>
+        <div>
+          <div class="font-serif text-lg">{{ kunstner.titel }}</div>
+          <div class="text-sm text-zinc-700">{{ kunstner.hurtigtekst }}</div>
+        </div>
+      </div>
+      <a href="{{ kunstner.url }}" class="inline-block border border-zinc-600 px-4 py-2 hover:border-violet-700 hover:text-violet-800 transition-all">
+        Gå til {{ kunstner.titel }}s side
+      </a>
+    {{ /comp }}
+  {{ /if }}
+</article>
+{{ /comp }}

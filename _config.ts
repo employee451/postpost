@@ -52,6 +52,9 @@ site.copy("musik");
 
 site.copy("videoer");
 
+site.copy("billeder/kunstnere/krogslev.gif")
+site.copy("billeder/produktionsstroemmen.jpg")
+
 site.use(transformImages());
 site.use(jsonLd());
 

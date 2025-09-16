@@ -11,11 +11,19 @@ layout: layout.vto
 <div class="space-y-8">
   {{ comp Indholdskasse }}
     <div class="px-2 lg:px-0 flex items-center gap-4 mb-4">
+      {{ if gif }}
+      <picture class="flex-none">
+        <source srcset="/billeder/kunstnere/{{ id }}.gif" type="image/gif">
+        <img src="/billeder/kunstnere/{{ id }}.gif" alt="{{ titel }}" class="w-20 h-20 aspect-square rounded-full bg-violet-800">
+      </picture>
+      {{ else }}
       <picture class="flex-none">
         <source srcset="/billeder/kunstnere/{{ id }}-lille.webp" type="image/webp">
         <source srcset="/billeder/kunstnere/{{ id }}-lille.jpg" type="image/jpeg">
+        <source srcset="/billeder/kunstnere/{{ id }}.gif" type="image/gif">
         <img src="/billeder/kunstnere/{{ id }}-lille.jpg" alt="{{ titel }}" class="w-20 h-20 aspect-square rounded-full bg-violet-800">
       </picture>
+      {{ /if }}
       <div>
         <h1 class="font-serif text-4xl mb-2">{{ titel }}</h1>
         <!--<div class="text-sm tracking-wider text-zinc-700">Joined {{ joined }}</div>-->
