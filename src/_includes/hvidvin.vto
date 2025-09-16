@@ -6,7 +6,7 @@ layout: layout.vto
   behavior="alternate"
   class="absolute top-0 right-0 left-0 bottom-0">
   <marquee behavior="alternate" scrollamount="12">
-  <audio autoplay loop controls class="ml-4">
+  <audio autoplay loop controls class="ml-4" controlsList="nodownload">
     <source src="/musik/produktionsstroemmen.mp3" type="audio/mp3">
   </audio>
   </marquee>
@@ -49,9 +49,8 @@ layout: layout.vto
     {{ comp Indholdskasse }}
       <div class="flex items-center gap-4 mb-4">
         <picture class="flex-none">
-          <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.webp" type="image/webp">
-          <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" type="image/jpeg">
-          <img src="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" alt="{{ kunstner.titel }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
+          <source srcset="/billeder/kunstnere/{{ kunstner.id }}.gif" type="image/gif">
+          <img src="/billeder/kunstnere/{{ kunstner.id }}.gif" alt="{{ titel }}" class="w-20 h-20 aspect-square rounded-full bg-violet-800">
         </picture>
         <div>
           <div class="font-serif text-lg">{{ kunstner.titel }}</div>
