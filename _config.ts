@@ -11,11 +11,19 @@ import ogImages from "lume/plugins/og_images.ts";
 import { read } from "lume/core/utils/read.ts";
 import metas from "lume/plugins/metas.ts";
 import jsonLd from "lume/plugins/json_ld.ts";
+import googleFonts from "lume/plugins/google_fonts.ts";
 
 const site = lume({
 	src: './src',
 	location: new URL("https://post-post.dk")
 });
+
+site.use(googleFonts({
+  fonts: {
+	dinfarshvidvin: "https://fonts.google.com/share?selection.family=Montaga",
+  },
+}));
+
 
 site.use(tailwindcss({
 	extensions: ['.vto', '.html']

@@ -1,6 +1,17 @@
 ---
 layout: layout.vto
 ---
+<marquee
+  direction="down"
+  behavior="alternate"
+  class="absolute top-0 right-0 left-0 bottom-0">
+  <marquee behavior="alternate" scrollamount="12">
+  <audio autoplay loop controls class="ml-4">
+    <source src="/musik/produktionsstroemmen.mp3" type="audio/mp3">
+  </audio>
+  </marquee>
+</marquee>
+
 {{ comp Sideindhold }}
 {{ comp Broedkrummer }}
   {{ comp Broedkrumme }}
@@ -8,10 +19,27 @@ layout: layout.vto
   {{ /comp }}
 {{ /comp }}
 
+<style>
+	@keyframes MoveUpDown {
+      0%, 100% {
+          transform: translateY(0);
+      }
+      50% {
+          transform: translateY(-30px); /* Adjust bounce height */
+      }
+  }
+
+	.animeropognedtak {
+        animation: MoveUpDown 3s ease-in-out infinite;
+	}
+</style>
+
 <article class="space-y-8">
+  <div class="animeropognedtak">
   {{ comp Indholdskassetitel }}
     {{ titel }}
   {{ /comp }}
+  </div>
   {{ comp Indholdskassesubtitel }}
     <time>{{ dato |> date("HUMAN_DATE", "da") }}</time>
   {{ /comp }}

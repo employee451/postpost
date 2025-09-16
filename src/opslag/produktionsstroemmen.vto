@@ -1,5 +1,5 @@
 ---
-titel: Produktionsstrømmen
+titel: p r o d u k t i o n s s t r ø m m e n
 dato: 2025-09-16
 kunstner_id: krogslev
 uddrag: 
@@ -12,13 +12,30 @@ layout: hvidvin.vto
 		to {background-position: top right;}
 	}
 
+	@keyframes MoveUpDown {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-30px); /* Adjust bounce height */
+        }
+    }
+
 	body {
 		background-image: url("/billeder/produktionsstroemmen.jpg");
 		animation: moveIt 10s linear infinite;
 	}
+
+	.dinmorshvidvin {
+		font-family: dinfarshvidvin;
+	}
+
+	.animeropognedtak {
+        animation: MoveUpDown 3s ease-in-out infinite;
+	}
 </style>
-<div class="relative mb-12">
-	<div class="mb-12">
+<div class="relative mb-12 dinmorshvidvin">
+	<div class="mb-12 animeropognedtak">
 	produktionsstrømmen / produktionsstrømmen / produktionsstrømmen / rinder i natten / de små børn sidder på <br/>
 	stribe / en kold hånd lægger sig på mit lår / eller forbinder sig til et andet kontinent / du griber efter musen / jeg <br/>
 	griber efter dit bryst / udenfor kan jeg høre den rinde / det er produktionsstrømmen / der fortæller at en ny dag <br/>
@@ -42,7 +59,7 @@ layout: hvidvin.vto
 	dage / Flere uger / Kom kom kom, hold dig ikke  / Uanset hvad, du siger / Uanset hvem, du angriber / Så skal du <br/>
 	rinde med mig i nat / Du skal vågne helt rynket i morgen / Min lille rosin.
 	</div>
-	<div class="opacity-20 absolute -top-[10px]">
+	<div class="opacity-40 absolute -top-[10px] animeropognedtak">
 	produktionsstrømmen / produktionsstrømmen / produktionsstrømmen / rinder i natten / de små børn sidder på <br/>
 	stribe / en kold hånd lægger sig på mit lår / eller forbinder sig til et andet kontinent / du griber efter musen / jeg <br/>
 	griber efter dit bryst / udenfor kan jeg høre den rinde / det er produktionsstrømmen / der fortæller at en ny dag <br/>
@@ -66,7 +83,7 @@ layout: hvidvin.vto
 	dage / Flere uger / Kom kom kom, hold dig ikke  / Uanset hvad, du siger / Uanset hvem, du angriber / Så skal du <br/>
 	rinde med mig i nat / Du skal vågne helt rynket i morgen / Min lille rosin.
 	</div>
-	<div class="opacity-10 absolute -top-[12px]">
+	<div class="opacity-10 absolute -top-[20px] animeropognedtak">
 	produktionsstrømmen / produktionsstrømmen / produktionsstrømmen / rinder i natten / de små børn sidder på <br/>
 	stribe / en kold hånd lægger sig på mit lår / eller forbinder sig til et andet kontinent / du griber efter musen / jeg <br/>
 	griber efter dit bryst / udenfor kan jeg høre den rinde / det er produktionsstrømmen / der fortæller at en ny dag <br/>
