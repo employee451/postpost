@@ -37,7 +37,7 @@ window.addEventListener('scroll', function() {
 	const width = document.body.clientWidth;
 	console.log(width);
 	const start = width > 600 ? 15 : 100;
-	const end = width > 600 ? 2 : 15;
+	const end = width > 600 ? 2 : 5;
 	let newSize = start - (window.scrollY/totalHeight * (start - end));
 	body.style.backgroundSize = newSize + '%';
 });
