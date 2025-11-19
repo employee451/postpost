@@ -1,14 +1,27 @@
 ---
 titel: Natten i relief – bokser-Poet
 dato: 2025-11-19
-kunstner_id: 
+kunstner_id: siham
 uddrag: 
 udgivet: nej
+layout: bokser.vto
 ---
 <style>
 	body {
 		background-image: url("/billeder/natten-i-relief.jpg");
 		background-size: 15%;
+	}
+
+	.bokser {
+		text-shadow:
+                -2px -2px 0 #000,
+                2px -2px 0 #000,
+                -2px 2px 0 #000,
+                2px 2px 0 #000,
+                -3px 0px 0 #000,
+                3px 0px 0 #000,
+                0px -3px 0 #000,
+                0px 3px 0 #000;
 	}
 </style>
 <script>
@@ -17,12 +30,12 @@ window.addEventListener('scroll', function() {
 	const body = document.body;
 	const totalHeight = document.body.scrollHeight - window.innerHeight;
 	const start = 15;
-	const end = 0.7;
+	const end = 2;
 	let newSize = start - (window.scrollY/totalHeight * (start - end));
 	body.style.backgroundSize = newSize + '%';
 });
 </script>
-
+<div class="text-lg">
 Min opfattelse svingede mellem statisk-hektisk, ude-indefra, materielt-immateriel. Jeg kan<br/>
 ikke specificere det, det er en virkelig vag oplevelse der kun lader mig fokusere på mønstre<br/>
 der veksler i rums uspecifikke eksistens<br/><br/>
@@ -96,3 +109,4 @@ mere obskøne vil være at jeg har fået en nydelse af volden<br/><br/>
 Ikke mig ikke mig ikke mig ikke mig.<br/><br/>
 
 jeg ved ikke hvor meget af det moralske egentlig reelt bor i mig.
+</div>
