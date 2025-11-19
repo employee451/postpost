@@ -9,7 +9,13 @@ layout: bokser.vto
 <style>
 	body {
 		background-image: url("/billeder/natten-i-relief.jpg");
-		background-size: 15%;
+		background-size: 100%;
+	}
+
+	@media (min-width: 600px) {
+		body {
+			background-size: 15%;
+		}
 	}
 
 	.bokser {
@@ -26,11 +32,12 @@ layout: bokser.vto
 </style>
 <script>
 window.addEventListener('scroll', function() {
-	console.log(window.scrollY);
 	const body = document.body;
 	const totalHeight = document.body.scrollHeight - window.innerHeight;
-	const start = 15;
-	const end = 2;
+	const width = document.body.clientWidth;
+	console.log(width);
+	const start = width > 600 ? 15 : 100;
+	const end = width > 600 ? 2 : 15;
 	let newSize = start - (window.scrollY/totalHeight * (start - end));
 	body.style.backgroundSize = newSize + '%';
 });
