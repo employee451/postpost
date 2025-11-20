@@ -36,32 +36,7 @@ layout: layout.vto
 
   <div>
     <h2 class="mb-4 font-serif text-2xl">Opslag</h2>
-    <div class="space-y-8">
-      {{ for opslag of search.pages(`type=opslag|svar kunstner_id=${id} udgivet=ja`, "dato=desc") }}
-      <div class="space-y-8">
-        <div class="relative hover:underline">
-          {{ comp Kasse }}
-            {{ comp Kassetitel }}
-              <a href="{{ opslag.url }}">
-                <span class="absolute inset-0"></span>
-                {{ opslag.titel }}
-              </a>
-            {{ /comp }}
-            {{ comp Kassetekst }}
-              {{ opslag.uddrag }}
-            {{ /comp }}
-            {{ comp Kassefod }}
-              {{ comp Kassedato }}
-                {{ opslag.dato |> date("HUMAN_DATE", "da") }}
-              {{ /comp }}
-            {{ /comp }}
-          {{ /comp }}
-        </div>
-        {{ comp Mindregrupopvaekkendelinje }}
-        {{ /comp }}
-      </div>
-      {{ /for }}
-    </div>
+    {{ include "templates/opslags-liste.vto" { opslagsListe: search.pages(`type=opslag|svar kunstner_id=${id} udgivet=ja`, "dato=desc") } }}
   </div>
 </div>
 {{ /comp }}
