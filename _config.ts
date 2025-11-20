@@ -44,7 +44,7 @@ site.use(ogImages({
 				name: "georgia",
 				weight: 400,
 				data: await read(
-					"https://github.com/collinhover/learn/raw/refs/heads/master/css/webfonts/georgia.woff",
+					"https://fonts.cdnfonts.com/s/19225/Georgia-PersonalUse.woff",
 					true
 				),
 			},
