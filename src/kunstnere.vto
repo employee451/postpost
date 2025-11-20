@@ -22,11 +22,19 @@ openGraphLayout: /og_billede_normal_side.jsx
     <div class="relative block">
       {{ comp Kasse }}
         <div class="flex items-center gap-4">
+          {{ if kunstner.gif }}
+          <picture class="flex-none">
+            <source srcset="/billeder/kunstnere/{{ kunstner.id }}.gif" type="image/gif">
+            <img src="/billeder/kunstnere/{{ kunstner.id }}.gif" alt="{{ kunstner.titel }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800 flex-none">
+          </picture>
+          {{ else }}
           <picture>
             <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.webp" type="image/webp">
             <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" type="image/jpeg">
             <img src="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" alt="{{ kunstner.titel }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800 flex-none">
           </picture>
+          {{ /if }}
+     
           <div class="flex-1">
             <h2 class="font-serif text-2xl tracking-wide text-zinc-900">
               <a href="{{ kunstner.url }}">
