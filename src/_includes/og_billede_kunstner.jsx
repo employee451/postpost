@@ -2,9 +2,9 @@
 
 export default async function (props) {
 	const { titel, hurtigtekst, id } = props
-	const imageUrl = `https://post-post.dk/billeder/kunstnere/${id}-medium.jpg`;
-	const imageTestResponse = await fetch(imageUrl);
-	const shouldUseImage = imageTestResponse.status === 200;
+	//const imageUrl = `https://post-post.dk/billeder/kunstnere/${id}-medium.jpg`;
+	//const imageTestResponse = await fetch(imageUrl);
+	//const shouldUseImage = imageTestResponse.status === 200;
 
 	return (
 	  <article style={{
@@ -25,7 +25,7 @@ export default async function (props) {
 		  alignItems: 'center',
 		  gap: '1.5rem'
 		}}>
-		  {shouldUseImage && (
+		  {/*shouldUseImage && (
 			<div style={{
 				width: '150px',
 				height: '150px',
@@ -46,7 +46,7 @@ export default async function (props) {
 				  }}
 				/>
 			</div>
-		  )}
+		  )*/}
 		  <div style={{
 			display: 'flex',
 			flexDirection: 'column'
