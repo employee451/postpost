@@ -1,0 +1,170 @@
+---
+titel: hymne til rapsine
+dato: 2025-12-24
+kunstner_id: krogslev
+uddrag: 
+udgivet: nej
+---
+<style>
+.indpakning {
+	position: relative;
+    width: 100%; 
+    aspect-ratio: 21 / 29.7; 
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+}
+
+.bg {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.rapsine {
+	position: absolute;
+    top: 15%;
+    left: 32%;
+    width: 65%;
+    height: auto;
+    transform-origin: center center;
+    z-index: 2;
+}
+
+#playstation {
+	position: absolute;
+    top: 67%;
+    left: 85%;
+    width: 18%; 
+    height: auto;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 4;
+}
+
+#tekst {
+	position: absolute;
+	top: 1%;
+	z-index: 3;
+	text-align: center;
+	width: 100%;
+
+	font-size: 14px;
+    line-height: 1.38;
+    letter-spacing: 0.5px;
+	font-weight: 600;
+}
+
+.drejnurundt {
+	animation: drej 2s linear infinite;
+}
+
+@keyframes drej {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+</style>
+<div class="indpakning">
+	<script>
+	let spiller = false;
+	var lydfil = new Audio("/musik/hymne-til-rapsine.wav");
+
+	function spilMusik() {
+		var rapsineBillede = document.getElementById("rapsine");
+		var playstation = document.getElementById("playstation");
+
+		if (spiller) {
+			lydfil.pause();
+			spiller = false;
+			rapsineBillede.classList.remove("drejnurundt");
+			playstation.classList.remove("drejnurundt");
+			return;
+		};
+		
+		lydfil.play();
+		spiller = true;
+        rapsineBillede.classList.add("drejnurundt");
+		playstation.classList.add("drejnurundt");
+	}
+	</script>
+
+	<img src="/billeder/hymne-til-rapsine/bg.png" class="bg" />
+
+	<img src="/billeder/hymne-til-rapsine/rapsine.png" class="rapsine" id="rapsine" />
+
+	<button onclick="spilMusik()" id="playstation">
+		<img src="/billeder/hymne-til-rapsine/playstation.png" />
+	</button>
+
+	<div style="height: 1300px;"></div>
+
+	<div id="tekst">
+	HYMNE TIL RAPSINE<br/>
+	<br/>
+	DET ER SEN NAT DA JEG TRÆDER UD GENNEM DEN DAG SOM IKKE LÆNGERE SIDDER FAST<br/>
+	SÅ SIDDER JEG HELT ALENE I GRÆSSET OG TÆNKER SOM EN<br/>
+	HACKER, MEN IKKKKKKE FØR DER ER GEÅET ET PAR TIMER<br/>
+	FØR JEG ER KOMMET HJEM FØR JEG HAR TRUKKET STIKKET UD<br/>
+	FØR JEG HAR TRUKKET STIIIIIKKET UD<br/>
+	TRÆK TRÆK TRÆK ALT HVAD DU KENDER<br/>
+	UD AF VÆGGEN OG SLÆB DET MED DIG<br/>
+	JEG SLÆBTE DET MED MIG<br/>
+	EFTER MIG I ET LANGT GRÅT SPOR<br/>
+	DER HANG PLAYSTATIONENS INDVOLDE<br/>
+	DE KLISTRENDE LEDNINGER<br/>
+	KLIST KLIST KLIST<br/>
+	SOM DE SNOR SIG<br/>
+	JEG LÅ DER I MARKEN<br/>
+	JEG TILSLUTTEDE DEN<br/>
+	DET SAGDE WUUUUT<br/>
+	DET SAGDE WUUUT<br/>
+	DER SKULLE IKKE GÅ LÆNGE FØR HUN KOM<br/>
+	HENDE DE KALDER<br/>
+	KALDER HENDE RAPSINE<br/>
+	SOM HUN KOMMER OG HÆNGER OVER ALT<br/>
+	HVAD DER KOMMER UDE FRA<br/>
+	OG SOM TRÆDER IND I MARKEN<br/>
+	JEG LÅ DER HEL NØGEN MED MINE SMÅ BALLER<br/>
+	MELLEM DE GRASLENDE GRENE<br/>
+	JEG LÅ DER MELLEM DE GRASLENDE GRENE MED MINE SMÅ BALLER MMM<br/>
+	MINE SMÅ BALLER ÅBNEDE SIG FOR JORDEN OG UD UD STEG HUN!<br/>
+	HUN STEG OP FRA DEN KOLDE FIRKANT<br/>
+	OG HUN GROEDE HURTIGERE END JEG KUNNE HAVE TROET<br/>
+	SÅ LÅ JEG DER ER EN HELT ULIDELIG<br/>
+	KROP HVORDAN SKAL MAN FINDE HJEM<br/>
+	EN HEL ULIDELIG LÆNGSEL<br/>
+	EFTER HUN SKLULLE TAGE MIG<br/>
+	AT HUN SKULLE TAGE MIG<br/>
+	AT HUN SKULLE TAGE<br/>
+	MIG<br/>
+	KNEP MIG SOM DEN ELVERTØS JEG ER<br/>
+	ELLER STIK MIG LÆNGERE NED I MULDEN<br/>
+	SÅ JEG KAN MÆRKE DIT<br/>
+	SYNTETISKE LEM BULDRE<br/>
+	MOD MIN MAVE<br/>
+	OG DU SKAL SPRØJTE OP OG UD GENNEM MIN MUND SÅDAN<br/>
+	SÅ JEG BLIVER GØDET OG KAN LIGGE HER LIDT ENDNU<br/>
+	MAN MÅ KUN LIGGE HER HVIS MAN ER GØDET<br/>
+	HVIS MAN ER GØDET<br/>
+	HVIS MAN ER SKØDET<br/>
+	SKYD, SKYD SKYD, UD OVER MIG<br/>
+	MED DINE LÆSKENDE OLIER<br/>
+	OG SÅ GJORDE HUN DET<br/>
+	EFTER FLERE DAGE SAD JEG FAST<br/>
+	OG DE BEGYNDTE AT KENDE TIL MIG<br/>
+	AF OG TIL KOM HUN TILBAGE<br/>
+	OG JEG RÅBTE UD I NATTEN<br/>
+	JEG RÅBTE UD I NATTEN<br/>
+	MIN STEMME DET SIDSTE DER VAR TILBAGE EFTER SKUDDENE<br/>
+	RAPSINE RAPSINE KOM NED TIL MIG IGEN<br/>
+	JEG GLLLEMEMMER IKKE DIN RENE STEMME<br/>
+	DA DU SPRÆLLEDEEE MIN KROP OP<br/>
+	OG SAGDE JEG SKULLE GIVES VIDERE. <br/>
+	</div>
+</div>
