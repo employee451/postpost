@@ -11,17 +11,17 @@ sang: hymne til rapsine
 Skud ud til birk! Håber du har det godt selvom vi ikke har mødt hinanden før. Kh Aske<3
 -->
 <style>
-	.indpakning {
+	#indpakning {
 		position: relative;
 		width: 100%; 
 		aspect-ratio: 21 / 29.7; 
 		margin: 0 auto;
-		overflow: hidden;
+		overflow: visible;
 		padding: 0;
 		container-type: inline-size;
 	}
 
-	.bg {
+	#bg {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -40,6 +40,17 @@ Skud ud til birk! Håber du har det godt selvom vi ikke har mødt hinanden før.
 		transform-origin: center center;
 		z-index: 2;
 		cursor: pointer;
+	}
+
+	#pil {
+		position: absolute;
+		bottom: 30%;
+		right: -2%;
+		width: 10%;
+		height: auto;
+		z-index: 5;
+		pointer-events: none;
+		animation: bounce 2s ease-in-out infinite;
 	}
 
 	#tekst {
@@ -61,6 +72,11 @@ Skud ud til birk! Håber du har det godt selvom vi ikke har mødt hinanden før.
 
 	.drejnurundt {
 		animation: drej 2s linear infinite;
+	}
+
+	@keyframes bounce {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-20px); }
 	}
 
 	@keyframes drej {
@@ -116,13 +132,14 @@ Skud ud til birk! Håber du har det godt selvom vi ikke har mødt hinanden før.
   {{ /comp }}
   <div class="font-serif leading-relaxed">
 	<div class="group rounded-xl border-8 border-double border-zinc-600 bg-gradient-to-b from-zinc-300 to-zinc-400 shadow-inner w-full">
-		<div class="indpakning">
-			<img src="/billeder/hymne-til-rapsine/bg.png" class="bg" />
+		<div id="indpakning">
+			<img src="/billeder/hymne-til-rapsine/bg.png" id="bg" />
 
 			<button onclick="spilMusik()" id="rapsine">
 				<img src="/billeder/hymne-til-rapsine/rapsine-ny.png" />
 			</button>
 			
+			<img src="/billeder/hymne-til-rapsine/pil.png" id="pil" />
 
 			<div id="tekst" onclick="nårviklikkerpåtekståbenbart(event)">
 			HYMNE TIL RAPSINE<br/>
