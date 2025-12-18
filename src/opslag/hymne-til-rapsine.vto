@@ -6,92 +6,103 @@ uddrag:
 udgivet: nej
 layout: nyopslag.vto
 ---
+<!--
+Skud ud til birk! Håber du har det godt selvom vi ikke har mødt hinanden før. Kh Aske<3
+-->
 <style>
-.indpakning {
-	position: relative;
-    width: 100%; 
-    aspect-ratio: 21 / 29.7; 
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 0;
-}
+	.indpakning {
+		position: relative;
+		width: 100%; 
+		aspect-ratio: 21 / 29.7; 
+		margin: 0 auto;
+		overflow: hidden;
+		padding: 0;
+		container-type: inline-size;
+	}
 
-.bg {
-	position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-}
+	.bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 1;
+	}
 
-.rapsine {
-	position: absolute;
-    top: 15%;
-    left: 32%;
-    width: 65%;
-    height: auto;
-    transform-origin: center center;
-    z-index: 2;
-}
+	#rapsine {
+		position: absolute;
+		top: 15%;
+		left: 32%;
+		width: 65%;
+		height: auto;
+		transform-origin: center center;
+		z-index: 2;
+		cursor: pointer;
+	}
 
-#playstation {
-	position: absolute;
-    top: 67%;
-    left: 85%;
-    width: 18%; 
-    height: auto;
-    padding: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
-    z-index: 4;
-}
+	#tekst {
+		position: absolute;
+		top: 1%;
+		z-index: 3;
+		text-align: center;
+		width: 100%;
 
-#tekst {
-	position: absolute;
-	top: 1%;
-	z-index: 3;
-	text-align: center;
-	width: 100%;
+		font-size: 1.65cqw;
+		line-height: 1.38;
+		letter-spacing: 0.04cqw;
+		font-weight: 600;
 
-	font-size: 14px;
-    line-height: 1.38;
-    letter-spacing: 0.5px;
-	font-weight: 600;
-}
+		pointer-events: auto; 
+		user-select: text;
+		-webkit-user-select: text;
+	}
 
-.drejnurundt {
-	animation: drej 2s linear infinite;
-}
+	.drejnurundt {
+		animation: drej 2s linear infinite;
+	}
 
-@keyframes drej {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
-}
+	@keyframes drej {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
 </style>
 <script>
-let spiller = false;
-var lydfil = new Audio("/musik/hymne-til-rapsine.wav");
+	let spiller = false;
+	const lydfil = new Audio("/musik/hymne-til-rapsine.wav");
 
-function spilMusik() {
-	var rapsineBillede = document.getElementById("rapsine");
-	var playstation = document.getElementById("playstation");
+	function spilMusik() {
+		const rapsine = document.getElementById("rapsine");
 
-	if (spiller) {
-		lydfil.pause();
-		spiller = false;
-		rapsineBillede.classList.remove("drejnurundt");
-		playstation.classList.remove("drejnurundt");
-		return;
+		if (spiller) {
+			lydfil.pause();
+			spiller = false;
+			rapsine.classList.remove("drejnurundt");
+			return;
+		};
+		
+		lydfil.play();
+		spiller = true;
+		rapsine.classList.add("drejnurundt");
 	};
-	
-	lydfil.play();
-	spiller = true;
-	rapsineBillede.classList.add("drejnurundt");
-	playstation.classList.add("drejnurundt");
-}
+
+	function nårviklikkerpåtekståbenbart(e) {
+		const selection = window.getSelection().toString();
+		if (selection.length > 0) {
+			return; 
+		}
+
+		const tekstLayer = document.getElementById('tekst');
+		tekstLayer.style.pointerEvents = 'none';
+
+		const elementUnderneath = document.elementFromPoint(e.clientX, e.clientY);
+
+		tekstLayer.style.pointerEvents = 'auto';
+
+		if (elementUnderneath && (elementUnderneath.id === 'rapsine' || elementUnderneath.closest('#rapsine'))) {
+			spilMusik();
+		}
+	}
 </script>
 {{ comp Indholdskasse }}
   {{ comp Indholdskassehoved }}
@@ -107,13 +118,12 @@ function spilMusik() {
 		<div class="indpakning">
 			<img src="/billeder/hymne-til-rapsine/bg.png" class="bg" />
 
-			<img src="/billeder/hymne-til-rapsine/rapsine.png" class="rapsine" id="rapsine" />
-
-			<button onclick="spilMusik()" id="playstation">
-				<img src="/billeder/hymne-til-rapsine/playstation.png" />
+			<button onclick="spilMusik()" id="rapsine">
+				<img src="/billeder/hymne-til-rapsine/rapsine-ny.png" />
 			</button>
+			
 
-			<div id="tekst">
+			<div id="tekst" onclick="nårviklikkerpåtekståbenbart(event)">
 			HYMNE TIL RAPSINE<br/>
 			<br/>
 			DET ER SEN NAT DA JEG TRÆDER UD GENNEM DEN DAG SOM IKKE LÆNGERE SIDDER FAST<br/>
