@@ -90,17 +90,20 @@ Skud ud til birk! Håber du har det godt selvom vi ikke har mødt hinanden før.
 
 	function spilMusik() {
 		const rapsine = document.getElementById("rapsine");
+		const pil = document.getElementById("pil");
 
 		if (spiller) {
 			lydfil.pause();
 			spiller = false;
 			rapsine.classList.remove("drejnurundt");
+			pil.style.visibility = "visible";
 			return;
 		};
 		
 		lydfil.play();
 		spiller = true;
 		rapsine.classList.add("drejnurundt");
+		pil.style.visibility = "hidden";
 	};
 
 	function nårviklikkerpåtekståbenbart(e) {
