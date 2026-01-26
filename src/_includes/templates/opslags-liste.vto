@@ -2,14 +2,14 @@
 	{{ for opslag of opslagsListe }}
 	<li class="space-y-8">
 		<div class="relative hover:underline">
-			{{ comp Kasse { stil: opslag.listestil } }}
-				{{ comp Kassetitel { stil: opslag.listetekststil } }}
+			{{ comp Kasse { stil: medsejhed ? opslag.listestil : undefined } }}
+				{{ comp Kassetitel { stil: medsejhed ? opslag.listetekststil : undefined } }}
 					<a href="{{ opslag.type === "svar" ? opslag.url.includes("svar-1") ? opslag.korrespondance.url : nyt ? opslag.url : `${opslag.korrespondance.url}#${opslag.id}` : opslag.url }}">
 						<span class="absolute inset-0"></span>
 						{{ opslag.titel }}
 					</a>
 				{{ /comp }}
-				{{ comp Kassetekst { stil: opslag.listetekststil } }}
+				{{ comp Kassetekst { stil: medsejhed ? opslag.listetekststil : undefined } }}
 					{{ if opslag.type === "svar" }}
 					{{ opslag.korrespondance.uddrag }}
 					{{ else }}
@@ -18,13 +18,13 @@
 				{{ /comp }}
 				{{ comp Kassefod }}
 					{{ if opslag.kunstner }}
-						{{ comp Kassekunstner { stil: opslag.listetekststil } }}
+						{{ comp Kassekunstner { stil: medsejhed ? opslag.listetekststil : undefined } }}
 							{{ opslag.kunstner.titel }}
 						{{ /comp }}
 					{{ else }}
 						<div></div>
 					{{ /if }}
-					{{ comp Kassedato { stil: opslag.listetekststil } }}
+					{{ comp Kassedato { stil: medsejhed ? opslag.listetekststil : undefined } }}
 						<time>{{ opslag.dato |> date("HUMAN_DATE", "da") }}</time>
 					{{ /comp }}
 				{{ /comp }}

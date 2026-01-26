@@ -36,7 +36,7 @@ layout: layout.vto
 
   <div>
     <h2 class="mb-4 font-serif text-2xl">Opslag</h2>
-    {{ include "templates/opslags-liste.vto" { opslagsListe: search.pages(`type=opslag|svar kunstner_id=${id} udgivet=ja`, "dato=desc") } }}
+    {{ include "templates/opslags-liste.vto" { opslagsListe: search.pages(`type=opslag|svar kunstner_id=${id} udgivet=ja`, "dato=desc"), medsejhed: true } }}
   </div>
 </div>
 {{ /comp }}
