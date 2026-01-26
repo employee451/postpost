@@ -14,11 +14,18 @@ layout: layout.vto
   {{ if kunstner }}
     {{ comp Indholdskasse }}
       <div class="flex items-center gap-4 mb-4">
+        {{ if kunstner.gif }}
+        <picture class="flex-none">
+          <source srcset="/billeder/kunstnere/{{ kunstner.id }}.gif" type="image/gif">
+          <img src="/billeder/kunstnere/{{ kunstner.idid }}.gif" alt="{{ kunstner.titel }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
+        </picture>
+        {{ else }}
         <picture class="flex-none">
           <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.webp" type="image/webp">
           <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" type="image/jpeg">
           <img src="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" alt="{{ kunstner.titel }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
         </picture>
+        {{ /if }}
         <div>
           <div class="font-serif text-lg">{{ kunstner.titel }}</div>
           <div class="text-sm text-zinc-700">{{ kunstner.hurtigtekst }}</div>
