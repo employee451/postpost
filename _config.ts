@@ -63,6 +63,8 @@ site.copy("videoer");
 site.copy("billeder/kunstnere/krogslev.gif")
 site.copy("billeder/produktionsstroemmen.jpg")
 
+site.copy("fonte");
+
 site.use(transformImages());
 site.use(jsonLd());
 
