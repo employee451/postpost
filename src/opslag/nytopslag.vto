@@ -1,0 +1,192 @@
+---
+titel: anna nygren
+dato: 2026-04-17
+uddrag: 
+udgivet: nej
+layout: annanygren.vto
+---
+
+<div id="tal" class="font-serif" style="position: fixed; top: 10px; left: 10px; color: green; z-index: 1000;">hey</div>
+
+<div class="viewport">
+    <div id="container" class="zoom-container font-serif">
+        <img src="/billeder/annanygren.png" class="billede">
+    </div>
+</div>
+
+<div class="textbox" id="box1" data-top="27" data-left="19" data-width="9" data-height="10">
+    <div class="content" style="font-family: garamond;">
+    
+1<br/><br/>
+
+Att åka med Emma på röntgen. <br/><br/>
+
+Emma hade sagt att hon kunde följa med mig på röntgen också. Hon hade innan dess mött mig vid vårdcentralen. Jag hade gråtit så mycket när jag bokat in tiden. Hade tänkt ut exakt vad jag skulle säga och skrivit ner allt och visat Emma vad jag skrivit. Jag hade skrivit var smärtan fanns vid olika tillfällen och beskrivit hur det inverkade på mitt liv samt hur mitt liv eventuellt inverkade på smärtan. Emma hade sagt att det var en bra text. Hon hade sagt att det var så tydligt. Att det var bra att jag skrivit om att det gjorde det svårt att äta och att det påverkade mitt förhållande till mat. Emma hade följt med mig och varit i rummet med läkaren. Jag hade läst upp texten. Emma hade sagt att hon kunde göra det om jag ville men jag sa att det gick bra. Läkaren höll tummarna i min mun och resten av händerna runt käken. Hon frågade om det gjorde ont då. Det gjorde inte ont. Sara hade sagt att jag skulle fråga efter just den läkaren för hon hade hjälpt Sara då när Sara svimmade efter epileptiskt anfall. Hon hade inte kunnat hjälpa Sara, men Sara sa att hon hade lyssnat. Det här med epilepsin var ännu ett mysterium. Jag hade försökt föreställa mig ett lyssnande, jag visste inte vad det var. Läkaren tryckte med händerna i min mun. Hon sa att hon skulle skicka en remiss till käkröntgen. <br/><br/>
+
+Tiden för detta var cirka två veckor senare klockan 21. Adressen var väldigt långt bort. Jag hade under dagen varit på examination för kandidatklassen. Studenterna jag handlett under terminen. Jag hade varit glad för deras skull. Jag hade ätit banan bruten i bitar utomhus. Vindruvor hade jag ätit, jag kunde nästan svälja dom utan att tugga alls. Jag hade inte kunnat åka hem för att vila mellan arbetet och röntgen för om jag gjort det hade jag inte orkat först gå uppför trappan och sen nerför trappan och det hade oavsett mest blivit att jag åkt spårvagn fram och tillbaka. Jag hade istället åkt hem till Emma. Hon hade ätit mat och jag visste att hon också hade en ätstörning. Vi har ett pågående samtal och jag skriver alltid innan vi ses, ifall jag kommer kunna äta eller inte och frågar om det känns triggande att träffa mig. Jag måste fråga. Jag vet att det kan hända, att ibland så kan man, inte träffa mig. Hon hade gett mig innankromet av bröd och hummus. Jag tog en atarax på vägen. Det var första gången på flera år, jag hade hämtat ut den dagen innan. Jag visste inte längre hur jag skulle reagera. <br/><br/>
+
+Vi gick genom först ett område av stora varuhus, Biltema tillexempel, och nån möbelaffär, sen genom olika ställen för typ, biltvätt, och så nån sorts industrier. Husen var grå och fyrkantiga, dom såg ut som baracker som växte liksom upp i himlen. Vi hittade adressen. Det stod samma namn på skylten som på kallelsen, ett utskrivet a4 med en pil ritad med överstrykningspenna under. Vi åkte en hiss till fjärde våningen. Jag åker inte hiss, men mina ben kunde inte lyfta sig. Jag skannade och loggade in, anmälde min närvaro. Tre personer i ett väntrum, munskydd, gröna blad på växt.
+
+    
+    </div>
+</div>
+<div class="textbox" id="box2" data-top="58" data-left="66" data-width="12" data-height="12">
+    <div class="content">Anden...</div>
+</div>
+<div class="textbox" id="box3" data-top="20" data-left="81" data-width="6" data-height="8">
+    <div class="content">Trejde...</div>
+</div>
+<div class="textbox" id="box4" data-top="82" data-left="4" data-width="6" data-height="5">
+    <div class="content">Fjerde...</div>
+</div>
+<div class="textbox" id="box5" data-top="60" data-left="83" data-width="8" data-height="4">
+    <div class="content">Femte...</div>
+</div>
+<div class="textbox" id="box6" data-top="58" data-left="66" data-width="12" data-height="12">
+    <div class="content">Sjette...</div>
+</div>
+<div class="textbox" id="box7" data-top="58" data-left="66" data-width="12" data-height="12">
+    <div class="content">Syvende...</div>
+</div>
+
+<style>
+body, html { margin: 0; overflow: hidden; background: #000; height: 100%; }
+
+.viewport {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.zoom-container {
+    position: relative;
+    height: 100vh;
+    width: auto;
+    will-change: transform;
+    transform-origin: center center;
+}
+
+.billede { height: 100%; width: auto; display: block; }
+
+.textbox {
+    position: fixed;
+    border: black;
+    border-width: 250px;
+    padding: 10px;
+    overflow: hidden;
+    font-size: 14px;
+    z-index: 100;
+}
+</style>
+
+<script>
+const tal = document.getElementById("tal");
+const container = document.getElementById('container');
+let scrollPos = 0;
+
+const textboxes = document.querySelectorAll('.textbox');
+
+// Each target references a textbox; zoom/x/y are computed from its position
+const targets = [
+    { box: 'box1', zoom: 10, duration: 5000, pause: 2000 },
+    { box: 'box2', zoom: 10, duration: 5000, pause: 2000 },
+	{ box: 'box3', zoom: 10, duration: 5000, pause: 2000 },
+	{ box: 'box4', zoom: 10, duration: 5000, pause: 2000 },
+    { box: 'box5', zoom: 10, duration: 5000, pause: 2000 },
+    { box: 'box6', zoom: 10, duration: 5000, pause: 2000 },
+    { box: 'box7', zoom: 10, duration: 5000, pause: 2000 },
+];
+
+// Auto-generate steps from targets
+const steps = [{ end: 0, zoom: 1, x: 0, y: 0 }];
+let time = 0;
+targets.forEach(t => {
+    const box = document.getElementById(t.box);
+    const x = 50 - parseFloat(box.dataset.left) - 4;
+    const y = 50 - parseFloat(box.dataset.top) - 5;
+    time += t.duration;
+    steps.push({ end: time, zoom: t.zoom, x, y });
+    time += t.pause;
+    steps.push({ end: time, zoom: t.zoom, x, y });
+});
+
+const MAX_SCROLL = steps[steps.length - 1].end;
+
+window.addEventListener('wheel', (e) => {
+    // Standardize scroll speed across browsers
+	console.log(e)
+    scrollPos = Math.max(0, Math.min(MAX_SCROLL, scrollPos + e.deltaY));
+	tal.innerHTML = scrollPos.toString();
+    updateScene();
+});
+
+function updateScene() {
+    // 1. Find current and previous step
+    let i = steps.findIndex(s => scrollPos <= s.end);
+    if (i === -1) i = steps.length - 1;
+    
+    const current = steps[i];
+    const prev = steps[i - 1] || steps[0];
+
+    // 2. Calculate progress (0 to 1) between these two steps
+    const segmentRange = current.end - prev.end;
+    const segmentProgress = segmentRange === 0 ? 1 : (scrollPos - prev.end) / segmentRange;
+
+    // 3. Interpolate values (Lerp)
+    const zoom = prev.zoom + (current.zoom - prev.zoom) * segmentProgress;
+    const x = prev.x + (current.x - prev.x) * segmentProgress;
+    const y = prev.y + (current.y - prev.y) * segmentProgress;
+
+    container.style.transform = `scale(${zoom}) translate(${x}%, ${y}%)`;
+
+    // Position textboxes based on container's rendered position
+    const rect = container.getBoundingClientRect();
+    textboxes.forEach(box => {
+        const bTop = parseFloat(box.dataset.top) / 100;
+        const bLeft = parseFloat(box.dataset.left) / 100;
+        box.style.top = `${rect.top + bTop * rect.height}px`;
+        box.style.left = `${rect.left + bLeft * rect.width}px`;
+        if (box.dataset.width) box.style.width = `${(parseFloat(box.dataset.width) / 100) * rect.width}px`;
+        if (box.dataset.height) box.style.height = `${(parseFloat(box.dataset.height) / 100) * rect.height}px`;
+        box.style.fontSize = `${1.4 * zoom}px`;
+        box.style.padding = `${1 * zoom}px`;
+    });
+
+    // UI Updates
+    document.getElementById('tal').innerHTML = Math.round(scrollPos);
+}
+
+updateScene();
+</script>
+
+
+
+<script src="js/three.js"></script>
+		<script>
+			const scene = new THREE.Scene();
+			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			const geometry = new THREE.BoxGeometry();
+			const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			const cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
+
+			camera.position.z = 5;
+
+			function animate() {
+				requestAnimationFrame( animate );
+
+				cube.rotation.x += 0.01;
+				cube.rotation.y += 0.01;
+
+				renderer.render( scene, camera );
+			};
+
+			animate();
+		</script>
