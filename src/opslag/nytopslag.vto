@@ -1,192 +1,440 @@
 ---
 titel: anna nygren
 dato: 2026-04-17
-uddrag: 
+uddrag:
 udgivet: nej
 layout: annanygren.vto
 ---
 
-<div id="tal" class="font-serif" style="position: fixed; top: 10px; left: 10px; color: green; z-index: 1000;">hey</div>
+<div id="loading">loader labyrinten…</div>
+<div id="scroll-hint">scroll →</div>
+<div id="debug"></div>
 
-<div class="viewport">
-    <div id="container" class="zoom-container font-serif">
-        <img src="/billeder/annanygren.png" class="billede">
+<canvas id="webgl"></canvas>
+<div id="css3d"></div>
+
+<div id="panels" style="display:none">
+    <div class="text-panel" data-panel="1">
+        <div class="titlebar"><span class="title">anna nygren — 1</span><span class="controls">_ □ ×</span></div>
+        <div class="content">
+            <p>Att åka med Emma på röntgen.</p>
+            <p>Emma hade sagt att hon kunde följa med mig på röntgen också. Hon hade innan dess mött mig vid vårdcentralen. Jag hade gråtit så mycket när jag bokat in tiden. Hade tänkt ut exakt vad jag skulle säga och skrivit ner allt och visat Emma vad jag skrivit. Jag hade skrivit var smärtan fanns vid olika tillfällen och beskrivit hur det inverkade på mitt liv samt hur mitt liv eventuellt inverkade på smärtan. Emma hade sagt att det var en bra text. Hon hade sagt att det var så tydligt. Att det var bra att jag skrivit om att det gjorde det svårt att äta och att det påverkade mitt förhållande till mat. Emma hade följt med mig och varit i rummet med läkaren. Jag hade läst upp texten. Emma hade sagt att hon kunde göra det om jag ville men jag sa att det gick bra. Läkaren höll tummarna i min mun och resten av händerna runt käken. Hon frågade om det gjorde ont då. Det gjorde inte ont. Sara hade sagt att jag skulle fråga efter just den läkaren för hon hade hjälpt Sara då när Sara svimmade efter epileptiskt anfall. Hon hade inte kunnat hjälpa Sara, men Sara sa att hon hade lyssnat. Det här med epilepsin var ännu ett mysterium. Jag hade försökt föreställa mig ett lyssnande, jag visste inte vad det var. Läkaren tryckte med händerna i min mun. Hon sa att hon skulle skicka en remiss till käkröntgen.</p>
+            <p>Tiden för detta var cirka två veckor senare klockan 21. Adressen var väldigt långt bort. Jag hade under dagen varit på examination för kandidatklassen. Studenterna jag handlett under terminen. Jag hade varit glad för deras skull. Jag hade ätit banan bruten i bitar utomhus. Vindruvor hade jag ätit, jag kunde nästan svälja dom utan att tugga alls. Jag hade inte kunnat åka hem för att vila mellan arbetet och röntgen för om jag gjort det hade jag inte orkat först gå uppför trappan och sen nerför trappan och det hade oavsett mest blivit att jag åkt spårvagn fram och tillbaka. Jag hade istället åkt hem till Emma. Hon hade ätit mat och jag visste att hon också hade en ätstörning. Vi har ett pågående samtal och jag skriver alltid innan vi ses, ifall jag kommer kunna äta eller inte och frågar om det känns triggande att träffa mig. Jag måste fråga. Jag vet att det kan hända, att ibland så kan man, inte träffa mig. Hon hade gett mig innankromet av bröd och hummus. Jag tog en atarax på vägen. Det var första gången på flera år, jag hade hämtat ut den dagen innan. Jag visste inte längre hur jag skulle reagera.</p>
+            <p>Vi gick genom först ett område av stora varuhus, Biltema tillexempel, och nån möbelaffär, sen genom olika ställen för typ, biltvätt, och så nån sorts industrier. Husen var grå och fyrkantiga, dom såg ut som baracker som växte liksom upp i himlen. Vi hittade adressen. Det stod samma namn på skylten som på kallelsen, ett utskrivet a4 med en pil ritad med överstrykningspenna under. Vi åkte en hiss till fjärde våningen. Jag åker inte hiss, men mina ben kunde inte lyfta sig. Jag skannade och loggade in, anmälde min närvaro. Tre personer i ett väntrum, munskydd, gröna blad på växt.</p>
+        </div>
     </div>
-</div>
-
-<div class="textbox" id="box1" data-top="27" data-left="19" data-width="9" data-height="10">
-    <div class="content" style="font-family: garamond;">
-    
-1<br/><br/>
-
-Att åka med Emma på röntgen. <br/><br/>
-
-Emma hade sagt att hon kunde följa med mig på röntgen också. Hon hade innan dess mött mig vid vårdcentralen. Jag hade gråtit så mycket när jag bokat in tiden. Hade tänkt ut exakt vad jag skulle säga och skrivit ner allt och visat Emma vad jag skrivit. Jag hade skrivit var smärtan fanns vid olika tillfällen och beskrivit hur det inverkade på mitt liv samt hur mitt liv eventuellt inverkade på smärtan. Emma hade sagt att det var en bra text. Hon hade sagt att det var så tydligt. Att det var bra att jag skrivit om att det gjorde det svårt att äta och att det påverkade mitt förhållande till mat. Emma hade följt med mig och varit i rummet med läkaren. Jag hade läst upp texten. Emma hade sagt att hon kunde göra det om jag ville men jag sa att det gick bra. Läkaren höll tummarna i min mun och resten av händerna runt käken. Hon frågade om det gjorde ont då. Det gjorde inte ont. Sara hade sagt att jag skulle fråga efter just den läkaren för hon hade hjälpt Sara då när Sara svimmade efter epileptiskt anfall. Hon hade inte kunnat hjälpa Sara, men Sara sa att hon hade lyssnat. Det här med epilepsin var ännu ett mysterium. Jag hade försökt föreställa mig ett lyssnande, jag visste inte vad det var. Läkaren tryckte med händerna i min mun. Hon sa att hon skulle skicka en remiss till käkröntgen. <br/><br/>
-
-Tiden för detta var cirka två veckor senare klockan 21. Adressen var väldigt långt bort. Jag hade under dagen varit på examination för kandidatklassen. Studenterna jag handlett under terminen. Jag hade varit glad för deras skull. Jag hade ätit banan bruten i bitar utomhus. Vindruvor hade jag ätit, jag kunde nästan svälja dom utan att tugga alls. Jag hade inte kunnat åka hem för att vila mellan arbetet och röntgen för om jag gjort det hade jag inte orkat först gå uppför trappan och sen nerför trappan och det hade oavsett mest blivit att jag åkt spårvagn fram och tillbaka. Jag hade istället åkt hem till Emma. Hon hade ätit mat och jag visste att hon också hade en ätstörning. Vi har ett pågående samtal och jag skriver alltid innan vi ses, ifall jag kommer kunna äta eller inte och frågar om det känns triggande att träffa mig. Jag måste fråga. Jag vet att det kan hända, att ibland så kan man, inte träffa mig. Hon hade gett mig innankromet av bröd och hummus. Jag tog en atarax på vägen. Det var första gången på flera år, jag hade hämtat ut den dagen innan. Jag visste inte längre hur jag skulle reagera. <br/><br/>
-
-Vi gick genom först ett område av stora varuhus, Biltema tillexempel, och nån möbelaffär, sen genom olika ställen för typ, biltvätt, och så nån sorts industrier. Husen var grå och fyrkantiga, dom såg ut som baracker som växte liksom upp i himlen. Vi hittade adressen. Det stod samma namn på skylten som på kallelsen, ett utskrivet a4 med en pil ritad med överstrykningspenna under. Vi åkte en hiss till fjärde våningen. Jag åker inte hiss, men mina ben kunde inte lyfta sig. Jag skannade och loggade in, anmälde min närvaro. Tre personer i ett väntrum, munskydd, gröna blad på växt.
-
-    
+    <div class="text-panel" data-panel="2">
+        <div class="titlebar"><span class="title">2</span><span class="controls">_ □ ×</span></div>
+        <div class="content"><p>Anden…</p></div>
     </div>
-</div>
-<div class="textbox" id="box2" data-top="58" data-left="66" data-width="12" data-height="12">
-    <div class="content">Anden...</div>
-</div>
-<div class="textbox" id="box3" data-top="20" data-left="81" data-width="6" data-height="8">
-    <div class="content">Trejde...</div>
-</div>
-<div class="textbox" id="box4" data-top="82" data-left="4" data-width="6" data-height="5">
-    <div class="content">Fjerde...</div>
-</div>
-<div class="textbox" id="box5" data-top="60" data-left="83" data-width="8" data-height="4">
-    <div class="content">Femte...</div>
-</div>
-<div class="textbox" id="box6" data-top="58" data-left="66" data-width="12" data-height="12">
-    <div class="content">Sjette...</div>
-</div>
-<div class="textbox" id="box7" data-top="58" data-left="66" data-width="12" data-height="12">
-    <div class="content">Syvende...</div>
+    <div class="text-panel" data-panel="3">
+        <div class="titlebar"><span class="title">3</span><span class="controls">_ □ ×</span></div>
+        <div class="content"><p>Trejde…</p></div>
+    </div>
+    <div class="text-panel" data-panel="4">
+        <div class="titlebar"><span class="title">4</span><span class="controls">_ □ ×</span></div>
+        <div class="content"><p>Fjerde…</p></div>
+    </div>
+    <div class="text-panel" data-panel="5">
+        <div class="titlebar"><span class="title">5</span><span class="controls">_ □ ×</span></div>
+        <div class="content"><p>Femte…</p></div>
+    </div>
+    <div class="text-panel" data-panel="6">
+        <div class="titlebar"><span class="title">6</span><span class="controls">_ □ ×</span></div>
+        <div class="content"><p>Sjette…</p></div>
+    </div>
+    <div class="text-panel" data-panel="7">
+        <div class="titlebar"><span class="title">7</span><span class="controls">_ □ ×</span></div>
+        <div class="content"><p>Syvende…</p></div>
+    </div>
 </div>
 
 <style>
-body, html { margin: 0; overflow: hidden; background: #000; height: 100%; }
+html, body { margin: 0; padding: 0; overflow: hidden; height: 100%; background: #000; }
+body { cursor: default !important; }
 
-.viewport {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.zoom-container {
-    position: relative;
-    height: 100vh;
-    width: auto;
-    will-change: transform;
-    transform-origin: center center;
-}
-
-.billede { height: 100%; width: auto; display: block; }
-
-.textbox {
+#webgl {
     position: fixed;
-    border: black;
-    border-width: 250px;
-    padding: 10px;
-    overflow: hidden;
-    font-size: 14px;
-    z-index: 100;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 1;
+    display: block;
+}
+
+#css3d {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 2;
+    pointer-events: none;
+}
+#css3d > div { pointer-events: none; }
+
+#loading {
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fe8989; font-family: "EB Garamond", garamond, serif;
+    font-size: 2em; z-index: 10;
+    letter-spacing: 0.1em;
+}
+
+#scroll-hint {
+    position: fixed; bottom: 20px; right: 24px;
+    color: #fe8989; font-family: "EB Garamond", garamond, serif;
+    font-size: 1.1em; z-index: 10; opacity: 0.7;
+    font-style: italic;
+    pointer-events: none;
+    animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100% { opacity: 0.3 } 50% { opacity: 0.9 } }
+
+#debug {
+    position: fixed; top: 8px; left: 8px;
+    color: #9f9; font-family: monospace; font-size: 11px;
+    z-index: 10; pointer-events: none; white-space: pre;
+    opacity: 0.6;
+}
+
+/* win95/98-style text panel */
+.text-panel {
+    width: 420px;
+    height: 300px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #404040 #404040 #ffffff;
+    box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080, 2px 2px 0 #000;
+    font-family: "EB Garamond", garamond, "Times New Roman", serif;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    user-select: text;
+}
+
+.text-panel .titlebar {
+    background: linear-gradient(to right, #000080, #1084d0);
+    color: #fff;
+    font-family: "Tahoma", "MS Sans Serif", sans-serif;
+    font-size: 12px;
+    padding: 3px 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+}
+.text-panel .titlebar .controls {
+    font-family: monospace;
+    letter-spacing: 4px;
+}
+
+.text-panel .content {
+    flex: 1;
+    overflow-y: scroll;
+    padding: 10px 14px;
+    font-size: 15px;
+    line-height: 1.45;
+    background: #fff;
+    margin: 3px;
+    border: 1px solid;
+    border-color: #808080 #dfdfdf #dfdfdf #808080;
+}
+.text-panel .content p { margin: 0 0 0.9em 0; }
+.text-panel .content p:first-child { font-weight: 700; }
+
+/* old-school scrollbar */
+.text-panel .content {
+    scrollbar-color: #c0c0c0 #dfdfdf;
+    scrollbar-width: auto;
+}
+.text-panel .content::-webkit-scrollbar { width: 16px; height: 16px; }
+.text-panel .content::-webkit-scrollbar-track {
+    background: repeating-conic-gradient(#c0c0c0 0% 25%, #dfdfdf 0% 50%) 50% / 2px 2px;
+}
+.text-panel .content::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #404040 #404040 #ffffff;
+    box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080;
+}
+.text-panel .content::-webkit-scrollbar-button:single-button {
+    background: #c0c0c0;
+    height: 16px; width: 16px;
+    border: 2px solid;
+    border-color: #ffffff #404040 #404040 #ffffff;
+    box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.text-panel .content::-webkit-scrollbar-button:vertical:decrement {
+    background-image: linear-gradient(to top left, transparent 49%, #000 49%, #000 51%, transparent 51%),
+                      linear-gradient(to top right, transparent 49%, #000 49%, #000 51%, transparent 51%);
+    background-size: 50% 50%;
+    background-position: 25% 60%, 75% 60%;
+}
+.text-panel .content::-webkit-scrollbar-button:vertical:increment {
+    background-image: linear-gradient(to bottom left, transparent 49%, #000 49%, #000 51%, transparent 51%),
+                      linear-gradient(to bottom right, transparent 49%, #000 49%, #000 51%, transparent 51%);
+    background-size: 50% 50%;
+    background-position: 25% 40%, 75% 40%;
+}
+.text-panel .content::-webkit-scrollbar-corner {
+    background: #c0c0c0;
 }
 </style>
 
-<script>
-const tal = document.getElementById("tal");
-const container = document.getElementById('container');
-let scrollPos = 0;
-
-const textboxes = document.querySelectorAll('.textbox');
-
-// Each target references a textbox; zoom/x/y are computed from its position
-const targets = [
-    { box: 'box1', zoom: 10, duration: 5000, pause: 2000 },
-    { box: 'box2', zoom: 10, duration: 5000, pause: 2000 },
-	{ box: 'box3', zoom: 10, duration: 5000, pause: 2000 },
-	{ box: 'box4', zoom: 10, duration: 5000, pause: 2000 },
-    { box: 'box5', zoom: 10, duration: 5000, pause: 2000 },
-    { box: 'box6', zoom: 10, duration: 5000, pause: 2000 },
-    { box: 'box7', zoom: 10, duration: 5000, pause: 2000 },
-];
-
-// Auto-generate steps from targets
-const steps = [{ end: 0, zoom: 1, x: 0, y: 0 }];
-let time = 0;
-targets.forEach(t => {
-    const box = document.getElementById(t.box);
-    const x = 50 - parseFloat(box.dataset.left) - 4;
-    const y = 50 - parseFloat(box.dataset.top) - 5;
-    time += t.duration;
-    steps.push({ end: time, zoom: t.zoom, x, y });
-    time += t.pause;
-    steps.push({ end: time, zoom: t.zoom, x, y });
-});
-
-const MAX_SCROLL = steps[steps.length - 1].end;
-
-window.addEventListener('wheel', (e) => {
-    // Standardize scroll speed across browsers
-	console.log(e)
-    scrollPos = Math.max(0, Math.min(MAX_SCROLL, scrollPos + e.deltaY));
-	tal.innerHTML = scrollPos.toString();
-    updateScene();
-});
-
-function updateScene() {
-    // 1. Find current and previous step
-    let i = steps.findIndex(s => scrollPos <= s.end);
-    if (i === -1) i = steps.length - 1;
-    
-    const current = steps[i];
-    const prev = steps[i - 1] || steps[0];
-
-    // 2. Calculate progress (0 to 1) between these two steps
-    const segmentRange = current.end - prev.end;
-    const segmentProgress = segmentRange === 0 ? 1 : (scrollPos - prev.end) / segmentRange;
-
-    // 3. Interpolate values (Lerp)
-    const zoom = prev.zoom + (current.zoom - prev.zoom) * segmentProgress;
-    const x = prev.x + (current.x - prev.x) * segmentProgress;
-    const y = prev.y + (current.y - prev.y) * segmentProgress;
-
-    container.style.transform = `scale(${zoom}) translate(${x}%, ${y}%)`;
-
-    // Position textboxes based on container's rendered position
-    const rect = container.getBoundingClientRect();
-    textboxes.forEach(box => {
-        const bTop = parseFloat(box.dataset.top) / 100;
-        const bLeft = parseFloat(box.dataset.left) / 100;
-        box.style.top = `${rect.top + bTop * rect.height}px`;
-        box.style.left = `${rect.left + bLeft * rect.width}px`;
-        if (box.dataset.width) box.style.width = `${(parseFloat(box.dataset.width) / 100) * rect.width}px`;
-        if (box.dataset.height) box.style.height = `${(parseFloat(box.dataset.height) / 100) * rect.height}px`;
-        box.style.fontSize = `${1.4 * zoom}px`;
-        box.style.padding = `${1 * zoom}px`;
-    });
-
-    // UI Updates
-    document.getElementById('tal').innerHTML = Math.round(scrollPos);
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://unpkg.com/three@0.160.1/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.1/examples/jsm/"
+    }
 }
-
-updateScene();
 </script>
 
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
 
+const loadingEl = document.getElementById('loading');
+const debugEl = document.getElementById('debug');
+const canvas = document.getElementById('webgl');
+const cssHost = document.getElementById('css3d');
+const panelsSrc = document.getElementById('panels');
 
-<script src="js/three.js"></script>
-		<script>
-			const scene = new THREE.Scene();
-			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+// --- renderers / scene / camera ---
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0xfe8989, 1);
 
-			const renderer = new THREE.WebGLRenderer();
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			document.body.appendChild( renderer.domElement );
+const cssRenderer = new CSS3DRenderer({ element: cssHost });
+cssRenderer.setSize(window.innerWidth, window.innerHeight);
 
-			const geometry = new THREE.BoxGeometry();
-			const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-			const cube = new THREE.Mesh( geometry, material );
-			scene.add( cube );
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xfe8989);
+scene.fog = new THREE.Fog(0xfe8989, 20, 140);
 
-			camera.position.z = 5;
+const cssScene = new THREE.Scene();
 
-			function animate() {
-				requestAnimationFrame( animate );
+const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.set(0, 5, 0);
 
-				cube.rotation.x += 0.01;
-				cube.rotation.y += 0.01;
+// --- lights ---
+scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+const key = new THREE.DirectionalLight(0xffffff, 0.9);
+key.position.set(40, 80, 20);
+scene.add(key);
+const rim = new THREE.DirectionalLight(0xfff0d0, 0.5);
+rim.position.set(-30, 20, -40);
+scene.add(rim);
 
-				renderer.render( scene, camera );
-			};
+// --- text panels as CSS3D objects (placed later once we know maze bounds) ---
+const panelElements = [...panelsSrc.querySelectorAll('.text-panel')];
+const panelObjects = panelElements.map((el) => {
+    const clone = el.cloneNode(true);
+    const obj = new CSS3DObject(clone);
+    // 420x300 px panel -> scale so it's ~8 world units wide (maze is ~98 wide)
+    obj.scale.set(0.02, 0.02, 0.02);
+    cssScene.add(obj);
+    return obj;
+});
 
-			animate();
-		</script>
+// --- waypoints ---
+// Will be populated after gltf loads and we know the bounding box.
+// Each entry: { spawn: Vector3, view: Vector3, rotationY: number, walk: scroll-units, pause: scroll-units }
+let waypoints = [];
+let segmentEnds = []; // cumulative end scroll position per segment
+let totalScroll = 0;
+
+function buildWaypoints(bbox) {
+    const min = bbox.min, max = bbox.max;
+    const sx = max.x - min.x;
+    const sz = max.z - min.z;
+    const cy = (min.y + max.y) / 2;           // wall mid-height
+    const eyeY = min.y + (max.y - min.y) * 0.55; // camera eye height
+
+    // Sample positions spread across the maze. These won't perfectly follow
+    // corridors in the gltf, but they give a working scaffold to tweak.
+    const P = (fx, fz, y = eyeY) =>
+        new THREE.Vector3(min.x + sx * fx, y, min.z + sz * fz);
+
+    // Each target: a "view" point (camera lands looking at the text)
+    // and a "spawn" point a few steps behind along -forward.
+    // rotationY rotates camera around Y axis; use PI/2 for "on that led"
+    // (looking along +X), 0 for looking along -Z, etc.
+    const defs = [
+        { f: [0.25, 0.30], rotY: 0 },              // look along -Z
+        { f: [0.55, 0.22], rotY: Math.PI / 2 },    // twist 90° (på den led)
+        { f: [0.75, 0.45], rotY: Math.PI },        // flip, look along +Z
+        { f: [0.60, 0.70], rotY: -Math.PI / 2 },   // twist -90°
+        { f: [0.35, 0.80], rotY: 0 },
+        { f: [0.20, 0.55], rotY: Math.PI / 2 },    // twist 90°
+        { f: [0.45, 0.45], rotY: Math.PI / 4 },    // center-ish, diagonal
+    ];
+
+    const walkStep = 6; // world units from spawn to view
+    waypoints = defs.map((d, i) => {
+        const view = P(d.f[0], d.f[1]);
+        // forward vector the camera will face at this waypoint
+        const forward = new THREE.Vector3(
+            -Math.sin(d.rotY), 0, -Math.cos(d.rotY)
+        );
+        const spawn = view.clone().sub(forward.clone().multiplyScalar(walkStep));
+
+        // Place the text panel a bit ahead of the view point.
+        const panelPos = view.clone().add(forward.clone().multiplyScalar(3.5));
+        const obj = panelObjects[i];
+        if (obj) {
+            obj.position.copy(panelPos);
+            // face the panel back at the camera
+            obj.rotation.set(0, d.rotY + Math.PI, 0);
+        }
+
+        return {
+            spawn,
+            view,
+            rotationY: d.rotY,
+            walk: 900,  // scroll-units for the walk
+            pause: 600, // scroll-units of dwell at the text
+        };
+    });
+
+    // cumulative segment ends
+    let acc = 0;
+    segmentEnds = waypoints.map((w) => {
+        acc += w.walk + w.pause;
+        return acc;
+    });
+    totalScroll = acc;
+}
+
+// --- scroll-driven camera ---
+let scrollPos = 0;
+let targetScroll = 0;
+
+function updateCamera() {
+    if (!waypoints.length) return;
+
+    const s = scrollPos;
+    // find current segment
+    let i = 0;
+    while (i < segmentEnds.length - 1 && s > segmentEnds[i]) i++;
+
+    const segStart = i === 0 ? 0 : segmentEnds[i - 1];
+    const local = s - segStart;
+    const wp = waypoints[i];
+
+    let pos, rotY;
+    if (local <= wp.walk) {
+        // walking phase: spawn -> view
+        const t = ease(Math.max(0, Math.min(1, local / wp.walk)));
+        pos = wp.spawn.clone().lerp(wp.view, t);
+        rotY = wp.rotationY;
+        // subtle head-bob during the walk
+        pos.y += Math.sin(t * Math.PI * 4) * 0.12;
+    } else {
+        // pause phase: at view, settled
+        pos = wp.view.clone();
+        rotY = wp.rotationY;
+    }
+
+    camera.position.copy(pos);
+    camera.rotation.set(0, rotY, 0);
+
+    if (debugEl) {
+        debugEl.textContent =
+            `seg ${i}  local ${Math.round(local)}/${wp.walk + wp.pause}  ` +
+            `scroll ${Math.round(s)}/${totalScroll}`;
+    }
+}
+
+function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+
+window.addEventListener('wheel', (e) => {
+    targetScroll = Math.max(0, Math.min(totalScroll, targetScroll + e.deltaY));
+    e.preventDefault();
+}, { passive: false });
+
+// touch
+let touchY = null;
+window.addEventListener('touchstart', (e) => { touchY = e.touches[0].clientY; }, { passive: true });
+window.addEventListener('touchmove', (e) => {
+    if (touchY == null) return;
+    const dy = touchY - e.touches[0].clientY;
+    touchY = e.touches[0].clientY;
+    targetScroll = Math.max(0, Math.min(totalScroll, targetScroll + dy * 2));
+}, { passive: true });
+
+// --- load labyrinth ---
+const loader = new GLTFLoader();
+loader.load(
+    '/labyrint.gltf',
+    (gltf) => {
+        const root = gltf.scene;
+
+        // Flip so the maze lies flat (Y up, walls rising along Y).
+        // ImageToStl meshes typically have image in XY, extrusion along Z.
+        root.rotation.x = -Math.PI / 2;
+
+        // apply a pink-ish material so it fits the palette
+        const mat = new THREE.MeshStandardMaterial({
+            color: 0x8a1f1f,
+            roughness: 0.9,
+            metalness: 0.0,
+            flatShading: true,
+        });
+        root.traverse((o) => { if (o.isMesh) { o.material = mat; o.castShadow = true; o.receiveShadow = true; } });
+
+        scene.add(root);
+
+        // center on origin using world-space bbox after rotation
+        const bbox = new THREE.Box3().setFromObject(root);
+        const center = new THREE.Vector3();
+        bbox.getCenter(center);
+        root.position.sub(center);
+
+        // recompute bbox after centering
+        const finalBbox = new THREE.Box3().setFromObject(root);
+
+        buildWaypoints(finalBbox);
+
+        // put camera at first spawn to start
+        camera.position.copy(waypoints[0].spawn);
+        camera.rotation.set(0, waypoints[0].rotationY, 0);
+
+        loadingEl.style.display = 'none';
+    },
+    (ev) => {
+        if (ev.total) {
+            const pct = Math.round((ev.loaded / ev.total) * 100);
+            loadingEl.textContent = `loader labyrinten… ${pct}%`;
+        }
+    },
+    (err) => {
+        console.error(err);
+        loadingEl.textContent = 'kunne ikke loade labyrinten.';
+    }
+);
+
+// --- render loop ---
+function animate() {
+    // smooth the scroll position toward its target
+    scrollPos += (targetScroll - scrollPos) * 0.08;
+    updateCamera();
+    renderer.render(scene, camera);
+    cssRenderer.render(cssScene, camera);
+    requestAnimationFrame(animate);
+}
+animate();
+
+// --- resize ---
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    cssRenderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
