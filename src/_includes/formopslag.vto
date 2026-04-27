@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ titel }} – postpost</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #d4d4d8;
+      overflow-x: hidden;
+    }
+    #viewport {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+    }
+    #scene {
+      position: absolute;
+      will-change: transform;
+    }
+    .tl {
+      position: absolute;
+      white-space: nowrap;
+      text-align: center;
+      font: 18px/28px Georgia, serif;
+      color: #18181b;
+    }
+    #spacer { position: relative; }
+    .back {
+      position: fixed;
+      top: 1rem; left: 1rem;
+      z-index: 100;
+      font: 14px Georgia, serif;
+      color: #6d28d9;
+      text-decoration: none;
+      pointer-events: auto;
+    }
+    .back:hover { text-decoration: underline; }
+    #path-outline {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.06;
+    }
+    #path-outline path {
+      fill: none;
+      stroke: #6d28d9;
+      stroke-width: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="/">← postpost</a>
+
+  <div id="viewport">
+    <div id="scene"></div>
+  </div>
+  <div id="spacer"></div>
+
+  <!-- Raw opslag content (hidden, read by JS) -->
+  <template id="src">{{ content }}</template>
+
+  <!-- Optional path from frontmatter -->
+  <div id="cfg" hidden {{ if sti }}data-sti="{{ sti }}"{{ /if }}></div>
+
+  <script type="module">
+    // =====================================================
+    // FORMOPSLAG — One path, two jobs
+    // =====================================================
+    // A single SVG path (from frontmatter "sti" or a default
+    // S-curve) defines:
+    //   1. The text centerline — each line of text is centered
+    //      on the path's x-position at that y-level, forming
+    //      a ribbon whose width varies (widest in the middle).
+    //   2. The camera trajectory — scrolling moves the viewport
+    //      along this same path.
+    //
+    // Frontmatter:
+    //   sti: SVG path 'd' string (optional, default: S-curve)
+    // =====================================================
+
+    const FONT = '18px Georgia, serif';
+    const LH = 28;
+    const PAD = 16;
+    const NS = 'http://www.w3.org/2000/svg';
+
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+
+    // --- Extract plain text from opslag content ---
+    const tmp = document.createElement('div');
+    tmp.innerHTML = document.getElementById('src').innerHTML;
+    tmp.querySelectorAll('br').forEach(n => n.replaceWith(document.createTextNode('\n')));
+    tmp.querySelectorAll('div, hr, section, svg').forEach(n => {
+      n.replaceWith(document.createTextNode('\n\n' + (n.textContent || '') + '\n\n'));
+    });
+    const text = tmp.textContent.replace(/\n{3,}/g, '\n\n').trim();
+
+    // --- Canvas text measurement ---
+    const mctx = document.createElement('canvas').getContext('2d');
+    mctx.font = FONT;
+
+    // --- Estimate how many lines the text needs ---
+    const BASE_W = Math.min(vw * 0.55, 550);
+    let estLines = 0;
+    for (const para of text.split(/\n\n+/)) {
+      let lw = 0;
+      const sw = mctx.measureText(' ').width;
+      for (const w of para.replace(/\n/g, ' ').trim().split(/\s+/).filter(Boolean)) {
+        const ww = mctx.measureText(w).width;
+        if (lw > 0 && lw + sw + ww > BASE_W) { estLines++; lw = ww; }
+        else { lw += (lw > 0 ? sw : 0) + ww; }
+      }
+      if (lw > 0) estLines++;
+      estLines += 1;
+    }
+    const textH = estLines * LH;
+
+    // --- Create the path ---
+    const pathSvg = document.createElementNS(NS, 'svg');
+    pathSvg.style.cssText = 'position:absolute;opacity:0;pointer-events:none;overflow:visible';
+    pathSvg.setAttribute('width', '1');
+    pathSvg.setAttribute('height', '1');
+
+    const pathEl = document.createElementNS(NS, 'path');
+    const stiData = document.getElementById('cfg')?.dataset.sti;
+    const padY = vh * 0.8;
+
+    if (stiData) {
+      pathEl.setAttribute('d', stiData);
+    } else {
+      // Default S-curve sized to fit the text + padding
+      const totalH = textH + padY * 2;
+      const curve = Math.min(vw * 0.22, 250);
+      pathEl.setAttribute('d',
+        `M ${vw / 2} 0 ` +
+        `C ${vw / 2 + curve} ${totalH * 0.33}, ` +
+        `  ${vw / 2 - curve} ${totalH * 0.67}, ` +
+        `  ${vw / 2} ${totalH}`
+      );
+    }
+
+    pathSvg.appendChild(pathEl);
+    document.body.appendChild(pathSvg);
+
+    // --- Sample the path for y → x lookup ---
+    const totalLen = pathEl.getTotalLength();
+    const rawSamples = [];
+    for (let d = 0; d <= totalLen; d += 2) {
+      rawSamples.push(pathEl.getPointAtLength(d));
+    }
+    const ySorted = [...rawSamples].sort((a, b) => a.y - b.y);
+    const pathTopY = ySorted[0].y;
+    const pathBotY = ySorted[ySorted.length - 1].y;
+
+    function pathXAtY(targetY) {
+      let lo = 0, hi = ySorted.length - 1;
+      while (lo < hi) {
+        const mid = (lo + hi) >> 1;
+        if (ySorted[mid].y < targetY) lo = mid + 1;
+        else hi = mid;
+      }
+      let best = ySorted[lo];
+      if (lo > 0 && Math.abs(ySorted[lo - 1].y - targetY) < Math.abs(best.y - targetY))
+        best = ySorted[lo - 1];
+      return best.x;
+    }
+
+    // --- Ribbon width: wider in the middle, narrower at the ends ---
+    function ribbonW(y) {
+      const t = (y - pathTopY) / (pathBotY - pathTopY); // 0 → 1
+      const minW = BASE_W * 0.25;
+      return minW + (BASE_W - minW) * Math.sin(t * Math.PI);
+    }
+
+    // --- Layout: word-wrap text along the path ribbon ---
+    function layout(text) {
+      const lines = [];
+      const tokens = [];
+
+      for (const para of text.split(/\n\n+/)) {
+        const words = para.replace(/\n/g, ' ').trim().split(/\s+/).filter(Boolean);
+        words.forEach(w => tokens.push(w));
+        tokens.push(null); // paragraph break
+      }
+
+      const startY = stiData ? pathTopY + PAD : pathTopY + padY;
+      const endY = stiData ? pathBotY - PAD : pathBotY - padY;
+      let y = startY;
+      let i = 0;
+      let buf = '';
+
+      while (i <= tokens.length && y < endY) {
+        const cx = pathXAtY(y);
+        const w = ribbonW(y);
+        if (w < 40) { y += LH; continue; }
+        const left = cx - w / 2;
+
+        if (i >= tokens.length) {
+          if (buf) lines.push({ t: buf, x: left, y, w });
+          break;
+        }
+
+        if (tokens[i] === null) {
+          if (buf) { lines.push({ t: buf, x: left, y, w }); buf = ''; y += LH; }
+          y += LH * 0.6;
+          i++;
+          continue;
+        }
+
+        const test = buf ? buf + ' ' + tokens[i] : tokens[i];
+        if (mctx.measureText(test).width <= w) {
+          buf = test;
+          i++;
+        } else if (buf) {
+          lines.push({ t: buf, x: left, y, w });
+          buf = '';
+          y += LH;
+        } else {
+          lines.push({ t: tokens[i], x: left, y, w });
+          i++;
+          y += LH;
+        }
+      }
+
+      return lines;
+    }
+
+    const lines = layout(text);
+
+    // --- Render text lines ---
+    const scene = document.getElementById('scene');
+    const frag = document.createDocumentFragment();
+    for (const l of lines) {
+      const el = document.createElement('div');
+      el.className = 'tl';
+      el.textContent = l.t;
+      el.style.cssText = `left:${l.x}px;top:${l.y}px;width:${l.w}px`;
+      frag.appendChild(el);
+    }
+    scene.appendChild(frag);
+
+    // --- Faint path outline ---
+    const outSvg = document.createElementNS(NS, 'svg');
+    outSvg.id = 'path-outline';
+    outSvg.setAttribute('width', vw * 2);
+    outSvg.setAttribute('height', Math.ceil(pathBotY + 200));
+    const outPath = document.createElementNS(NS, 'path');
+    outPath.setAttribute('d', pathEl.getAttribute('d'));
+    outSvg.appendChild(outPath);
+    scene.appendChild(outSvg);
+
+    // --- Scroll: camera follows the same path ---
+    document.getElementById('spacer').style.height = totalLen * 3 + 'px';
+
+    function tick() {
+      const maxScroll = document.documentElement.scrollHeight - vh;
+      const t = maxScroll > 0 ? Math.min(scrollY / maxScroll, 1) : 0;
+      const p = pathEl.getPointAtLength(t * totalLen);
+      scene.style.transform = `translate(${vw / 2 - p.x}px, ${vh / 2 - p.y}px)`;
+    }
+
+    let raf = false;
+    addEventListener('scroll', () => {
+      if (!raf) {
+        requestAnimationFrame(() => { tick(); raf = false; });
+        raf = true;
+      }
+    }, { passive: true });
+
+    tick();
+
+    // --- Try pretext (optional enhancement for better line-breaking) ---
+    try {
+      const pt = await import('https://esm.sh/pretext');
+      console.log('[formopslag] pretext loaded, exports:', Object.keys(pt));
+    } catch {
+      console.log('[formopslag] pretext not available, using canvas measureText');
+    }
+  </script>
+</body>
+</html>

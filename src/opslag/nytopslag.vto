@@ -15,7 +15,7 @@ layout: annanygren.vto
 
 <div id="panels" style="display:none">
     <div class="text-panel" data-panel="1">
-        <div class="titlebar"><span class="title">anna nygren — 1</span><span class="controls">_ □ ×</span></div>
+        <h2 class="panel-title">1</h2>
         <div class="content">
             <p>Att åka med Emma på röntgen.</p>
             <p>Emma hade sagt att hon kunde följa med mig på röntgen också. Hon hade innan dess mött mig vid vårdcentralen. Jag hade gråtit så mycket när jag bokat in tiden. Hade tänkt ut exakt vad jag skulle säga och skrivit ner allt och visat Emma vad jag skrivit. Jag hade skrivit var smärtan fanns vid olika tillfällen och beskrivit hur det inverkade på mitt liv samt hur mitt liv eventuellt inverkade på smärtan. Emma hade sagt att det var en bra text. Hon hade sagt att det var så tydligt. Att det var bra att jag skrivit om att det gjorde det svårt att äta och att det påverkade mitt förhållande till mat. Emma hade följt med mig och varit i rummet med läkaren. Jag hade läst upp texten. Emma hade sagt att hon kunde göra det om jag ville men jag sa att det gick bra. Läkaren höll tummarna i min mun och resten av händerna runt käken. Hon frågade om det gjorde ont då. Det gjorde inte ont. Sara hade sagt att jag skulle fråga efter just den läkaren för hon hade hjälpt Sara då när Sara svimmade efter epileptiskt anfall. Hon hade inte kunnat hjälpa Sara, men Sara sa att hon hade lyssnat. Det här med epilepsin var ännu ett mysterium. Jag hade försökt föreställa mig ett lyssnande, jag visste inte vad det var. Läkaren tryckte med händerna i min mun. Hon sa att hon skulle skicka en remiss till käkröntgen.</p>
@@ -24,27 +24,27 @@ layout: annanygren.vto
         </div>
     </div>
     <div class="text-panel" data-panel="2">
-        <div class="titlebar"><span class="title">2</span><span class="controls">_ □ ×</span></div>
+        <h2 class="panel-title">2</h2>
         <div class="content"><p>Anden…</p></div>
     </div>
     <div class="text-panel" data-panel="3">
-        <div class="titlebar"><span class="title">3</span><span class="controls">_ □ ×</span></div>
+        <h2 class="panel-title">3</h2>
         <div class="content"><p>Trejde…</p></div>
     </div>
     <div class="text-panel" data-panel="4">
-        <div class="titlebar"><span class="title">4</span><span class="controls">_ □ ×</span></div>
+        <h2 class="panel-title">4</h2>
         <div class="content"><p>Fjerde…</p></div>
     </div>
     <div class="text-panel" data-panel="5">
-        <div class="titlebar"><span class="title">5</span><span class="controls">_ □ ×</span></div>
+        <h2 class="panel-title">5</h2>
         <div class="content"><p>Femte…</p></div>
     </div>
     <div class="text-panel" data-panel="6">
-        <div class="titlebar"><span class="title">6</span><span class="controls">_ □ ×</span></div>
+        <h2 class="panel-title">6</h2>
         <div class="content"><p>Sjette…</p></div>
     </div>
     <div class="text-panel" data-panel="7">
-        <div class="titlebar"><span class="title">7</span><span class="controls">_ □ ×</span></div>
+        <h2 class="panel-title">7</h2>
         <div class="content"><p>Syvende…</p></div>
     </div>
 </div>
@@ -95,92 +95,91 @@ body { cursor: default !important; }
     opacity: 0.6;
 }
 
-/* win95/98-style text panel */
+/* text panel — matches site "indholdskasse" style:
+   vertical zinc gradient, zinc-600 border, rounded corners, serif title */
 .text-panel {
-    width: 420px;
-    height: 300px;
-    background: #c0c0c0;
-    border: 2px solid;
-    border-color: #ffffff #404040 #404040 #ffffff;
-    box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080, 2px 2px 0 #000;
+    width: 440px;
+    height: 320px;
+    background: linear-gradient(to bottom, #d4d4d8, #a1a1aa);
+    border: 1px solid #52525b;
+    border-radius: 12px;
+    padding: 24px 24px;
     font-family: "EB Garamond", garamond, "Times New Roman", serif;
-    color: #000;
+    color: #18181b;
     display: flex;
     flex-direction: column;
     pointer-events: auto;
     user-select: text;
+    box-sizing: border-box;
 }
 
-.text-panel .titlebar {
-    background: linear-gradient(to right, #000080, #1084d0);
-    color: #fff;
-    font-family: "Tahoma", "MS Sans Serif", sans-serif;
-    font-size: 12px;
-    padding: 3px 6px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    letter-spacing: 0.03em;
-}
-.text-panel .titlebar .controls {
-    font-family: monospace;
-    letter-spacing: 4px;
+.text-panel .panel-title {
+    font-family: "EB Garamond", garamond, "Times New Roman", serif;
+    font-size: 2.25rem;
+    line-height: 1.1;
+    margin: 0 0 0.5rem 0;
+    font-weight: 400;
+    color: #18181b;
 }
 
 .text-panel .content {
     flex: 1;
-    overflow-y: scroll;
-    padding: 10px 14px;
+    overflow-y: auto;
+    padding-right: 10px;
     font-size: 15px;
-    line-height: 1.45;
-    background: #fff;
-    margin: 3px;
-    border: 1px solid;
-    border-color: #808080 #dfdfdf #dfdfdf #808080;
+    line-height: 1.5;
+    color: #27272a;
 }
 .text-panel .content p { margin: 0 0 0.9em 0; }
-.text-panel .content p:first-child { font-weight: 700; }
+.text-panel .content p:first-child { font-weight: 600; }
 
-/* old-school scrollbar */
+/* retro-ish scrollbar in the zinc palette */
 .text-panel .content {
-    scrollbar-color: #c0c0c0 #dfdfdf;
+    scrollbar-color: #52525b #d4d4d8;
     scrollbar-width: auto;
 }
-.text-panel .content::-webkit-scrollbar { width: 16px; height: 16px; }
+.text-panel .content::-webkit-scrollbar { width: 14px; height: 14px; }
 .text-panel .content::-webkit-scrollbar-track {
-    background: repeating-conic-gradient(#c0c0c0 0% 25%, #dfdfdf 0% 50%) 50% / 2px 2px;
+    background: #d4d4d8;
+    border: 1px solid #52525b;
+    border-radius: 6px;
 }
 .text-panel .content::-webkit-scrollbar-thumb {
-    background: #c0c0c0;
-    border: 2px solid;
-    border-color: #ffffff #404040 #404040 #ffffff;
-    box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080;
+    background: linear-gradient(to right, #a1a1aa, #71717a);
+    border: 1px solid #3f3f46;
+    border-radius: 6px;
+    box-shadow: inset 1px 1px 0 #d4d4d8;
+}
+.text-panel .content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to right, #71717a, #52525b);
 }
 .text-panel .content::-webkit-scrollbar-button:single-button {
-    background: #c0c0c0;
-    height: 16px; width: 16px;
-    border: 2px solid;
-    border-color: #ffffff #404040 #404040 #ffffff;
-    box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080;
     display: block;
+    height: 14px; width: 14px;
+    background: linear-gradient(to bottom, #d4d4d8, #a1a1aa);
+    border: 1px solid #52525b;
+    border-radius: 4px;
     background-repeat: no-repeat;
     background-position: center;
 }
 .text-panel .content::-webkit-scrollbar-button:vertical:decrement {
-    background-image: linear-gradient(to top left, transparent 49%, #000 49%, #000 51%, transparent 51%),
-                      linear-gradient(to top right, transparent 49%, #000 49%, #000 51%, transparent 51%);
-    background-size: 50% 50%;
-    background-position: 25% 60%, 75% 60%;
+    background-image:
+        linear-gradient(to top left, transparent 49%, #18181b 49%, #18181b 51%, transparent 51%),
+        linear-gradient(to top right, transparent 49%, #18181b 49%, #18181b 51%, transparent 51%),
+        linear-gradient(to bottom, #d4d4d8, #a1a1aa);
+    background-size: 45% 45%, 45% 45%, 100% 100%;
+    background-position: 28% 62%, 72% 62%, center;
 }
 .text-panel .content::-webkit-scrollbar-button:vertical:increment {
-    background-image: linear-gradient(to bottom left, transparent 49%, #000 49%, #000 51%, transparent 51%),
-                      linear-gradient(to bottom right, transparent 49%, #000 49%, #000 51%, transparent 51%);
-    background-size: 50% 50%;
-    background-position: 25% 40%, 75% 40%;
+    background-image:
+        linear-gradient(to bottom left, transparent 49%, #18181b 49%, #18181b 51%, transparent 51%),
+        linear-gradient(to bottom right, transparent 49%, #18181b 49%, #18181b 51%, transparent 51%),
+        linear-gradient(to bottom, #d4d4d8, #a1a1aa);
+    background-size: 45% 45%, 45% 45%, 100% 100%;
+    background-position: 28% 38%, 72% 38%, center;
 }
 .text-panel .content::-webkit-scrollbar-corner {
-    background: #c0c0c0;
+    background: #d4d4d8;
 }
 </style>
 
@@ -214,7 +213,7 @@ const cssRenderer = new CSS3DRenderer({ element: cssHost });
 cssRenderer.setSize(window.innerWidth, window.innerHeight);
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xfe8989);
+scene.background = new THREE.Color("rgb(255, 255, 255)");
 scene.fog = new THREE.Fog(0xfe8989, 20, 140);
 
 const cssScene = new THREE.Scene();
@@ -236,137 +235,194 @@ const panelElements = [...panelsSrc.querySelectorAll('.text-panel')];
 const panelObjects = panelElements.map((el) => {
     const clone = el.cloneNode(true);
     const obj = new CSS3DObject(clone);
-    // 420x300 px panel -> scale so it's ~8 world units wide (maze is ~98 wide)
+    // 420x300 px panel -> ~8 world units wide (maze is ~98 wide)
     obj.scale.set(0.02, 0.02, 0.02);
     cssScene.add(obj);
     return obj;
 });
 
-// --- waypoints ---
-// Will be populated after gltf loads and we know the bounding box.
-// Each entry: { spawn: Vector3, view: Vector3, rotationY: number, walk: scroll-units, pause: scroll-units }
-let waypoints = [];
-let segmentEnds = []; // cumulative end scroll position per segment
+// --- camera choreography ---
+// We drive the camera along a keyframe timeline by scroll position.
+// Per textbox, the timeline is:
+//   approach  — top-down pan from previous position to above this section's spawn
+//   dive      — descend from top-down into the maze (eye level) at the spawn
+//   walk      — traverse at eye level from spawn to the textbox position
+//   rise      — ascend back up to a zoomed-in top-down of the section
+//   dwell     — hold top-down on the textbox so it can be read
+// At scroll=0 we start from a full-maze top-down overview.
+
+const PHASES = {
+    approach: 700,
+    dive:     400,
+    walk:     900,
+    rise:     400,
+    dwell:    700,
+};
+const INITIAL_OVERVIEW = 500; // scroll units before segment 0 begins
+
+let keyframes = [];   // { t, pos: Vector3, look: Vector3 }
 let totalScroll = 0;
 
-function buildWaypoints(bbox) {
+function buildTimeline(bbox) {
     const min = bbox.min, max = bbox.max;
     const sx = max.x - min.x;
     const sz = max.z - min.z;
-    const cy = (min.y + max.y) / 2;           // wall mid-height
-    const eyeY = min.y + (max.y - min.y) * 0.55; // camera eye height
+    const maxDim = Math.max(sx, sz);
 
-    // Sample positions spread across the maze. These won't perfectly follow
-    // corridors in the gltf, but they give a working scaffold to tweak.
-    const P = (fx, fz, y = eyeY) =>
+    // Heights
+    const wallTop = max.y;
+    const OVERVIEW_Y = wallTop + maxDim * 0.95; // see the whole maze
+    const SECTION_Y  = wallTop + maxDim * 0.18; // zoomed into one section
+    const EYE_Y      = min.y + (max.y - min.y) * 0.55;
+
+    // fractional -> world position
+    const P = (fx, fz, y) =>
         new THREE.Vector3(min.x + sx * fx, y, min.z + sz * fz);
 
-    // Each target: a "view" point (camera lands looking at the text)
-    // and a "spawn" point a few steps behind along -forward.
-    // rotationY rotates camera around Y axis; use PI/2 for "on that led"
-    // (looking along +X), 0 for looking along -Z, etc.
+    // 7 sections spread across the maze. rotY rotates the text panel within
+    // the floor plane — PI/2 gives the "på den led" sideways reading.
     const defs = [
-        { f: [0.25, 0.30], rotY: 0 },              // look along -Z
-        { f: [0.55, 0.22], rotY: Math.PI / 2 },    // twist 90° (på den led)
-        { f: [0.75, 0.45], rotY: Math.PI },        // flip, look along +Z
-        { f: [0.60, 0.70], rotY: -Math.PI / 2 },   // twist -90°
-        { f: [0.35, 0.80], rotY: 0 },
-        { f: [0.20, 0.55], rotY: Math.PI / 2 },    // twist 90°
-        { f: [0.45, 0.45], rotY: Math.PI / 4 },    // center-ish, diagonal
+        { f: [0.22, 0.29], rotY: 0 },
+        { f: [0.62, 0.22], rotY: Math.PI / 2 },  // twist
+        { f: [0.78, 0.50], rotY: Math.PI },
+        { f: [0.58, 0.74], rotY: -Math.PI / 2 }, // twist
+        { f: [0.28, 0.76], rotY: 0 },
+        { f: [0.18, 0.48], rotY: Math.PI / 2 },  // twist
+        { f: [0.48, 0.50], rotY: Math.PI / 4 },
     ];
 
-    const walkStep = 6; // world units from spawn to view
-    waypoints = defs.map((d, i) => {
-        const view = P(d.f[0], d.f[1]);
-        // forward vector the camera will face at this waypoint
+    // Position flat text panels at each section's view point.
+    const walkSpan = maxDim * 0.12; // how far we walk per segment
+    const sections = defs.map((d, i) => {
+        const view = P(d.f[0], d.f[1], EYE_Y);
         const forward = new THREE.Vector3(
             -Math.sin(d.rotY), 0, -Math.cos(d.rotY)
         );
-        const spawn = view.clone().sub(forward.clone().multiplyScalar(walkStep));
+        const spawn = view.clone().sub(forward.clone().multiplyScalar(walkSpan));
 
-        // Place the text panel a bit ahead of the view point.
-        const panelPos = view.clone().add(forward.clone().multiplyScalar(3.5));
         const obj = panelObjects[i];
         if (obj) {
-            obj.position.copy(panelPos);
-            // face the panel back at the camera
-            obj.rotation.set(0, d.rotY + Math.PI, 0);
+            obj.position.set(view.x, min.y + 0.15, view.z); // just above floor
+            obj.rotation.set(-Math.PI / 2, 0, -d.rotY);     // lie flat, twist
         }
-
-        return {
-            spawn,
-            view,
-            rotationY: d.rotY,
-            walk: 900,  // scroll-units for the walk
-            pause: 600, // scroll-units of dwell at the text
-        };
+        return { spawn, view, walkLook: view.clone().add(forward.clone().multiplyScalar(walkSpan * 0.6)) };
     });
 
-    // cumulative segment ends
-    let acc = 0;
-    segmentEnds = waypoints.map((w) => {
-        acc += w.walk + w.pause;
-        return acc;
+    // Build keyframes along the scroll timeline.
+    keyframes = [];
+    let t = 0;
+
+    // Initial overview (top-down of full maze)
+    const center = new THREE.Vector3((min.x + max.x) / 2, 0, (min.z + max.z) / 2);
+    const overviewPos = new THREE.Vector3(center.x, OVERVIEW_Y, center.z + 0.001);
+    const overviewLook = center.clone();
+
+    keyframes.push({ t: 0, pos: overviewPos.clone(), look: overviewLook.clone() });
+    t += INITIAL_OVERVIEW;
+    keyframes.push({ t, pos: overviewPos.clone(), look: overviewLook.clone() }); // hold overview
+
+    sections.forEach((s) => {
+        const sectionPosSpawn = new THREE.Vector3(s.spawn.x, SECTION_Y, s.spawn.z + 0.001);
+        const sectionLookSpawn = new THREE.Vector3(s.spawn.x, 0, s.spawn.z);
+        const sectionPosView = new THREE.Vector3(s.view.x, SECTION_Y, s.view.z + 0.001);
+        const sectionLookView = new THREE.Vector3(s.view.x, 0, s.view.z);
+        const eyePosSpawn = s.spawn.clone();
+        const eyePosView = s.view.clone();
+
+        // approach: current -> above spawn (top-down)
+        t += PHASES.approach;
+        keyframes.push({ t, pos: sectionPosSpawn.clone(), look: sectionLookSpawn.clone() });
+
+        // dive: above spawn (top-down) -> eye-level at spawn looking toward view
+        t += PHASES.dive;
+        keyframes.push({ t, pos: eyePosSpawn.clone(), look: s.walkLook.clone() });
+
+        // walk: eye-level spawn -> eye-level view
+        t += PHASES.walk;
+        keyframes.push({ t, pos: eyePosView.clone(), look: s.walkLook.clone() });
+
+        // rise: eye-level view -> above view (top-down)
+        t += PHASES.rise;
+        keyframes.push({ t, pos: sectionPosView.clone(), look: sectionLookView.clone() });
+
+        // dwell: hold top-down over textbox
+        t += PHASES.dwell;
+        keyframes.push({ t, pos: sectionPosView.clone(), look: sectionLookView.clone() });
     });
-    totalScroll = acc;
+
+    totalScroll = t;
 }
 
 // --- scroll-driven camera ---
 let scrollPos = 0;
 let targetScroll = 0;
 
+const _pos = new THREE.Vector3();
+const _look = new THREE.Vector3();
+
 function updateCamera() {
-    if (!waypoints.length) return;
+    if (!keyframes.length) return;
 
-    const s = scrollPos;
-    // find current segment
-    let i = 0;
-    while (i < segmentEnds.length - 1 && s > segmentEnds[i]) i++;
+    const s = Math.max(0, Math.min(totalScroll, scrollPos));
 
-    const segStart = i === 0 ? 0 : segmentEnds[i - 1];
-    const local = s - segStart;
-    const wp = waypoints[i];
+    // find the keyframe pair surrounding s
+    let j = 1;
+    while (j < keyframes.length - 1 && keyframes[j].t < s) j++;
+    const a = keyframes[j - 1];
+    const b = keyframes[j];
+    const span = b.t - a.t;
+    const local = span === 0 ? 1 : (s - a.t) / span;
+    const tt = ease(Math.max(0, Math.min(1, local)));
 
-    let pos, rotY;
-    if (local <= wp.walk) {
-        // walking phase: spawn -> view
-        const t = ease(Math.max(0, Math.min(1, local / wp.walk)));
-        pos = wp.spawn.clone().lerp(wp.view, t);
-        rotY = wp.rotationY;
-        // subtle head-bob during the walk
-        pos.y += Math.sin(t * Math.PI * 4) * 0.12;
-    } else {
-        // pause phase: at view, settled
-        pos = wp.view.clone();
-        rotY = wp.rotationY;
-    }
+    _pos.copy(a.pos).lerp(b.pos, tt);
+    _look.copy(a.look).lerp(b.look, tt);
 
-    camera.position.copy(pos);
-    camera.rotation.set(0, rotY, 0);
+    camera.position.copy(_pos);
+    camera.lookAt(_look);
 
     if (debugEl) {
         debugEl.textContent =
-            `seg ${i}  local ${Math.round(local)}/${wp.walk + wp.pause}  ` +
-            `scroll ${Math.round(s)}/${totalScroll}`;
+            `kf ${j - 1}→${j}  t ${tt.toFixed(2)}  scroll ${Math.round(s)}/${totalScroll}`;
     }
 }
 
 function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
 
+// If a wheel/touch happens inside a panel's scrollable content, let that
+// element scroll natively and do NOT move the 3D camera — except when the
+// panel is already at its scroll edge, in which case the camera takes over.
+function panelCanConsume(target, deltaY) {
+    const el = target && target.closest ? target.closest('.text-panel .content') : null;
+    if (!el) return false;
+    if (deltaY < 0) return el.scrollTop > 0;
+    if (deltaY > 0) return el.scrollTop + el.clientHeight < el.scrollHeight - 1;
+    return false;
+}
+
 window.addEventListener('wheel', (e) => {
+    if (panelCanConsume(e.target, e.deltaY)) return; // let the panel scroll
     targetScroll = Math.max(0, Math.min(totalScroll, targetScroll + e.deltaY));
     e.preventDefault();
 }, { passive: false });
 
 // touch
 let touchY = null;
-window.addEventListener('touchstart', (e) => { touchY = e.touches[0].clientY; }, { passive: true });
+let touchInPanel = false;
+window.addEventListener('touchstart', (e) => {
+    const t = e.target;
+    touchInPanel = !!(t && t.closest && t.closest('.text-panel .content'));
+    touchY = e.touches[0].clientY;
+}, { passive: true });
 window.addEventListener('touchmove', (e) => {
     if (touchY == null) return;
-    const dy = touchY - e.touches[0].clientY;
-    touchY = e.touches[0].clientY;
+    const newY = e.touches[0].clientY;
+    const dy = touchY - newY;
+    touchY = newY;
+    // dy > 0 = swipe up (scroll forward); dy < 0 = swipe down
+    if (touchInPanel && panelCanConsume(e.target, dy)) return;
     targetScroll = Math.max(0, Math.min(totalScroll, targetScroll + dy * 2));
 }, { passive: true });
+window.addEventListener('touchend', () => { touchY = null; touchInPanel = false; }, { passive: true });
 
 // --- load labyrinth ---
 const loader = new GLTFLoader();
@@ -399,11 +455,11 @@ loader.load(
         // recompute bbox after centering
         const finalBbox = new THREE.Box3().setFromObject(root);
 
-        buildWaypoints(finalBbox);
+        buildTimeline(finalBbox);
 
-        // put camera at first spawn to start
-        camera.position.copy(waypoints[0].spawn);
-        camera.rotation.set(0, waypoints[0].rotationY, 0);
+        // start at the very first keyframe (overview)
+        camera.position.copy(keyframes[0].pos);
+        camera.lookAt(keyframes[0].look);
 
         loadingEl.style.display = 'none';
     },

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="se">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/kodederskalsmukkificereting-2025-11-19.css">
+    <script async src="/kodederskalgoereting-2025-03-04.js"></script>
+    <title>{{ titel }}</title>
+    <link rel="canonical" href="{{ url |> url(true) }}">
+  </head>
+  <!--
+  hamrebræt
+  Tegner ting<br/>
+  Tegner mønster
+      &#9;Tegner høner
+  Tegner ting
+  Tegner træer
+      Tegner gæster
+  Tegner ting
+  Tegner stjerner
+      Tegner skyer
+  Tegner ting
+  Tegner ænder
+      Tegner syre
+  Tegner venner
+      Tegner verdner
+  Tegner ting
+
+  Tegner: papir, blyant, tusch, farve
+  Tergner: for-, bag-, inder-, yderside
+  Tegner: -
+  -->
+  <div id="cursor-trail"></div>
+  <body class="min-h-screen text-zinc-900 cursor-none" style="background-color: #fe8989;">
+      {{ content }}
+    <script>
+    // Cursor trail effect
+    function createTrail() {
+      const trailContainer = document.getElementById('cursor-trail');
+      const dots = [];
+      const maxDots = 15;
+
+      function createDot(x, y) {
+        const dot = document.createElement('div');
+        dot.className = 'trail-dot';
+        dot.style.left = x + 'px';
+        dot.style.top = y + 'px';
+        return dot;
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        const dot = createDot(e.clientX, e.clientY);
+        trailContainer.appendChild(dot);
+        dots.push(dot);
+
+        // Fade out effect
+        let opacity = 1;
+        const fadeOut = setInterval(() => {
+          opacity -= 0.1;
+          dot.style.opacity = opacity;
+          dot.style.transform = `scale(${opacity})`;
+          
+          if (opacity <= 0) {
+            clearInterval(fadeOut);
+            dot.remove();
+          }
+        }, 50);
+
+        // Remove old dots
+        if (dots.length > maxDots) {
+          const oldDot = dots.shift();
+          oldDot.remove();
+        }
+      });
+    }
+
+    // Initialize when the page loads
+    document.addEventListener('DOMContentLoaded', createTrail);
+    </script>
+  </body>
+</html>

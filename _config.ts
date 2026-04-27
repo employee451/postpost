@@ -21,6 +21,7 @@ const site = lume({
 site.use(googleFonts({
   fonts: {
 	dinfarshvidvin: "https://fonts.google.com/share?selection.family=Montaga",
+	garamond: "https://fonts.google.com/share?selection.family=EB+Garamond",
   },
 }));
 
@@ -62,6 +63,7 @@ site.copy("videoer");
 
 site.copy("billeder/kunstnere/krogslev.gif")
 site.copy("billeder/produktionsstroemmen.jpg")
+site.copy("labyrint.gltf")
 
 site.copy("fonte");
 
