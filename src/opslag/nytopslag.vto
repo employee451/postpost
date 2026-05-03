@@ -102,10 +102,11 @@ VAD GÖRA MED SJUKDOM, VAD FÖR SLAGS SJUKDOM…
 </div>
 
 <style>
-/* Page background = the dark red the labyrinth used to be.
-   The layout sets a light pink on body, so we override it. */
+/* Page background colour comes from the BACKGROUND constant in the
+   <script> below — it's set on :root as --page-bg so this stylesheet
+   and the WebGL renderer share the same value. */
 html, body { margin: 0; padding: 0; overflow: hidden; height: 100%; }
-body { background: #8a1f1f !important; cursor: default !important; }
+body { cursor: default !important; }
 
 #webgl, #css3d {
     position: fixed; top: 0; left: 0;
@@ -167,10 +168,10 @@ body { background: #8a1f1f !important; cursor: default !important; }
 .text-panel p:first-of-type { font-weight: 600; }
 
 /* Retro chunky scrollbar in the page palette. */
-.text-panel { scrollbar-color: #000 #8a1f1f; scrollbar-width: auto; }
+.text-panel { scrollbar-color: #000 var(--page-bg); scrollbar-width: auto; }
 .text-panel::-webkit-scrollbar { width: 14px; height: 14px; }
 .text-panel::-webkit-scrollbar-track {
-    background: #8a1f1f;
+    background: var(--page-bg);
     border: 1px solid #000;
     border-radius: 6px;
 }
@@ -182,7 +183,7 @@ body { background: #8a1f1f !important; cursor: default !important; }
 .text-panel::-webkit-scrollbar-button:single-button {
     display: block;
     height: 14px; width: 14px;
-    background: #8a1f1f;
+    background: var(--page-bg);
     border: 1px solid #000;
     border-radius: 4px;
     background-repeat: no-repeat;
@@ -192,7 +193,7 @@ body { background: #8a1f1f !important; cursor: default !important; }
     background-image:
         linear-gradient(to top left,  transparent 49%, #000 49%, #000 51%, transparent 51%),
         linear-gradient(to top right, transparent 49%, #000 49%, #000 51%, transparent 51%),
-        linear-gradient(#8a1f1f, #8a1f1f);
+        linear-gradient(var(--page-bg), var(--page-bg));
     background-size: 45% 45%, 45% 45%, 100% 100%;
     background-position: 28% 62%, 72% 62%, center;
 }
@@ -200,11 +201,11 @@ body { background: #8a1f1f !important; cursor: default !important; }
     background-image:
         linear-gradient(to bottom left,  transparent 49%, #000 49%, #000 51%, transparent 51%),
         linear-gradient(to bottom right, transparent 49%, #000 49%, #000 51%, transparent 51%),
-        linear-gradient(#8a1f1f, #8a1f1f);
+        linear-gradient(var(--page-bg), var(--page-bg));
     background-size: 45% 45%, 45% 45%, 100% 100%;
     background-position: 28% 38%, 72% 38%, center;
 }
-.text-panel::-webkit-scrollbar-corner { background: #8a1f1f; }
+.text-panel::-webkit-scrollbar-corner { background: var(--page-bg); }
 .courier {
     font-family: courier;
 }
@@ -232,7 +233,10 @@ import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer
 // ╚══════════════════════════════════════════════════════════════════╝
 
 // Background color, behind the labyrinth and showing through its gaps.
+// Single source of truth: also drives the CSS --page-bg variable used
+// by the page background and scrollbar styling above.
 const BACKGROUND = '#fe8989';
+document.documentElement.style.setProperty('--page-bg', BACKGROUND);
 
 // The flight path. The camera flies through these stops in order as you
 // scroll. Each stop is a top-down view (the camera always looks straight
@@ -263,6 +267,13 @@ const BACKGROUND = '#fe8989';
 //               share the same size). Default 15.
 //   panelFlip : optional, boolean. Mirrors the panel horizontally
 //               (text and layout flipped left-right). Default false.
+//   mobileX,
+//   mobileZ,
+//   mobileHeight : optional. When the viewport is portrait (height
+//               greater than width), these override `x` / `z` / `height`
+//               for that stop. Each one independently falls back to its
+//               desktop counterpart if unset, so you can override only
+//               what needs adjusting on phones.
 //   dwell     : optional. Override SCROLL_DWELL just for this stop.
 //               Useful for giving long texts more reading room, or
 //               quickly passing over short ones.
@@ -281,14 +292,16 @@ const BACKGROUND = '#fe8989';
 // The debug readout shows current x/z/height/rotation — paste them into
 // a stop. Scroll with the wheel to leave free-fly mode.
 const STOPS = [
-    { x: 0.50, z: 0.50, height: 300, dwell: 0 },
+    { x: 0.50, z: 0.50, height: 300, mobileHeight: 170, mobileX: 0.3, dwell: 0 },
     { 
         x: 0.264, 
         z: 0.320, 
         height: 48.8, 
+        mobileX: 0.24,
+        mobileHeight: 38,
         text: 1, 
         panelW: 450,
-        panelH: 700,
+        panelH: 650,
         panelX: 0.242,
         panelZ: 0.325,
     },
@@ -302,6 +315,8 @@ const STOPS = [
         x: 0.924,
         z: 0.320,
         height: 8.8,
+        mobileZ: 0.316,
+        mobileHeight: 12,
         text: 2,
         rotation: 85,
         panelX: 0.898,
@@ -333,7 +348,12 @@ const STOPS = [
        dwell: 0,
     },
     {
-        x: 0.314, z: 0.580, height: 68.8, text: 4,
+        x: 0.314, 
+        z: 0.580, 
+        height: 68.8,
+        mobileHeight: 50,
+        mobileX: 0.3,
+        text: 4,
         panelX: 0.3,
         panelZ: 0.55,
         panelW: 600,
@@ -344,7 +364,9 @@ const STOPS = [
     { 
         x: 0.714, 
         z: 0.66, 
-        height: -46.2, 
+        height: -46.2,
+        mobileHeight: -38,
+        mobileX: 0.74,
         text: 5, 
         panelFlip: true,
         panelH: 530,
@@ -370,6 +392,8 @@ const STOPS = [
         x: 0.874,
         z: 0.64,
         height: -26.2,
+        mobileX: 0.884,
+        mobileHeight: -22,
         text: 6,
         panelFlip: true,
         panelFontSize: 8,
@@ -400,21 +424,26 @@ const USE_EASING = true;
 // 5 (almost orthographic, no visible wall sides at all).
 const CAMERA_FOV = 22;
 
-// Aspect ratio the STOPS' `height` values were tuned for (~landscape).
-// On narrower viewports (portrait phones) the camera is pulled back so
-// the horizontal coverage stays roughly the same — otherwise the maze
-// would shrink and look uncentered relative to desktop.
-const REFERENCE_ASPECT = 16 / 9;
-function aspectHeightMul() {
-    const a = window.innerWidth / window.innerHeight;
-    return a < REFERENCE_ASPECT ? REFERENCE_ASPECT / a : 1;
-}
-
 // Multiplier on wall height. The maze model's walls run along its local
 // Z axis (which becomes world Y after the rotation). Lower this to make
 // the walls literally shorter — useful if perspective alone isn't
 // enough. 1.0 = original, 0.3 = squished, 0.05 = almost flat-on-floor.
 const WALL_HEIGHT_SCALE = 1.0;
+
+// Aspect the STOPS' `height` values were tuned for. On narrower viewports
+// (portrait phones) the camera is lifted so horizontal coverage stays
+// roughly the same as desktop — otherwise the maze appears uncentered.
+// MOBILE_ZOOM_STRENGTH dampens the lift: 1.0 = full compensation (can
+// feel too zoomed out), 0.0 = no adjustment, 0.5 = halfway. Tweak to
+// taste.
+const REFERENCE_ASPECT = 16 / 9;
+const MOBILE_ZOOM_STRENGTH = 0.2;
+function aspectHeightMul() {
+    const a = window.innerWidth / window.innerHeight;
+    if (a >= REFERENCE_ASPECT) return 1;
+    const full = REFERENCE_ASPECT / a;          // full compensation
+    return 1 + (full - 1) * MOBILE_ZOOM_STRENGTH;
+}
 
 // ╔══════════════════════════════════════════════════════════════════╗
 // ║   ENGINE — you don't need to edit below unless you want to       ║
@@ -462,18 +491,6 @@ panelsSrc.querySelectorAll('.text-panel').forEach((el) => {
 const cssObjects = [];
 const panelEls = [];
 
-// Resolve a panel's CSS-pixel width/height, clamped to a fraction of the
-// viewport so a panel never demands more layout space than the screen.
-// Re-run on resize so rotating the phone keeps the panel within frame.
-function applyPanelSize(clone, stop) {
-    const baseW = stop.panelW ?? 440;     // mirrors .text-panel CSS default
-    const baseH = stop.panelH ?? 320;
-    const maxW = window.innerWidth * 0.9;
-    const maxH = window.innerHeight * 0.9;
-    clone.style.width  = Math.min(baseW, maxW) + 'px';
-    clone.style.height = Math.min(baseH, maxH) + 'px';
-}
-
 STOPS.forEach((stop) => {
     if (!stop.text) {
         cssObjects.push(null);
@@ -487,7 +504,8 @@ STOPS.forEach((stop) => {
         return;
     }
     const clone = src.cloneNode(true);
-    applyPanelSize(clone, stop);
+    if (stop.panelW) clone.style.width  = stop.panelW + 'px';
+    if (stop.panelH) clone.style.height = stop.panelH + 'px';
     if (stop.panelFontSize) {
         clone.style.setProperty('--panel-font-size', stop.panelFontSize + 'px');
     }
@@ -513,6 +531,25 @@ let keyframes = [];
 let totalScroll = 0;
 let mazeBbox = null;   // remembered for the debug readout
 
+// Whether the viewport is portrait (taller than wide). Per-stop mobileX,
+// mobileZ, mobileHeight overrides kick in only when this is true.
+function isPortrait() {
+    return window.innerWidth < window.innerHeight;
+}
+
+// Resolve the camera-position fields a stop should use right now: when
+// portrait, fall back through mobile overrides; when landscape, ignore
+// them. Anything unset just uses the original value.
+function effectiveStop(stop) {
+    if (!isPortrait()) return stop;
+    return {
+        ...stop,
+        x:      stop.mobileX      ?? stop.x,
+        z:      stop.mobileZ      ?? stop.z,
+        height: stop.mobileHeight ?? stop.height,
+    };
+}
+
 function buildPath(bbox) {
     const { min, max } = bbox;
     const sx = max.x - min.x;
@@ -528,7 +565,8 @@ function buildPath(bbox) {
 
     // Place each text panel just above the floor. By default the panel
     // sits at the stop's (x, z), but `panelX` / `panelZ` can move it
-    // independently of where the camera looks.
+    // independently of where the camera looks. Panel positions don't
+    // get a mobile override — only the camera does.
     STOPS.forEach((stop, i) => {
         const obj = cssObjects[i];
         if (!obj) return;
@@ -545,10 +583,11 @@ function buildPath(bbox) {
     let t = 0;
     let prevYaw = 0;
     STOPS.forEach((stop, i) => {
-        const w = worldOf(stop);
+        const eff = effectiveStop(stop);
+        const w = worldOf(eff);
         // Camera straight above the stop. The tiny +0.001 z-offset prevents
         // a degenerate look-at when looking exactly straight down.
-        const pos  = new THREE.Vector3(w.x, floorY + stop.height, w.z + 0.001);
+        const pos  = new THREE.Vector3(w.x, floorY + eff.height, w.z + 0.001);
         const look = w.clone();
         // Resolve target yaw, picking the shortest direction relative to
         // the previous keyframe so the maze rotates the short way (e.g.
@@ -613,8 +652,6 @@ function updateCamera() {
     _pos.copy(a.pos).lerp(b.pos, tt);
     _look.copy(a.look).lerp(b.look, tt);
     stopYaw = a.yaw + (b.yaw - a.yaw) * tt;
-    // On narrow viewports, lift the camera so horizontal coverage stays
-    // close to the desktop framing the STOPS were tuned for.
     if (mazeBbox) {
         const floorY = mazeBbox.min.y;
         _pos.y = floorY + (_pos.y - floorY) * aspectHeightMul();
@@ -809,15 +846,18 @@ function animate() {
 }
 animate();
 
+let lastPortrait = isPortrait();
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
     cssRenderer.setSize(window.innerWidth, window.innerHeight);
-    // Re-clamp panel sizes so they keep fitting after orientation change.
-    STOPS.forEach((stop, i) => {
-        const el = panelEls[i];
-        if (el) applyPanelSize(el, stop);
-    });
+    // Rebuild keyframes when orientation flips so portrait/landscape
+    // overrides take effect after rotating the device.
+    const nowPortrait = isPortrait();
+    if (nowPortrait !== lastPortrait && mazeBbox) {
+        lastPortrait = nowPortrait;
+        buildPath(mazeBbox);
+    }
 });
 </script>
