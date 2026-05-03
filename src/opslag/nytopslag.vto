@@ -856,7 +856,7 @@ new GLTFLoader().load(
     (ev) => {
         if (ev.total) {
             const pct = Math.round((ev.loaded / ev.total) * 100);
-            loadingEl.textContent = `loader labyrinten… ${pct}%`;
+            loadingEl.textContent = `loader… ${pct}%`;
         }
     },
     (err) => {
