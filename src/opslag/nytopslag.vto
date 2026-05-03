@@ -8,7 +8,7 @@ layout: annanygren.vto
 
 <div id="loading">loader labyrinten…</div>
 <div id="scroll-hint">scroll →</div>
-<div id="debug"></div>
+<div id="debug" style="display:none"></div>
 
 <canvas id="webgl"></canvas>
 <div id="css3d"></div>
@@ -419,6 +419,10 @@ const SCROLL_SMOOTHING = 0.5;
 // landings, also more jaggedy).
 const USE_EASING = true;
 
+// Show the debug readout (current x/z/height/rotation in the top-left
+// corner) on load. Toggle at any time with the 'd' key.
+const SHOW_DEBUG = false;
+
 // Camera lens. Smaller FOV = flatter view (less perspective distortion,
 // walls appear less tall). Try 35 (slight perspective) → 15 (very flat) →
 // 5 (almost orthographic, no visible wall sides at all).
@@ -454,6 +458,7 @@ const canvas    = document.getElementById('webgl');
 const cssHost   = document.getElementById('css3d');
 const loadingEl = document.getElementById('loading');
 const debugEl   = document.getElementById('debug');
+if (SHOW_DEBUG) debugEl.style.display = '';
 const panelsSrc = document.getElementById('panels');
 
 // Two renderers share one camera:
@@ -685,25 +690,54 @@ window.addEventListener('wheel', (e) => {
     e.preventDefault();
 }, { passive: false });
 
+// Touch handling owns the whole gesture: the dwelling panel scrolls if
+// it can, otherwise the camera advances. Native iOS momentum is killed
+// by preventDefault, so we synthesise our own — track velocity during
+// the gesture and decay it each frame after touchend.
 let touchY = null;
+let touchVy = 0;          // px / ms (positive = scrolling content down)
+let touchT  = 0;
+let inertia = null;       // { vy } — applied each animate() frame after release
+const INERTIA_DECAY  = 0.94;   // per ~16ms frame
+const INERTIA_CUTOFF = 0.04;   // px/ms below which the glide stops
+
+function applyTouchDelta(dy) {
+    manualMode = false;
+    if (!tryScrollPanel(dwellingPanel(), dy)) {
+        targetScroll = Math.max(0, Math.min(totalScroll, targetScroll + dy * 2));
+    }
+}
+
 window.addEventListener('touchstart', (e) => {
     touchY = e.touches[0].clientY;
+    touchT = performance.now();
+    touchVy = 0;
+    inertia = null; // any in-flight glide stops on a new touch
 }, { passive: false });
+
 window.addEventListener('touchmove', (e) => {
     if (touchY == null) return;
     const newY = e.touches[0].clientY;
     const dy = touchY - newY;
-    touchY = newY;
-    manualMode = false;
-    // Always own the gesture: scroll the dwelling panel if it can move,
-    // otherwise advance the camera. Either way, suppress the iOS rubber-
-    // band / bounce that would otherwise fight the experience.
-    if (!tryScrollPanel(dwellingPanel(), dy)) {
-        targetScroll = Math.max(0, Math.min(totalScroll, targetScroll + dy * 2));
+    const now = performance.now();
+    const dt = now - touchT;
+    // Smooth the velocity a touch so a jittery final sample doesn't dominate.
+    if (dt > 0) {
+        const sample = dy / dt;
+        touchVy = touchVy * 0.6 + sample * 0.4;
     }
+    touchY = newY;
+    touchT = now;
+    applyTouchDelta(dy);
     e.preventDefault();
 }, { passive: false });
-window.addEventListener('touchend', () => { touchY = null; }, { passive: true });
+
+window.addEventListener('touchend', () => {
+    touchY = null;
+    if (Math.abs(touchVy) > INERTIA_CUTOFF) {
+        inertia = { vy: touchVy };
+    }
+}, { passive: true });
 
 // ─── temporary keyboard free-fly (for finding good stop positions) ────
 // Arrows nudge x/z; u/i nudge height. o/p spin the top-down view around
@@ -726,8 +760,14 @@ const KEY_YAW_STEP    = Math.PI / 36; // 5° per o/p press
 window.addEventListener('keydown', (e) => {
     if (!mazeBbox) return;
 
-    const keys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'u', 'i', 'o', 'p'];
+    const keys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'u', 'i', 'o', 'p', 'd'];
     if (!keys.includes(e.key)) return;
+
+    if (e.key === 'd') {
+        debugEl.style.display = debugEl.style.display === 'none' ? '' : 'none';
+        e.preventDefault();
+        return;
+    }
 
     // o/p only spin the view; they don't engage free-fly so they keep
     // working while dwelling at a stop.
@@ -772,6 +812,7 @@ function applyYaw() {
 // Update the debug readout from whatever the current camera state is.
 function updateDebug() {
     if (!debugEl || !mazeBbox) return;
+    if (debugEl.style.display === 'none') return;
     const min = mazeBbox.min, max = mazeBbox.max;
     const fx = (camera.position.x - min.x) / (max.x - min.x);
     const fz = (camera.position.z - min.z) / (max.z - min.z);
@@ -826,6 +867,14 @@ new GLTFLoader().load(
 
 // ─── render loop ──────────────────────────────────────────────────────
 function animate() {
+    // Touch inertia: apply leftover velocity from the last gesture,
+    // routed to whatever channel the user was driving (panel or camera).
+    if (inertia) {
+        const dy = inertia.vy * 16; // approximate per-frame px
+        applyTouchDelta(dy);
+        inertia.vy *= INERTIA_DECAY;
+        if (Math.abs(inertia.vy) < INERTIA_CUTOFF) inertia = null;
+    }
     if (manualMode) {
         // Free-fly: the keyboard moves the camera directly.
         camera.position.copy(_manualPos);
