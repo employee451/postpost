@@ -372,6 +372,7 @@ const STOPS = [
         panelH: 530,
         panelW: 550,
         panelX: 0.74,
+        dwell: 400,
     },
     // Gåtur nr. 2
     {
@@ -465,7 +466,7 @@ const panelsSrc = document.getElementById('panels');
 //   - WebGLRenderer draws the 3D labyrinth model
 //   - CSS3DRenderer draws the HTML text panels in 3D space
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(BACKGROUND);
 
@@ -514,11 +515,15 @@ STOPS.forEach((stop) => {
     if (stop.panelFontSize) {
         clone.style.setProperty('--panel-font-size', stop.panelFontSize + 'px');
     }
+    // Mirror via a 2D scaleX on the inner element rather than a negative
+    // 3D scale on the CSS3DObject — older browsers/GPUs choke on the
+    // negative-determinant matrix3d that the latter produces.
+    if (stop.panelFlip) {
+        clone.style.transform = 'scaleX(-1)';
+        clone.style.transformOrigin = 'center';
+    }
     const obj = new CSS3DObject(clone);
-    // CSS pixels → world units. Negate scale.x to mirror the panel
-    // horizontally (text reads right-to-left, layout flipped).
-    const sx = stop.panelFlip ? -0.02 : 0.02;
-    obj.scale.set(sx, 0.02, 0.02);
+    obj.scale.set(0.02, 0.02, 0.02);
     // Spin the panel in its own plane first, then lay it flat. With the
     // default XYZ Euler order, rotation.z is applied before rotation.x,
     // so this rotates the text on the floor cleanly.
