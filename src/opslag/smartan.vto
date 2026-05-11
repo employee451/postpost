@@ -1,6 +1,6 @@
 ---
 titel: SMÄRTAN.
-dato: 2026-05-11
+dato: 2026-05-12
 uddrag:
 udgivet: nej
 layout: annanygren.vto
@@ -156,7 +156,7 @@ kunstner_id: annanygren
         </p>
     </div>
     <div class="text-panel" data-panel="4">
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         <h2>4</h2>
         <p>
 Första gången huvudvärken kom bodde jag hemma hos en väldigt gammal man, jag bodde i ett mycket litet rum, rummet var väldigt fullt av saker, som kom från olika tider och olika personer, som liksom samlats där. Där fanns ett stort älghorn som lutade mot väggen, spetsarna på hornet var i höjd med mina axlar, jag var alltid rädd att hornet skulle falla över sängen när jag låg i den, en gång hade jag sett en film där dom sköt ett skott in i en spegel uppsatt i taket ovanför en säng och skärvor från spegeln föll ner som spjut över mannen som var fastbunden i sängen. Skärvor av spegel trycktes in i hans buk. Jag var även rädd att jag i halvsovande kissnödigt tillstånd skulle vandra i mörkret, rakt in i spetsarna på hornet och dom skulle tryckas in i mina nyckelben. Jag trädde vantar på hornen för att skydda mig. Mina händer var kalla tills sommaren kom. <br/><br/>
@@ -448,7 +448,7 @@ const STOPS = [
         dwell: 600,
     },
     // Sigurds gåtur
-    { x: 0.914, z: 0.27, height: 33.8, rotation: 85, dwell: 0, leg: 100 },
+    { x: 0.914, z: 0.27, height: 33.8, rotation: 85, dwell: 0, leg: 600 },
     { x: 0.914, z: 0.26, height: 33.8, rotation: 85, dwell: 0, leg: 100 },
     { x: 0.934, z: 0.26, height: 33.8, rotation: 85, dwell: 0, leg: 100 },
     { x: 0.934, z: 0.23, height: 33.8, rotation: 85, dwell: 0, leg: 100 },
@@ -462,7 +462,10 @@ const STOPS = [
         rotation: 85,
         text: 3,
         panelRotation: -85,
-        panelW: 450,
+        panelX: 0.82,
+        panelZ: 0.235,
+        panelW: 500,
+        panelH: 600
     },
     {
        x: 0.504, 
@@ -483,7 +486,7 @@ const STOPS = [
         panelH: 1200,
         panelFontSize: 20,
     },
-    { x: 0.434, z: 0.6, height: -76.2, dwell: 0 },
+    { x: 0.434, z: 0.6, height: -76.2, dwell: 0, leg: 1000 },
     { 
         x: 0.714, 
         z: 0.66, 
@@ -596,7 +599,7 @@ const EXTRAS = [
         z: -0.2, height: 0,
         centeredOn: 0,                  // first STOP — header's intended view
         responsive: true,
-        worldWidth: 300,
+        worldWidth: 260,
     },
     {
         // Artist card (Indholdskasse) + the standard nav-link footer.
@@ -610,8 +613,8 @@ const EXTRAS = [
 
 // How much scroll each phase takes. Bigger = slower / more dwell.
 const SCROLL_LEG           = 600;  // moving from one stop to the next
-const SCROLL_ARRIVAL_DWELL = 120;  // pause on arrival before panel/camera scrolls
-const SCROLL_DWELL         = 200;  // holding still at a stop so it can be read
+const SCROLL_ARRIVAL_DWELL = 300;  // pause on arrival before panel/camera scrolls
+const SCROLL_DWELL         = 300;  // holding still at a stop so it can be read
 
 // How much the camera "smooths" wheel input. 1.0 = no smoothing, the
 // camera tracks the wheel exactly (most jaggedy). 0.08 = heavy smoothing
