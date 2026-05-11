@@ -8,7 +8,6 @@ kunstner_id: annanygren
 ---
 
 <div id="loading">loader…</div>
-<div id="scroll-hint">scroll →</div>
 <div id="debug" style="display:none"></div>
 
 <canvas id="webgl"></canvas>
@@ -256,20 +255,12 @@ body.cursor-none { cursor: default; }
 #css3d { z-index: 2; pointer-events: none; }
 #css3d > div { pointer-events: none; }
 
-#loading, #scroll-hint {
+#loading {
     position: fixed; z-index: 10; color: #000;
     font-family: "EB Garamond", garamond, serif;
-}
-#loading {
     top: 50%; left: 50%; transform: translate(-50%, -50%);
     font-size: 2em; letter-spacing: 0.1em;
 }
-#scroll-hint {
-    bottom: 20px; right: 24px;
-    font-size: 1.1em; font-style: italic; opacity: 0.7;
-    animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100% { opacity: 0.3 } 50% { opacity: 0.9 } }
 
 #debug {
     position: fixed; top: 8px; left: 8px;
@@ -420,7 +411,7 @@ const STOPS = [
         height: 395, 
         mobileHeight: 170, 
         mobileX: 0.3, 
-        mobileZ: 0.1,
+        mobileZ: 0.0,
         dwell: 0 
     },
     {
@@ -552,8 +543,9 @@ const STOPS = [
         z: 1.0, 
         height: 395, 
         mobileHeight: 170, 
-        mobileX: 0.3, 
-        dwell: 0 
+        mobileX: 0.3,
+        mobileZ: 1.5,
+        dwell: 0
     }
 ];
 
@@ -605,15 +597,15 @@ const EXTRAS = [
         z: -0.2, height: 0,
         centeredOn: 0,                  // first STOP — header's intended view
         responsive: true,
-        worldWidth: 200,
+        worldWidth: 300,
     },
     {
         // Artist card (Indholdskasse) + the standard nav-link footer.
         slot: 'footer',
-        z: 1.3, height: 0,
+        z: 1.5, height: 0,
         centeredOn: STOPS.length - 1,   // last STOP — footer's intended view
         responsive: true,
-        worldWidth: 200,
+        worldWidth: 300,
     },
 ];
 
@@ -679,7 +671,7 @@ const panelsSrc = document.getElementById('panels');
 //   - WebGLRenderer draws the 3D labyrinth model
 //   - CSS3DRenderer draws the HTML text panels in 3D space
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 5));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(BACKGROUND);
 
