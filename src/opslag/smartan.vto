@@ -1,116 +1,138 @@
 ---
-titel: anna nygren
-dato: 2026-04-17
+titel: SMÄRTAN.
+dato: 2026-05-09
 uddrag:
 udgivet: nej
 layout: annanygren.vto
+kunstner_id: annanygren
 ---
 
 <div id="loading">loader…</div>
 <div id="scroll-hint">scroll →</div>
 <div id="debug" style="display:none"></div>
 
-<div id="header3d-src" style="display:none">
-    <div class="header3d-outer" style="pointer-events: auto;">
-      <div class="mx-auto max-w-5xl py-8 px-2 md:px-8">
-        <header class="relative mb-12 text-center">
-        <div class="mb-4 md:mb-0 w-full grid grid-cols-2 md:grid-cols-4 gap-4 font-mono">
-            <div class="border border-zinc-700 flex items-center justify-center bg-gray-300 p-3 shadow-inner hover:border-violet-700 transition-all">
-              <div>
-                <div class="font-[ur] text-xl mb-1 text-zinc-900" id="klok1">Hvad er klokken?</div>
-                <div class="text-xs opacity-80" id="dato1">Idk</div>
-              </div>
-            </div>
-
-            <div class="grid grid-rows-2 gap-4">
-              <div class="border flex items-center justify-center border-zinc-700 bg-gray-300 px-3 py-1 shadow-inner hover:border-violet-700 transition-all">
-                <span class="mr-2">♫</span><marquee scrolldelay="150" class="pl-2">never gonna give you up - instroctor version – shiva, jo ann harris</marquee>
-              </div>
-
-              <div class="border px-1 border-zinc-700 flex items-center bg-gray-300 shadow-inner hover:border-violet-700 transition-all">
-                <div id="maane" class="hidden items-center">
-                  <img src="/vejret/maane.svg" alt="måne" class="inline-block w-10 h-10" />
-                  <span class="line-clamp-1 text-ellipsis inline-block">måne</span>
-                </div>
-                <div id="regnsky" class="hidden items-center">
-                  <img src="/vejret/regnsky.svg" alt="regnsky" class="inline-block w-10 h-10" />
-                  <span class="line-clamp-1 text-ellipsis inline-block">regnsky</span>
-                </div>
-                <div id="regnskyogsol" class="hidden items-center">
-                  <img src="/vejret/regnskyogsol.svg" alt="regnsky og sol" class="inline-block w-10 h-10" />
-                  <span class="line-clamp-1 text-ellipsis inline-block">regnsky og sol</span>
-                </div>
-                <div id="sky" class="hidden items-center">
-                  <img src="/vejret/sky.svg" alt="sky" class="inline-block w-10 h-10" />
-                  <span class="line-clamp-1 text-ellipsis inline-block">sky</span>
-                </div>
-                <div id="skyogmaane" class="hidden items-center">
-                  <img src="/vejret/skyogmaane.svg" alt="sky og måne" class="inline-block w-10 h-10" />
-                  <span class="line-clamp-1 text-ellipsis inline-block">sky og måne</span>
-                </div>
-                <div id="skyogsol" class="hidden items-center">
-                  <img src="/vejret/skyogsol.svg" alt="sky og sol" class="inline-block w-10 h-10" />
-                  <span class="line-clamp-1 text-ellipsis inline-block">sky og sol</span>
-                </div>
-                <div id="sneogsol" class="hidden items-center">
-                  <img src="/vejret/sneogsol.svg" alt="sne og sol" class="inline-block w-10 h-10" />
-                  <span class="line-clamp-1 text-ellipsis inline-block">sne og sol</span>
-                </div>
-                <div id="sol" class="hidden items-center">
-                  <img src="/vejret/sol.svg" alt="sol" class="inline-block w-10 h-10" />
-                  <span class="line-clamp-1 text-ellipsis inline-block">sol</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="border border-zinc-700 bg-gray-300 px-3 py-1 shadow-inner hover:border-violet-700 transition-all flex items-center justify-center">
-              <div>
-                <span><span class="text-orange-600">⚡</span> <span id="hvor-mange-er-online"></span> online</span>
-                <div class="w-full flex justify-center">
-                  <div class="relative w-full flex items-center">
-                    <span class="absolute inline-flex h-2 w-2 rounded-full bg-red-500 animate-ping"></span>
-                    <span class="relative inline-flex h-2 w-2 rounded-full bg-red-500"></span>
-                    <span class="ml-3">live</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a href="/indsend" class="underline text-violet-700 border border-zinc-700 bg-gray-300 px-3 py-1 shadow-inner hover:border-violet-700 transition-all flex items-center justify-center">
-              INDSEND!!!
-            </a>
-        </div>
-
-        <h1 class="mt-8 bg-gradient-to-b from-violet-700 to-violet-900 bg-clip-text font-serif text-7xl text-transparent">
-          <a href="/" class="hover:text-violet-700 hover:underline">
-            postpost
-          </a>
-        </h1>
-        </header>
-      </div>
-    </div>
-</div>
-
-<div id="footer3d-src" style="display:none">
-    <div class="footer3d-outer" style="pointer-events: auto;">
-      <div class="mx-auto max-w-5xl py-8 px-2 md:px-8">
-        <footer class="text-center space-y-4">
-            <div class="h-px w-48 mx-auto bg-violet-800"></div>
-            <div class="font-serif text-sm tracking-widest justify-center flex flex-col gap-4 flex-wrap lg:flex-row opacity-80">
-              <a href="/hvad-er-det-her/" class="hover:text-violet-800 cursor-pointer transition-colors">Hvad er det her?!</a>
-              <div class="hidden lg:block h-4 w-px bg-current"></div>
-              <a href="/kunstnere/" class="hover:text-violet-800 cursor-pointer transition-colors">Kunstnere</a>
-              <div class="hidden lg:block h-4 w-px bg-current"></div>
-              <a href="/indsend/" class="hover:text-violet-800 cursor-pointer transition-colors">Indsend</a>
-            </div>
-        </footer>
-      </div>
-    </div>
-</div>
-
 <canvas id="webgl"></canvas>
 <div id="css3d"></div>
 
 <div id="panels" style="display:none">
+    <header class="text-panel" data-extra="header">
+        <div class="mx-auto max-w-5xl py-8 px-2 md:px-8">
+            <div class="relative mb-12 text-center">
+                <div class="mb-4 md:mb-0 w-full grid grid-cols-2 md:grid-cols-4 gap-4 font-mono">
+                    <div class="border border-zinc-700 flex items-center justify-center bg-gray-300 p-3 shadow-inner hover:border-violet-700 transition-all">
+                      <div>
+                        <div class="font-[ur] text-xl mb-1 text-zinc-900" id="klok1">Hvad er klokken?</div>
+                        <div class="text-xs opacity-80" id="dato1">Idk</div>
+                      </div>
+                    </div>
+
+                    <div class="grid grid-rows-2 gap-4">
+                      <div class="border flex items-center justify-center border-zinc-700 bg-gray-300 px-3 py-1 shadow-inner hover:border-violet-700 transition-all">
+                        <span class="mr-2">♫</span><marquee scrolldelay="150" class="pl-2">never gonna give you up - instroctor version – shiva, jo ann harris</marquee>
+                      </div>
+
+                      <div class="border px-1 border-zinc-700 flex items-center bg-gray-300 shadow-inner hover:border-violet-700 transition-all">
+                        <div id="maane" class="hidden items-center">
+                          <img src="/vejret/maane.svg" alt="måne" class="inline-block w-10 h-10" />
+                          <span class="line-clamp-1 text-ellipsis inline-block">måne</span>
+                        </div>
+                        <div id="regnsky" class="hidden items-center">
+                          <img src="/vejret/regnsky.svg" alt="regnsky" class="inline-block w-10 h-10" />
+                          <span class="line-clamp-1 text-ellipsis inline-block">regnsky</span>
+                        </div>
+                        <div id="regnskyogsol" class="hidden items-center">
+                          <img src="/vejret/regnskyogsol.svg" alt="regnsky og sol" class="inline-block w-10 h-10" />
+                          <span class="line-clamp-1 text-ellipsis inline-block">regnsky og sol</span>
+                        </div>
+                        <div id="sky" class="hidden items-center">
+                          <img src="/vejret/sky.svg" alt="sky" class="inline-block w-10 h-10" />
+                          <span class="line-clamp-1 text-ellipsis inline-block">sky</span>
+                        </div>
+                        <div id="skyogmaane" class="hidden items-center">
+                          <img src="/vejret/skyogmaane.svg" alt="sky og måne" class="inline-block w-10 h-10" />
+                          <span class="line-clamp-1 text-ellipsis inline-block">sky og måne</span>
+                        </div>
+                        <div id="skyogsol" class="hidden items-center">
+                          <img src="/vejret/skyogsol.svg" alt="sky og sol" class="inline-block w-10 h-10" />
+                          <span class="line-clamp-1 text-ellipsis inline-block">sky og sol</span>
+                        </div>
+                        <div id="sneogsol" class="hidden items-center">
+                          <img src="/vejret/sneogsol.svg" alt="sne og sol" class="inline-block w-10 h-10" />
+                          <span class="line-clamp-1 text-ellipsis inline-block">sne og sol</span>
+                        </div>
+                        <div id="sol" class="hidden items-center">
+                          <img src="/vejret/sol.svg" alt="sol" class="inline-block w-10 h-10" />
+                          <span class="line-clamp-1 text-ellipsis inline-block">sol</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="border border-zinc-700 bg-gray-300 px-3 py-1 shadow-inner hover:border-violet-700 transition-all flex items-center justify-center">
+                      <div>
+                        <span><span class="text-orange-600">⚡</span> <span id="hvor-mange-er-online"></span> online</span>
+                        <div class="w-full flex justify-center">
+                          <div class="relative w-full flex items-center">
+                            <span class="absolute inline-flex h-2 w-2 rounded-full bg-red-500 animate-ping"></span>
+                            <span class="relative inline-flex h-2 w-2 rounded-full bg-red-500"></span>
+                            <span class="ml-3">live</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="/indsend" class="underline text-violet-700 border border-zinc-700 bg-gray-300 px-3 py-1 shadow-inner hover:border-violet-700 transition-all flex items-center justify-center">
+                      INDSEND!!!
+                    </a>
+                </div>
+
+                <h1 class="mt-8 bg-gradient-to-b from-violet-700 to-violet-900 bg-clip-text font-serif text-7xl text-transparent">
+                  <a href="/" class="hover:text-violet-700 hover:underline">
+                    postpost
+                  </a>
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <footer class="text-panel" data-extra="footer">
+        <div class="mx-auto max-w-5xl py-8 px-2 md:px-8 space-y-12">
+            {{ if kunstner }}
+                {{ comp Indholdskasse }}
+                    <div class="flex items-center gap-4 mb-4">
+                        {{ if kunstner.gif }}
+                        <picture class="flex-none">
+                            <source srcset="/billeder/kunstnere/{{ kunstner.id }}.gif" type="image/gif">
+                            <img src="/billeder/kunstnere/{{ kunstner.idid }}.gif" alt="{{ kunstner.titel }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
+                        </picture>
+                        {{ else }}
+                        <picture class="flex-none">
+                            <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.webp" type="image/webp">
+                            <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" type="image/jpeg">
+                            <img src="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" alt="{{ kunstner.titel }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
+                        </picture>
+                        {{ /if }}
+                        <div>
+                            <div class="font-serif text-lg">{{ kunstner.titel }}</div>
+                            <div class="text-sm text-zinc-700">{{ kunstner.hurtigtekst }}</div>
+                        </div>
+                    </div>
+                    <a href="{{ kunstner.url }}" class="inline-block border border-zinc-600 px-4 py-2 hover:border-violet-700 hover:text-violet-800 transition-all">
+                        Gå til {{ kunstner.titel }}s side
+                    </a>
+                {{ /comp }}
+            {{ /if }}
+
+            <div class="text-center space-y-4">
+                <div class="h-px w-48 mx-auto bg-violet-800"></div>
+                <div class="font-serif text-sm tracking-widest justify-center flex flex-col gap-4 flex-wrap lg:flex-row opacity-80">
+                  <a href="/hvad-er-det-her/" class="hover:text-violet-800 cursor-pointer transition-colors">Hvad er det her?!</a>
+                  <div class="hidden lg:block h-4 w-px bg-current"></div>
+                  <a href="/kunstnere/" class="hover:text-violet-800 cursor-pointer transition-colors">Kunstnere</a>
+                  <div class="hidden lg:block h-4 w-px bg-current"></div>
+                  <a href="/indsend/" class="hover:text-violet-800 cursor-pointer transition-colors">Indsend</a>
+                </div>
+            </div>
+        </div>
+    </footer>
     <div class="text-panel" data-panel="1">
         <h2>1</h2>
         <p>Att åka med Emma på röntgen.</p>
@@ -203,13 +225,34 @@ VAD GÖRA MED SJUKDOM, VAD FÖR SLAGS SJUKDOM…
    <script> below — it's set on :root as --page-bg so this stylesheet
    and the WebGL renderer share the same value. */
 html, body { margin: 0; padding: 0; overflow: hidden; height: 100%; }
-body { cursor: default !important; }
+/* The layout adds class="cursor-none" to body for the cursor-trail effect.
+   We want a normal cursor here (and proper pointer feedback on links),
+   so override on the body without !important — the rules below for
+   interactive elements then win and show the pointer cursor. */
+body.cursor-none { cursor: default; }
+.text-panel a,
+.text-panel button,
+.text-panel [role="button"] { cursor: pointer; pointer-events: auto; }
+
+/* Simulated :hover for matrix3d-transformed panel children. The
+   browser's own :hover never fires on these (same reason native click
+   hit-testing fails), so the JS hover detector below adds .js-hover to
+   the element under the cursor and these rules mirror the Tailwind
+   hover variants actually used in the markup. */
+.text-panel .js-hover.hover\:border-violet-700 { border-color: rgb(109 40 217); }
+.text-panel .js-hover.hover\:text-violet-700   { color: rgb(109 40 217); }
+.text-panel .js-hover.hover\:text-violet-800   { color: rgb(91 33 182); }
+.text-panel .js-hover.hover\:underline         { text-decoration: underline; }
 
 #webgl, #css3d {
     position: fixed; top: 0; left: 0;
     width: 100vw; height: 100vh;
 }
 #webgl { z-index: 1; display: block; }
+/* The CSS3D host and its cameraElement must let clicks fall through;
+   only the individual .text-panel descendants (which set pointer-events: auto)
+   should catch them. This is the canonical CSS3DRenderer + clickable-children
+   pattern. */
 #css3d { z-index: 2; pointer-events: none; }
 #css3d > div { pointer-events: none; }
 
@@ -224,7 +267,6 @@ body { cursor: default !important; }
 #scroll-hint {
     bottom: 20px; right: 24px;
     font-size: 1.1em; font-style: italic; opacity: 0.7;
-    pointer-events: none;
     animation: pulse 2s ease-in-out infinite;
 }
 @keyframes pulse { 0%,100% { opacity: 0.3 } 50% { opacity: 0.9 } }
@@ -232,7 +274,7 @@ body { cursor: default !important; }
 #debug {
     position: fixed; top: 8px; left: 8px;
     color: #000; font-family: monospace; font-size: 12px;
-    z-index: 10; pointer-events: none; white-space: pre;
+    z-index: 10; white-space: pre;
     background: rgba(255, 255, 255, 0.65);
     padding: 4px 8px;
     border-radius: 3px;
@@ -244,10 +286,12 @@ body { cursor: default !important; }
     width: 440px;
     height: 320px;
     overflow-y: auto;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-left: 24px;
-    padding-right: 24px;
+    /* Set font-size on the panel itself so the em-based padding below
+       resolves against panelFontSize. This is what lets us scale a panel
+       up for high-DPI rendering (triple panelW/H/fontSize + panelScale 1/3)
+       without internal proportions drifting. */
+    font-size: var(--panel-font-size, 15px);
+    padding: 1.067em 1.6em;
     font-family: "EB Garamond", garamond, "Times New Roman", serif;
     color: #000;
     user-select: text;
@@ -257,7 +301,7 @@ body { cursor: default !important; }
 .text-panel h2 {
     font-size: var(--panel-font-size, 15px);
     line-height: 1.1;
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.5em 0;
     font-weight: 400;
 }
 .text-panel p {
@@ -276,7 +320,7 @@ body::-webkit-scrollbar,
     font-family: courier;
 }
 .lidttilhoejre {
-    padding-left: 80px;
+    padding-left: 5.333em;  /* 80px relative to default 15px panelFontSize */
 }
 </style>
 
@@ -333,6 +377,13 @@ document.documentElement.style.setProperty('--page-bg', BACKGROUND);
 //               share the same size). Default 15.
 //   panelFlip : optional, boolean. Mirrors the panel horizontally
 //               (text and layout flipped left-right). Default false.
+//   panelScale : optional. Multiplier on the default 3D scale (0.02).
+//               Use < 1 when the camera comes close to a panel and the
+//               text looks blurry: triple panelW/panelH/panelFontSize
+//               and set panelScale: 0.333 to render the source at 3×
+//               resolution while keeping the same world-space size.
+//               Padding/margins inside the panel are em-based so they
+//               scale automatically with panelFontSize.
 //   mobileX,
 //   mobileZ,
 //   mobileHeight : optional. When the viewport is portrait (height
@@ -369,17 +420,20 @@ const STOPS = [
         height: 395, 
         mobileHeight: 170, 
         mobileX: 0.3, 
+        mobileZ: 0.1,
         dwell: 0 
     },
     {
         x: 0.264, 
         z: 0.320, 
-        height: 48.8, 
+        height: 42.8, 
         mobileX: 0.24,
         mobileHeight: 38,
-        text: 1, 
-        panelW: 450,
-        panelH: 650,
+        text: 1,
+        panelW: 1350,         // 450 × 3 — high-res render for sharp text
+        panelH: 1950,         // 650 × 3
+        panelFontSize: 45,    // 15 × 3 (default was 15)
+        panelScale: 1 / 3,    // shrink back to original world size
         panelX: 0.242,
         panelZ: 0.325,
     },
@@ -397,10 +451,11 @@ const STOPS = [
         mobileHeight: 12,
         text: 2,
         rotation: 85,
-        panelX: 0.896,
+        panelX: 0.894,
         panelZ: 0.345,
         panelRotation: -84,
         panelFontSize: 8,
+        dwell: 600,
     },
     // Sigurds gåtur
     { x: 0.914, z: 0.27, height: 33.8, rotation: 85, dwell: 0, leg: 100 },
@@ -444,11 +499,13 @@ const STOPS = [
         z: 0.66, 
         height: -36.2,
         mobileHeight: -38,
-        mobileX: 0.74,
-        text: 5, 
+        mobileX: 0.734,
+        text: 5,
         panelFlip: true,
-        panelH: 480,
-        panelW: 550,
+        panelH: 1440,         // 480 × 3 — high-res render for sharp text
+        panelW: 1650,         // 550 × 3
+        panelFontSize: 45,    // 15 × 3 (default was 15)
+        panelScale: 1 / 3,    // shrink back to original world size
         panelX: 0.735,
         dwell: 400,
     },
@@ -475,14 +532,89 @@ const STOPS = [
         mobileHeight: -22,
         text: 6,
         panelFlip: true,
-        panelFontSize: 9,
-        panelW: 290,
-        panelH: 135,
-        panelX: 0.883,
-        panelZ: 0.634
+        panelFontSize: 27,    // 9 × 3 — high-res render for sharp text
+        panelW: 800,          // 290 × 3
+        panelH: 405,          // 135 × 3
+        panelScale: 1 / 3,    // shrink back to original world size
+        panelX: 0.882,
+        panelZ: 0.633
     },
-    // Final stop: fly down to the world-space footer at maze-center.
-    { x: 0.5, z: 0.5, height: 30, dwell: 400 },
+    {
+        x: 0.50, 
+        z: 0.280, 
+        height: 395, 
+        mobileHeight: 170, 
+        mobileX: 0.3, 
+        dwell: 0
+    },
+    {
+        x: 0.50, 
+        z: 1.0, 
+        height: 395, 
+        mobileHeight: 170, 
+        mobileX: 0.3, 
+        dwell: 0 
+    }
+];
+
+// Free-floating panels placed in the 3D plane independently of the
+// scroll path. The header and footer markup live in the #panels div
+// (data-extra="header" / "footer"); each entry below pulls one of them
+// in and positions it on the floor of the maze.
+//
+//   slot          : 'header' or 'footer' — which markup block to clone
+//   x, z          : where on the labyrinth (0..1)
+//   height        : how far above the floor (world units). 0 = flush
+//                   with the floor like a text panel; positive lifts.
+//   responsive    : optional, boolean. When true, the panel's CSS width
+//                   tracks `window.innerWidth` and its height is auto —
+//                   so Tailwind's md:/lg:/sm: classes activate exactly
+//                   like on any normal page on the site. Reflows on
+//                   resize. Pair with `worldWidth` (below) to set the
+//                   panel's world-space size.
+//   worldWidth    : optional, in world units. Only used when responsive
+//                   is true. Specifies the panel's world-space width
+//                   *at a reference viewport of 1920px wide* — narrower
+//                   viewports scale this down proportionally so the
+//                   panel keeps a roughly constant fraction of the
+//                   screen instead of overflowing.
+//   panelW,
+//   panelH        : optional, in CSS pixels. Fixed box size (used when
+//                   responsive is not set).
+//   panelRotation : optional, in degrees. Spin the panel on the floor.
+//   panelFontSize : optional, in CSS pixels. Override font size.
+//   panelFlip     : optional, boolean. Mirror horizontally.
+//   panelScale    : optional, multiplier on the default 3D scale.
+//                   Only used when responsive is not set.
+//   mobileX,
+//   mobileZ,
+//   mobileHeight  : optional. Overrides for portrait viewports.
+//   centeredOn    : optional, a STOPS index. Inherits the *x* of that
+//                   stop's effective camera position (incl. mobileX),
+//                   so the extra stays horizontally screen-centered for
+//                   that camera viewpoint even when the stop shifts on
+//                   portrait viewports. The extra keeps its own z /
+//                   height — it doesn't follow the camera on scroll.
+const EXTRAS = [
+    {
+        // The full layout chrome (clock / weather / song / online / "postpost"
+        // wordmark). Sized to viewport so Tailwind's md:grid-cols-4 etc.
+        // activate based on actual device width — same responsive layout
+        // as on any normal page of the site.
+        slot: 'header',
+        z: -0.2, height: 0,
+        centeredOn: 0,                  // first STOP — header's intended view
+        responsive: true,
+        worldWidth: 200,
+    },
+    {
+        // Artist card (Indholdskasse) + the standard nav-link footer.
+        slot: 'footer',
+        z: 1.3, height: 0,
+        centeredOn: STOPS.length - 1,   // last STOP — footer's intended view
+        responsive: true,
+        worldWidth: 200,
+    },
 ];
 
 // How much scroll each phase takes. Bigger = slower / more dwell.
@@ -514,7 +646,7 @@ const CAMERA_FOV = 22;
 // Z axis (which becomes world Y after the rotation). Lower this to make
 // the walls literally shorter — useful if perspective alone isn't
 // enough. 1.0 = original, 0.3 = squished, 0.05 = almost flat-on-floor.
-const WALL_HEIGHT_SCALE = 1.0;
+const WALL_HEIGHT_SCALE = 0.8;
 
 // Aspect the STOPS' `height` values were tuned for. On narrower viewports
 // (portrait phones) the camera is lifted so horizontal coverage stays
@@ -547,7 +679,7 @@ const panelsSrc = document.getElementById('panels');
 //   - WebGLRenderer draws the 3D labyrinth model
 //   - CSS3DRenderer draws the HTML text panels in 3D space
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 5));
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(BACKGROUND);
 
@@ -568,8 +700,14 @@ const camera = new THREE.PerspectiveCamera(
 
 // Look up panel HTML by data-panel id so we can clone it for each stop.
 const panelByNum = {};
-panelsSrc.querySelectorAll('.text-panel').forEach((el) => {
+panelsSrc.querySelectorAll('[data-panel]').forEach((el) => {
     panelByNum[el.dataset.panel] = el;
+});
+
+// Same lookup for the standalone header/footer markup.
+const extraByName = {};
+panelsSrc.querySelectorAll('[data-extra]').forEach((el) => {
+    extraByName[el.dataset.extra] = el;
 });
 
 // Build CSS3D objects for stops that have text. They're placed in world
@@ -610,7 +748,15 @@ STOPS.forEach((stop) => {
         clone.appendChild(flipWrap);
     }
     const obj = new CSS3DObject(clone);
-    obj.scale.set(0.02, 0.02, 0.02);
+    // panelScale lets you render the source at a higher CSS-pixel
+    // resolution and shrink it back down — useful when the camera comes
+    // close enough to the panel that the natural-size bitmap gets
+    // upscaled and looks blurry. To keep the same world-space size,
+    // multiply panelW/panelH/panelFontSize by N and set panelScale: 1/N.
+    // The .text-panel padding/margins are em-based, so they scale
+    // automatically with panelFontSize and keep proportions intact.
+    const s = 0.02 * (stop.panelScale ?? 1);
+    obj.scale.set(s, s, s);
     // Spin the panel in its own plane first, then lay it flat. With the
     // default XYZ Euler order, rotation.z is applied before rotation.x,
     // so this rotates the text on the floor cleanly.
@@ -621,58 +767,77 @@ STOPS.forEach((stop) => {
     panelEls.push(clone);
 });
 
-// ─── header overlay ──────────────────────────────────────────────────
-// Sits in camera-local space at the top of the viewport so it's 100%
-// visible at scroll 0, then slides up out of view as you start
-// scrolling. Reuses the existing CSS3DRenderer so it gets the same 3D
-// perspective as the text panels.
-const HEADER_DISTANCE   = 30;        // world units in front of camera
-const HEADER_SCROLL_OUT = SCROLL_LEG; // scroll units to fully exit
+// Same construction for the EXTRAS (header / footer). They're placed
+// independently of any STOP, so they only need world-space positioning
+// once the maze bbox is known (handled in buildPath below).
+const extraObjects = [];
+EXTRAS.forEach((extra) => {
+    const src = extraByName[extra.slot];
+    if (!src) {
+        extraObjects.push(null);
+        return;
+    }
+    const clone = src.cloneNode(true);
+    if (extra.panelFontSize) {
+        clone.style.setProperty('--panel-font-size', extra.panelFontSize + 'px');
+    }
+    if (extra.panelFlip) {
+        const flipWrap = document.createElement('div');
+        flipWrap.style.transform = 'scaleX(-1)';
+        flipWrap.style.transformOrigin = 'center';
+        flipWrap.style.width = '100%';
+        flipWrap.style.height = '100%';
+        while (clone.firstChild) flipWrap.appendChild(clone.firstChild);
+        clone.appendChild(flipWrap);
+    }
+    const obj = new CSS3DObject(clone);
+    obj.rotation.z = ((extra.panelRotation ?? 0) * Math.PI) / 180;
+    obj.rotation.x = -Math.PI / 2;
+    cssScene.add(obj);
+    extraObjects.push(obj);
+});
 
-const headerSrc = document.getElementById('header3d-src');
-const headerEl  = headerSrc.firstElementChild;
-const headerObj = new CSS3DObject(headerEl);
-cssScene.add(headerObj);
+// Sizing for EXTRAS is split out so we can re-run it on viewport changes.
+// Two modes:
+//
+//   - responsive: true  → the panel's CSS width is set to window.innerWidth
+//     and its height to `auto`. Tailwind's media-query classes (md:, lg:)
+//     activate based on the viewport just like on any normal page, so the
+//     chrome reflows for mobile / desktop naturally. We then set the 3D
+//     scale to `worldWidth / window.innerWidth` so the panel occupies a
+//     constant world-space width regardless of viewport size.
+//
+//   - default → fixed CSS dimensions via panelW/panelH and a constant 3D
+//     scale (the old behavior, still useful when you want a specific
+//     layout that doesn't reflow).
+// Reference viewport for responsive `worldWidth` calibration. The
+// effective world width = worldWidth × (innerWidth / EXTRAS_REF_VIEWPORT),
+// which collapses to a constant 3D scale of worldWidth / EXTRAS_REF_VIEWPORT.
+// Keeping the scale constant (instead of the world width constant) is what
+// makes the panel cover a consistent fraction of the viewport instead of
+// overflowing when the window narrows.
+const EXTRAS_REF_VIEWPORT = 1920;
 
-function updateHeader() {
-    const fovRad  = camera.fov * Math.PI / 180;
-    const screenH = 2 * HEADER_DISTANCE * Math.tan(fovRad / 2);
-    // Map 1 CSS px to 1 viewport px so the header lays out at its natural size.
-    const scale   = screenH / window.innerHeight;
-    headerEl.style.width = window.innerWidth + 'px';
-    headerObj.scale.set(scale, scale, scale);
-
-    const h          = headerEl.offsetHeight || 250;
-    const headerHw   = h * scale;
-    const baseY      = screenH / 2 - headerHw / 2;          // top edge flush with screen top
-    const exitDist   = headerHw + screenH / 2;               // distance to fully clear
-
-    const out    = Math.max(0, Math.min(1, scrollPos / HEADER_SCROLL_OUT));
-    const eased  = out * out;                                // ease-in
-    const yOff   = baseY + eased * exitDist;
-
-    const offset = new THREE.Vector3(0, yOff, -HEADER_DISTANCE);
-    offset.applyQuaternion(camera.quaternion);
-    headerObj.position.copy(camera.position).add(offset);
-    headerObj.quaternion.copy(camera.quaternion);
+function sizeExtras() {
+    EXTRAS.forEach((extra, i) => {
+        const obj = extraObjects[i];
+        if (!obj) return;
+        const el = obj.element;
+        if (extra.responsive) {
+            const w = window.innerWidth;
+            el.style.width  = w + 'px';
+            el.style.height = 'auto';
+            const s = (extra.worldWidth ?? 130) / EXTRAS_REF_VIEWPORT;
+            obj.scale.set(s, s, s);
+        } else {
+            if (extra.panelW) el.style.width  = extra.panelW + 'px';
+            if (extra.panelH) el.style.height = extra.panelH + 'px';
+            const s = 0.02 * (extra.panelScale ?? 1);
+            obj.scale.set(s, s, s);
+        }
+    });
 }
-
-// Footer: laid flat on the floor at (FOOTER_X, FOOTER_Z) — visible as a
-// tiny dot from the opening overview, read up close at the final stop in
-// STOPS. World-space, no scroll-driven animation; the camera just flies
-// to it.
-const FOOTER_X     = 0.5;
-const FOOTER_Z     = 0.5;
-const FOOTER_W     = 700;   // CSS pixels — readable at the final stop's height
-const FOOTER_SCALE = 0.02;  // matches text panels
-
-const footerSrc = document.getElementById('footer3d-src');
-const footerEl  = footerSrc.firstElementChild;
-footerEl.style.width = FOOTER_W + 'px';
-const footerObj = new CSS3DObject(footerEl);
-footerObj.scale.set(FOOTER_SCALE, FOOTER_SCALE, FOOTER_SCALE);
-footerObj.rotation.x = -Math.PI / 2;  // lay flat on the floor
-cssScene.add(footerObj);
+sizeExtras();
 
 // The camera path is stored as a list of keyframes — { t, pos, look }.
 // As you scroll, we find the two surrounding keyframes and lerp between
@@ -727,9 +892,26 @@ function buildPath(bbox) {
         obj.position.set(w.x, floorY + 0.2, w.z);
     });
 
-    // Place the world-space footer.
-    const fw = worldOf({ x: FOOTER_X, z: FOOTER_Z });
-    footerObj.position.set(fw.x, floorY + 0.2, fw.z);
+    // Place the free-floating EXTRAS at their (x, z, height). These do
+    // honor mobile overrides via effectiveStop, since they're positioned
+    // by world-space coordinates the same way camera stops are.
+    //
+    // `centeredOn: <stopIndex>` makes the extra inherit the *x* of that
+    // stop's effective camera position (including its mobileX) — so when
+    // a STOP shifts on portrait viewports, the extra moves with it and
+    // stays screen-centered for that view. The extra still has its own
+    // z + height, so vertically it's anchored wherever you put it; it
+    // doesn't follow the camera on scroll.
+    EXTRAS.forEach((extra, i) => {
+        const obj = extraObjects[i];
+        if (!obj) return;
+        const eff = effectiveStop(extra);
+        const anchor = (extra.centeredOn != null)
+            ? effectiveStop(STOPS[extra.centeredOn])
+            : eff;
+        const w = worldOf({ x: anchor.x, z: eff.z });
+        obj.position.set(w.x, floorY + 0.2 + (eff.height ?? 0), w.z);
+    });
 
     // Build the keyframes: arrive at each stop, optionally hold for an
     // arrival-dwell where the panel can't yet be scrolled, then dwell
@@ -1048,7 +1230,6 @@ function animate() {
         scrollPos += (targetScroll - scrollPos) * SCROLL_SMOOTHING;
         updateCamera();
     }
-    updateHeader();
     updateDebug();
     renderer.render(scene, camera);
     cssRenderer.render(cssScene, camera);
@@ -1056,12 +1237,78 @@ function animate() {
 }
 animate();
 
+// ─── click delegation for CSS3D panels ───────────────────────────────
+// The browser's native hit-testing through `transform-style: preserve-3d`
+// doesn't reach our matrix3d-transformed panel elements — clicks land on
+// the WebGL canvas underneath instead. So when the click target is the
+// canvas, we manually rect-test every interactive descendant of every
+// .text-panel using getBoundingClientRect (which DOES reflect the
+// transform), pick the smallest match (most specific), and dispatch.
+window.addEventListener('click', (e) => {
+    if (e.target !== canvas) return;
+    const candidates = document.querySelectorAll(
+        '.text-panel a, .text-panel button, .text-panel [role="button"]'
+    );
+    let best = null;
+    let bestArea = Infinity;
+    for (const c of candidates) {
+        const r = c.getBoundingClientRect();
+        if (r.width === 0 || r.height === 0) continue;
+        if (e.clientX >= r.left && e.clientX <= r.right &&
+            e.clientY >= r.top  && e.clientY <= r.bottom) {
+            const area = r.width * r.height;
+            if (area < bestArea) { best = c; bestArea = area; }
+        }
+    }
+    if (!best) return;
+    if (best.tagName === 'A' && best.href) {
+        if (best.target === '_blank') window.open(best.href, '_blank');
+        else window.location.href = best.href;
+    } else {
+        best.click();
+    }
+}, true);
+
+// Cursor feedback + simulated :hover state. Native :hover doesn't fire
+// on the matrix3d-transformed children, so we find the deepest matching
+// candidate under the cursor and tag it with `.js-hover`; the CSS rules
+// above translate that to the same visual changes Tailwind's `hover:*`
+// variants would have applied.
+let jsHovered = null;
+window.addEventListener('mousemove', (e) => {
+    let best = null;
+    let bestArea = Infinity;
+    if (e.target === canvas) {
+        const candidates = document.querySelectorAll(
+            '.text-panel a, .text-panel button, .text-panel [role="button"]'
+        );
+        for (const c of candidates) {
+            const r = c.getBoundingClientRect();
+            if (r.width === 0 || r.height === 0) continue;
+            if (e.clientX >= r.left && e.clientX <= r.right &&
+                e.clientY >= r.top  && e.clientY <= r.bottom) {
+                const area = r.width * r.height;
+                if (area < bestArea) { best = c; bestArea = area; }
+            }
+        }
+    }
+    if (best !== jsHovered) {
+        if (jsHovered) jsHovered.classList.remove('js-hover');
+        jsHovered = best;
+        if (jsHovered) jsHovered.classList.add('js-hover');
+    }
+    canvas.style.cursor = best ? 'pointer' : '';
+});
+
 let lastPortrait = isPortrait();
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
     cssRenderer.setSize(window.innerWidth, window.innerHeight);
+    // Re-flow any `responsive: true` EXTRAS to match the new viewport
+    // width and recompute their world-preserving 3D scale.
+    sizeExtras();
     // Rebuild keyframes when orientation flips so portrait/landscape
     // overrides take effect after rotating the device.
     const nowPortrait = isPortrait();
