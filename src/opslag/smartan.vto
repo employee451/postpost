@@ -27,7 +27,7 @@ kunstner_id: annanygren
 
                     <div class="grid grid-rows-2 gap-4">
                       <div class="border flex items-center justify-center border-zinc-700 bg-gray-300 px-3 py-1 shadow-inner hover:border-violet-700 transition-all">
-                        <span class="mr-2">♫</span><marquee scrolldelay="150" class="pl-2">Jeg trodde änglarna fanns bara, bara i himmelem, Kamferdrops</marquee>
+                        <span class="mr-2">♫</span><marquee scrolldelay="150" class="pl-2">Jag trodde änglarna fanns, Kamferdrops</marquee>
                       </div>
 
                       <div class="border px-1 border-zinc-700 flex items-center bg-gray-300 shadow-inner hover:border-violet-700 transition-all">
@@ -96,27 +96,33 @@ kunstner_id: annanygren
         <div class="mx-auto max-w-5xl py-8 px-2 md:px-8 space-y-12">
             {{ if kunstner }}
                 {{ comp Indholdskasse }}
-                    <div class="flex items-center gap-4 mb-4">
+                    <div class="px-2 lg:px-0 flex items-center gap-4 mb-4">
                         {{ if kunstner.gif }}
                         <picture class="flex-none">
                             <source srcset="/billeder/kunstnere/{{ kunstner.id }}.gif" type="image/gif">
-                            <img src="/billeder/kunstnere/{{ kunstner.idid }}.gif" alt="{{ kunstner.titel }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
+                            <img src="/billeder/kunstnere/{{ kunstner.id }}.gif" alt="{{ kunstner.titel }}" class="w-20 h-20 aspect-square rounded-full bg-violet-800">
                         </picture>
                         {{ else }}
                         <picture class="flex-none">
                             <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.webp" type="image/webp">
                             <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" type="image/jpeg">
-                            <img src="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" alt="{{ kunstner.titel }}" class="w-16 h-16 aspect-square rounded-full bg-violet-800">
+                            <img src="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" alt="{{ kunstner.titel }}" class="w-20 h-20 aspect-square rounded-full bg-violet-800">
                         </picture>
                         {{ /if }}
                         <div>
-                            <div class="font-serif text-lg">{{ kunstner.titel }}</div>
-                            <div class="text-sm text-zinc-700">{{ kunstner.hurtigtekst }}</div>
+                            <h2 class="font-serif text-2xl">{{ kunstner.titel }}</h2>
                         </div>
                     </div>
-                    <a href="{{ kunstner.url }}" class="inline-block border border-zinc-600 px-4 py-2 hover:border-violet-700 hover:text-violet-800 transition-all">
-                        Gå till {{ kunstner.titel }}s sida
-                    </a>
+
+                    <div class="px-2 lg:px-0 font-serif leading-relaxed text-zinc-700 mb-4">
+                        {{ kunstner.hurtigtekst }}
+                    </div>
+
+                    <div class="px-2 lg:px-0">
+                        <a href="{{ kunstner.url }}" class="inline-block border border-zinc-600 px-4 py-2 hover:border-violet-700 hover:text-violet-800 transition-all">
+                            Gå till {{ kunstner.titel }}s sida
+                        </a>
+                    </div>
                 {{ /comp }}
             {{ /if }}
 
@@ -152,30 +158,29 @@ kunstner_id: annanygren
             &emsp;Min känsla var att om jag sa något skulle jag dö. Och min död skulle inte vara min. Den skulle vara ett hål. Jag skulle inte dö men önska mig död. Jag skulle inte kunna säga något.<br/>
             &emsp;Skyll dig själv, skulle jag känna.<br/>
             &emsp;Så himla sorgligt att ingen vågar ta i det, tror jag att dom skrev.
-        
         </p>
     </div>
     <div class="text-panel" data-panel="4">
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         <h2>4</h2>
         <p>
-Första gången huvudvärken kom bodde jag hemma hos en väldigt gammal man, jag bodde i ett mycket litet rum, rummet var väldigt fullt av saker, som kom från olika tider och olika personer, som liksom samlats där. Där fanns ett stort älghorn som lutade mot väggen, spetsarna på hornet var i höjd med mina axlar, jag var alltid rädd att hornet skulle falla över sängen när jag låg i den, en gång hade jag sett en film där dom sköt ett skott in i en spegel uppsatt i taket ovanför en säng och skärvor från spegeln föll ner som spjut över mannen som var fastbunden i sängen. Skärvor av spegel trycktes in i hans buk. Jag var även rädd att jag i halvsovande kissnödigt tillstånd skulle vandra i mörkret, rakt in i spetsarna på hornet och dom skulle tryckas in i mina nyckelben. Jag trädde vantar på hornen för att skydda mig. Mina händer var kalla tills sommaren kom. <br/><br/>
+        Första gången huvudvärken kom bodde jag hemma hos en väldigt gammal man, jag bodde i ett mycket litet rum, rummet var väldigt fullt av saker, som kom från olika tider och olika personer, som liksom samlats där. Där fanns ett stort älghorn som lutade mot väggen, spetsarna på hornet var i höjd med mina axlar, jag var alltid rädd att hornet skulle falla över sängen när jag låg i den, en gång hade jag sett en film där dom sköt ett skott in i en spegel uppsatt i taket ovanför en säng och skärvor från spegeln föll ner som spjut över mannen som var fastbunden i sängen. Skärvor av spegel trycktes in i hans buk. Jag var även rädd att jag i halvsovande kissnödigt tillstånd skulle vandra i mörkret, rakt in i spetsarna på hornet och dom skulle tryckas in i mina nyckelben. Jag trädde vantar på hornen för att skydda mig. Mina händer var kalla tills sommaren kom. <br/><br/>
 
-Jag hade någon sorts praktikplats på en liten teater där jag var som assistent åt scenografen och körde hennes trasiga bil genom olika förorter i Stockholm för att hämta olika saker som kanske skulle få sin plats på scenen. En dag kunde jag inte öppna ögonen. <br/><br/>
+        Jag hade någon sorts praktikplats på en liten teater där jag var som assistent åt scenografen och körde hennes trasiga bil genom olika förorter i Stockholm för att hämta olika saker som kanske skulle få sin plats på scenen. En dag kunde jag inte öppna ögonen. <br/><br/>
 
-Jag låg stilla och väntade. <br/><br/>
+        Jag låg stilla och väntade. <br/><br/>
 
-Det gick inte över och då öppnade jag ögonen fastän det inte gick. Klockan var mellan fyra och fem. Jag gick till badrummet jag delade med mannen för att duscha. Badrummet luktade urin för han ville inte spola på natten av oro för att väcka mig. Jag andades inte och satte på vattnet i duschen. Badkaret var av grön emalj. Vattnet blev alltid skållande hett och isande kallt. I huvudet kändes temperaturen inte alls. Efteråt såg jag hur hårfästet var alldeles rött i spegeln. Jag slöt ögonen. Jag låg på sängen. <br/><br/>
+        Det gick inte över och då öppnade jag ögonen fastän det inte gick. Klockan var mellan fyra och fem. Jag gick till badrummet jag delade med mannen för att duscha. Badrummet luktade urin för han ville inte spola på natten av oro för att väcka mig. Jag andades inte och satte på vattnet i duschen. Badkaret var av grön emalj. Vattnet blev alltid skållande hett och isande kallt. I huvudet kändes temperaturen inte alls. Efteråt såg jag hur hårfästet var alldeles rött i spegeln. Jag slöt ögonen. Jag låg på sängen. <br/><br/>
 
-Sen gick jag genom staden. Det var massa fåglar. Jag vet inte om det var smärta eller om jag var på väg bort. När en lastbil backade med ett ljud, sökte jag mig till ljudet. Fåglarna var där. När cyklisterna körde på det ställe där jag annars alltid är rädd att bli överkörd tänkte jag att jag var odödlig, eftersom jag inte halkat i badkaret och fått handfatskanten som ett trubbigt föremål i bakhuvudet. <br/><br/>
+        Sen gick jag genom staden. Det var massa fåglar. Jag vet inte om det var smärta eller om jag var på väg bort. När en lastbil backade med ett ljud, sökte jag mig till ljudet. Fåglarna var där. När cyklisterna körde på det ställe där jag annars alltid är rädd att bli överkörd tänkte jag att jag var odödlig, eftersom jag inte halkat i badkaret och fått handfatskanten som ett trubbigt föremål i bakhuvudet. <br/><br/>
 
-Vid den gemensamma uppvärmningen förlorade min kropp rörelseförmågan. Vid incheckningen sa jag att jag kanske hade feber och jag trodde det var huvudvärk. Jag sa att det var lugnt. Regissören sa att jag fick gå när jag ville. Jag visste att dom klarade sig utan mig, helt utan mig. Jag visste att jag inte behövdes, inte behövdes alls. Jag stannade. Jag målade med färg på en pinnstol, jag såg inte vilken färg, för alla färger var samma, en kort stund var jag rädd att jag blivit färgblind, men rädslan låg väldigt nära lättnaden. Färgerna hade ändå varit för påträngande. <br/><br/>
+        Vid den gemensamma uppvärmningen förlorade min kropp rörelseförmågan. Vid incheckningen sa jag att jag kanske hade feber och jag trodde det var huvudvärk. Jag sa att det var lugnt. Regissören sa att jag fick gå när jag ville. Jag visste att dom klarade sig utan mig, helt utan mig. Jag visste att jag inte behövdes, inte behövdes alls. Jag stannade. Jag målade med färg på en pinnstol, jag såg inte vilken färg, för alla färger var samma, en kort stund var jag rädd att jag blivit färgblind, men rädslan låg väldigt nära lättnaden. Färgerna hade ändå varit för påträngande. <br/><br/>
 
-Jag fick en huvudvärkstablett men jag tog den inte. Jag fick frågan om jag druckit kaffe, om jag ätit något om jag inte behövde lägga mig ner. Jag svarade och glömde vad jag sa. <br/><br/>
+        Jag fick en huvudvärkstablett men jag tog den inte. Jag fick frågan om jag druckit kaffe, om jag ätit något om jag inte behövde lägga mig ner. Jag svarade och glömde vad jag sa. <br/><br/>
 
-Jag drack en blåbärssmoothie på lunchen. I utkanten av medvetandet diskuterade två av skådisarna hur den tredje skådisen kanske låg med regissören. Jag förstod och jag förstod inte. Jag visste inte vad det kunde innebära, det var något som hände, när jag hörde, som om, det var som på mellanstadiet, känslan av att alla andra barn var barn och jag var en död råtta, att alla andra visste hur man rörde sig och jag hade ett guppande huvud, plötsligt var dom borta, alla barnen, och jag sprang runt och letade utan att hitta. Att kanske ligga, den äldre skådisen hennes alldeles sena lesbiska uppvaknande nu i och med detta ligg, grattis, man hade väl anat men ändå inte, jag kände mig främmande. Som om jag längtat starkt och plötsligt var det öppet och nu var allt som om borta. <br/><br/>
+        Jag drack en blåbärssmoothie på lunchen. I utkanten av medvetandet diskuterade två av skådisarna hur den tredje skådisen kanske låg med regissören. Jag förstod och jag förstod inte. Jag visste inte vad det kunde innebära, det var något som hände, när jag hörde, som om, det var som på mellanstadiet, känslan av att alla andra barn var barn och jag var en död råtta, att alla andra visste hur man rörde sig och jag hade ett guppande huvud, plötsligt var dom borta, alla barnen, och jag sprang runt och letade utan att hitta. Att kanske ligga, den äldre skådisen hennes alldeles sena lesbiska uppvaknande nu i och med detta ligg, grattis, man hade väl anat men ändå inte, jag kände mig främmande. Som om jag längtat starkt och plötsligt var det öppet och nu var allt som om borta. <br/><br/>
 
-Mina tänder var blå och jag la mig på stengolvet i foajén. Jag försökte få den kalla stenen att lugna något. Jag hörde ett ljud från någon sorts elapparat. Huvudet tog mig, ut ur världen.
+        Mina tänder var blå och jag la mig på stengolvet i foajén. Jag försökte få den kalla stenen att lugna något. Jag hörde ett ljud från någon sorts elapparat. Huvudet tog mig, ut ur världen.
         </p><br/><br/>
     </div>
     <div class="text-panel" data-panel="5">
