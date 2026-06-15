@@ -1,0 +1,27 @@
+---
+layout: layout.vto
+titel: Test embed
+---
+{{ comp Sideindhold }}
+{{ comp Broedkrummer }}
+  {{ comp Broedkrumme }}
+    Test embed
+  {{ /comp }}
+{{ /comp }}
+
+<article>
+  {{ comp Indholdskasse }}
+    {{ comp Indholdskassehoved }}
+      {{ comp Indholdskassetitel }}
+        Test embed
+      {{ /comp }}
+    {{ /comp }}
+    {{ comp Indholdskasseindhold }}
+	
+	<div data-session-embed="ktmk40plm5g7z20gjatae0sj"></div>
+	<script src="https://platform-git-claude-nifty-faraday-w9uhy-session.vercel.app/embed.js" async></script>
+ 
+    {{ /comp }}
+  {{ /comp }}
+</article>
+{{ /comp }}
