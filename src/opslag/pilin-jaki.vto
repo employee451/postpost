@@ -2,6 +2,7 @@
 titel: Angst af Emil Aarestrup på Toki Pona
 dato: 2026-06-22
 uddrag: 
+kunstner_id: asbjoern_og_astrid
 udgivet: nej
 layout: nyopslag.vto
 ---
@@ -10,6 +11,10 @@ layout: nyopslag.vto
 	font-family: "sitelenselikiwenasuki";
 	src: url("/fonte/sitelenselikiwenasuki.ttf") format("truetype");
 }
+@font-face {
+	font-family: "sitelenselikiwenjuniko";
+	src: url("/fonte/sitelenselikiwenjuniko.ttf") format("truetype");
+}
 </style>
 {{ comp Indholdskasse }}
   {{ comp Indholdskassehoved }}
@@ -17,11 +22,15 @@ layout: nyopslag.vto
         {{ titel }}
       {{ /comp }}
   {{ /comp }}
+  <p class="font-serif mb-2">
+  <a href="https://tokipona.org/" class="underline" target="_blank">Toki Pona</a> er et konstrueret sprog bestående af bare ca. 150 ord. Det er opfundet af <a href="https://tokipona.org/creator" class="underline" target="_blank">Sonja Lang</a>, hacker og lingvist, for sjov og for at øve sig i at tænke enkelt. I dag er der omkring 18.000, som kan tale Toki Pona, og det bliver mest brugt på internettet.
+  </p>
+  <p class="font-serif mb-6">
+  Digtet er her gengivet i det internationale fonetiske alfabet og i Sitelen Pona, et af Toki Ponas to logografiske skriftssystemer. 
+  </p>
   {{ comp Indholdskasseindhold }}
-	<div class="grid grid-cols-3 gap-4">
+	<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 		<div>
-		Emil Aarestrup<br/><br/>
-
 		Angst<br/>
 		Hold fastere omkring mig<br/>
 		Med dine runde Arme;<br/>
@@ -41,25 +50,25 @@ layout: nyopslag.vto
 		o awen tan sina li<br/>   
 		jo e seli e wile</p>
 
-		<p class="mb-3">kipisi li kama<br/>  
+		<p>kipisi li kama<br/>  
 		sama kili lon kasi<br/>
 		tenpo weka li kama<br/>  
 		sama kon lon telo ni</p>
 		</div>
-		<div>
-		Pilin jaki<br/><br/>
+		<div style="font-family: sitelenselikiwenjuniko; font-size: 20px;">
+		<p class="mb-3">Pilin jaki</p>
 
-		O awen mute e mi<br/>
+		<p class="mb-3">O awen mute e mi<br/>
 		Kepeken luka sike<br/>
 		O awen tan sina li  <br/>     
-		jo e seli e wile<br/><br/>
+		jo e seli e wile</p>
 
-		Kipisi li kama<br/>         
+		<p>Kipisi li kama<br/>         
 		Sama kili lon kasi<br/>
 		Tenpo weka li kama<br/>  
-		Sama kon lon telo ni
+		Sama kon lon telo ni</p>
 		</div>
 	</div>  
   {{ /comp }}
-  <p class="font-serif mt-4">Tak til <a href="https://www.kreativekorp.com/" class="underline" target="_blank">KreativeKorp</a> for <a href="https://www.kreativekorp.com/software/fonts/sitelenselikiwen/" class="underline" target="_blank">sitelen seli kiwen asuki</a> fonten.</p>
+  <p class="font-serif mt-4">Tak til <a href="https://www.kreativekorp.com/" class="underline" target="_blank">KreativeKorp</a> for <a href="https://www.kreativekorp.com/software/fonts/sitelenselikiwen/" class="underline" target="_blank">sitelen seli kiwen asuki & juniko</a> fontene.</p>
 {{ /comp }}
