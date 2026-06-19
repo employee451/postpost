@@ -6,6 +6,7 @@ kunstner_id: asbjoern_og_astrid
 udgivet: nej
 layout: nyopslag.vto
 itsanamechanger: postpona
+baggrund: '#ffffffff'
 ---
 <!--
 Haiiii asbjørn. Tak for det mega fede indlæg. Du må være super sej.
@@ -23,7 +24,7 @@ Sigurd og Aske
 	src: url("/fonte/sitelenselikiwenjuniko.ttf") format("truetype");
 }
 </style>
-{{ comp Indholdskasse }}
+{{ comp Indholdskasse { baggrund } }}
   {{ comp Indholdskassehoved }}
 	  {{ comp Indholdskassetitel }}
         {{ titel }}
@@ -35,7 +36,7 @@ Sigurd og Aske
   <p class="font-serif mb-6">
   Digtet er her gengivet i det internationale fonetiske alfabet og i Sitelen Pona, et af Toki Ponas to logografiske skriftssystemer. 
   </p>
-  {{ comp Indholdskasseindhold }}
+  {{ comp Indholdskasseindhold { baggrund } }}
 	<div class="grid grid-cols-8 lg:grid-cols-3 gap-4">
 		<div class="hidden lg:inline text-[18px]">
 			<p class="mb-8">Angst</p>

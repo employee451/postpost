@@ -12,7 +12,7 @@ layout: layout.vto
   {{ content }}
 
   {{ if kunstner }}
-    {{ comp Indholdskasse }}
+    {{ comp Indholdskasse { baggrund } }}
       <div class="px-2 lg:px-0 flex items-center gap-4 mb-4">
         {{ if kunstner.gif }}
         <picture class="flex-none">
