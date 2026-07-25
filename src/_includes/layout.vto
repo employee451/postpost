@@ -10,7 +10,7 @@ sang: Jag trodde änglarna fanns, Kamferdrops
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/kodederskalsmukkificereting-2026-06-19.css">
     <script async src="/kodederskalgoereting-2025-03-04.js"></script>
-    <title>{{ titel }}</title>
+    <title>{{ browsertitel ? browsertitel : titel ? titel : "postpost" }}</title>
     <link rel="canonical" href="{{ url |> url(true) }}">
     <style>
       @font-face {
