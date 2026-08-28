@@ -65,7 +65,7 @@ site.copy("billeder/kunstnere/krogslev.gif")
 site.copy("billeder/produktionsstroemmen.jpg")
 site.copy("labyrint.gltf")
 
-site.copy("/opslag/husk-handsker.htm");
+site.copy("/opslag/tandem.htm");
 
 site.copy("fonte");
 
