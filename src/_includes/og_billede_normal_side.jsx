@@ -1,48 +1,14 @@
 /** @jsxImportSource npm:react@18.2.0 */
+import { Kort, renTekst } from "./og_kort.jsx";
 
-export default function ({ titel, beskrivelse }) {
+export default function (data) {
+	const { titel, beskrivelse } = data;
+	const forsiden = !titel || titel === "postpost";
+
 	return (
-		<article style={{
-			borderRadius: '0.75rem',
-			borderWidth: '8px',
-			borderStyle: 'solid',
-			borderColor: '#52525b',
-			backgroundColor: '#ffffff',
-			padding: '1.5rem',
-			display: 'flex',
-			flexDirection: 'column',
-			width: '100%',
-			height: '100%',
-			justifyContent: 'space-between'
-		  }}>
-			<div style={{
-			  display: 'flex',
-			  alignItems: 'center',
-			  gap: '0.75rem'
-			}}>
-			  <h2 style={{
-				fontFamily: 'georgia',
-				fontSize: '3rem',
-				letterSpacing: '0.05em',
-				color: '#18181b',
-				fontWeight: 'bold'
-			  }}>
-				{titel}
-			  </h2>
-			</div>
-			{beskrivelse && (
-				<div style={{
-					fontFamily: 'georgia',
-					fontSize: '2rem',
-					lineHeight: '1.75',
-					color: '#18181b',
-					display: 'block',
-					flex: '1',
-					paddingTop: '1rem'
-				}}>
-				{beskrivelse}
-				</div>
-			)}
-		</article>
+		<Kort
+			titel={forsiden ? "Et åbent, kollektivt, ikke-fysisk værelse for kunst" : renTekst(titel, 110)}
+			tekst={renTekst(forsiden ? "Lyd, video, grafik, tekst, musik, essay, maleri, digt, råb, prosa …" : beskrivelse, 200)}
+		/>
 	);
-  }
+}

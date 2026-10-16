@@ -68,20 +68,21 @@ site.use(sitemap({
 site.use(date({
 	locales: { da },
 }));
+// Billederne der vises, når et link deles. Layouts ligger i src/_includes/og_*.jsx
+const garamond = "https://cdn.jsdelivr.net/npm/@fontsource/eb-garamond@5.3.0/files/eb-garamond";
 site.use(ogImages({
 	options: {
 		width: 1200,
-		height: 600,
-		fonts: [
-			{
-				name: "georgia",
-				weight: 400,
-				data: (await read(
-					"https://fonts.cdnfonts.com/s/19225/Georgia-PersonalUse.woff",
-					true
-				)).buffer,
-			},
-		],
+		height: 630,
+		fonts: await Promise.all(
+			[400, 700].flatMap((weight) =>
+				["latin", "latin-ext"].map(async (subset) => ({
+					name: "garamond",
+					weight: weight as 400 | 700,
+					data: (await read(`${garamond}-${subset}-${weight}-normal.woff`, true)).buffer,
+				}))
+			),
+		),
 	},
 }));
 site.use(metas());
