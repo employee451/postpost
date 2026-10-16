@@ -97,25 +97,14 @@ kunstner_id: annanygren
             {{ if kunstner }}
                 {{ comp Indholdskasse }}
                     <div class="px-2 lg:px-0 flex items-center gap-4 mb-4">
-                        {{ if kunstner.gif }}
-                        <picture class="flex-none">
-                            <source srcset="/billeder/kunstnere/{{ kunstner.id }}.gif" type="image/gif">
-                            <img src="/billeder/kunstnere/{{ kunstner.id }}.gif" alt="{{ kunstner.titel }}" class="w-20 h-20 aspect-square rounded-full bg-violet-800">
-                        </picture>
-                        {{ else }}
-                        <picture class="flex-none">
-                            <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.webp" type="image/webp">
-                            <source srcset="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" type="image/jpeg">
-                            <img src="/billeder/kunstnere/{{ kunstner.id }}-lille.jpg" alt="{{ kunstner.titel }}" class="w-20 h-20 aspect-square rounded-full bg-violet-800">
-                        </picture>
-                        {{ /if }}
+                        {{ comp Kunstnerbillede { kunstner, klasse: "w-20 h-20" } }}{{ /comp }}
                         <div>
                             <h2 class="font-serif text-2xl">{{ kunstner.titel }}</h2>
                         </div>
                     </div>
 
                     <div class="px-2 lg:px-0 font-serif leading-relaxed text-zinc-700 mb-4">
-                        {{ kunstner.hurtigtekst }}
+                        {{ kunstner.hurtigtekst |> md(true) }}
                     </div>
 
                     <div class="px-2 lg:px-0">

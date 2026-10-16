@@ -1,0 +1,40 @@
+{{# Opslagets indhold bygget af afsnit (front matter "afsnit", som redigeres i CMS'et).
+  Tekst vises præcis som den er skrevet: linjeskift og mellemrum bliver bevaret. #}}
+{{# linjeafstand er et tal ganget med tekststørrelsen, fx 1.5. Opslaget giver standarden, et tekst-afsnit kan have sin egen #}}
+<div class="space-y-8 {{ tekststoerrelse === 'lille' ? 'text-[10px] sm:text-xs md:text-sm lg:text-base' : '' }}"{{ if linjeafstand }} style="line-height: {{ linjeafstand }}"{{ /if }}>
+  {{ for blok of afsnit }}
+    {{ if blok.type === "tekst" }}
+      <div{{ if blok.linjeafstand }} style="line-height: {{ blok.linjeafstand }}"{{ /if }}>
+        {{ if blok.titel }}<h2 class="font-bold mb-4">{{ blok.titel }}</h2>{{ /if }}
+        <p class="whitespace-pre-wrap [&_a]:underline">{{ blok.tekst |> tekst }}</p>
+      </div>
+    {{ else if blok.type === "billede" }}
+      <figure class="flex flex-col items-center">
+        {{# Lokale billeder (ikke gif/svg) laves i webp + jpg af picture-plugin'et. Originalen udgives stadig. #}}
+        <img src="{{ blok.fil }}" alt="{{ blok.alt }}" class="max-w-full"{{ if blok.fil.startsWith("/") && /\.(jpe?g|png|webp)$/i.test(blok.fil) }} transform-images="webp jpg 900@2"{{ /if }}>
+        {{ if blok.billedtekst }}<figcaption class="mt-1 text-xs text-center text-zinc-600">{{ blok.billedtekst }}</figcaption>{{ /if }}
+      </figure>
+    {{ else if blok.type === "video" }}
+      <div class="flex flex-col items-center">
+        <video controls{{ blok.autoplay ? " autoplay" : "" }} class="w-full max-w-[640px] h-auto">
+          <source src="{{ blok.fil }}">
+          Vi kan ikke vise videoen i din browser desværre
+        </video>
+      </div>
+    {{ else if blok.type === "lyd" }}
+      <div class="flex flex-col items-center">
+        <audio controls controlsList="nodownload noplaybackrate">
+          <source src="{{ blok.fil }}">
+          Din browser understøtter ikke lyd på denne måde desværre.
+        </audio>
+      </div>
+    {{ else if blok.type === "skillelinje" }}
+      <div class="py-6">
+        {{ comp Mindregrupopvaekkendelinje }}
+        {{ /comp }}
+      </div>
+    {{ else if blok.type === "html" }}
+      <div>{{ blok.html }}</div>
+    {{ /if }}
+  {{ /for }}
+</div>

@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* google-fonte */
 
 ::-webkit-scrollbar {
 	width: 16px;

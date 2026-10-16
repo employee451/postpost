@@ -1,7 +1,11 @@
 /** @jsxImportSource npm:react@18.2.0 */
 
 export default async function (props) {
-	const { titel, hurtigtekst, id } = props
+	const { titel, id } = props
+	// hurtigtekst er markdown/html, men billedet skal bare have ren tekst
+	const hurtigtekst = props.hurtigtekst
+		?.replace(/<[^>]+>/g, "")
+		.replace(/(\*\*|\*|__|_)(\S(?:.*?\S)?)\1/g, "$2")
 	//const imageUrl = `https://post-post.dk/billeder/kunstnere/${id}-medium.jpg`;
 	//const imageTestResponse = await fetch(imageUrl);
 	//const shouldUseImage = imageTestResponse.status === 200;

@@ -1,0 +1,18 @@
+{{# Kunstnerens runde profilbillede.
+  Bruger "billede" fra CMS'et, ellers /billeder/kunstnere/{id}.{jpg,png,…} (eller {id}.gif når gif: ja).
+  Gif'er vises som de er. Andre billeder beskæres kvadratisk og laves i webp + jpg af picture-plugin'et.
+  Findes der intet billede, vises en tom lilla cirkel.
+  Størrelsen gives med "klasse", fx { kunstner, klasse: "w-20 h-20" } #}}
+{{ set fundet = kunstner.id |> kunstnerbillede }}
+{{ set billede = kunstner.billede || (kunstner.gif ? `/billeder/kunstnere/${kunstner.id}.gif` : fundet) }}
+{{ if !billede }}
+<div class="flex-none {{ klasse }} aspect-square rounded-full bg-violet-800"></div>
+{{ else if billede.endsWith(".gif") }}
+<picture class="flex-none">
+  <img src="{{ billede }}" alt="{{ kunstner.titel }}" class="{{ klasse }} aspect-square rounded-full bg-violet-800">
+</picture>
+{{ else }}
+<picture class="flex-none" transform-images="webp jpg 80x80@2">
+  <img src="{{ billede }}" alt="{{ kunstner.titel }}" class="{{ klasse }} aspect-square rounded-full bg-violet-800">
+</picture>
+{{ /if }}

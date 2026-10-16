@@ -48,13 +48,11 @@ layout: layout.vto
   {{ if kunstner }}
     {{ comp Indholdskasse }}
       <div class="flex items-center gap-4 mb-4">
-        <picture class="flex-none">
-          <source srcset="/billeder/kunstnere/{{ kunstner.id }}.gif" type="image/gif">
-          <img src="/billeder/kunstnere/{{ kunstner.id }}.gif" alt="{{ titel }}" class="w-20 h-20 aspect-square rounded-full bg-violet-800">
-        </picture>
+        {{ comp Kunstnerbillede { kunstner, klasse: "w-20 h-20" } }}
+        {{ /comp }}
         <div>
           <div class="font-serif text-lg">{{ kunstner.titel }}</div>
-          <div class="text-sm text-zinc-700">{{ kunstner.hurtigtekst }}</div>
+          <div class="text-sm text-zinc-700">{{ kunstner.hurtigtekst |> md(true) }}</div>
         </div>
       </div>
       <a href="{{ kunstner.url }}" class="inline-block border border-zinc-600 px-4 py-2 hover:border-violet-700 hover:text-violet-800 transition-all">
