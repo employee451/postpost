@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* google-fonte */
+
+::-webkit-scrollbar {
+	width: 16px;
+	height: 16px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #9333ea;
+	border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #7e22ce;
+}
+
+::-webkit-scrollbar-corner {
+	background: #f0f0f0;
+}
+
+/* Custom cursors */
+.sparkle-cursor {
+	cursor: none;
+}
+
+.link-hover {
+	cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>✨</text></svg>") 16 0, auto;
+}
+
+.folder-hover {
+	cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>📁</text></svg>") 16 0, auto;
+}
+
+/* Trail effect */
+#cursor-trail {
+	position: fixed;
+	pointer-events: none;
+	z-index: 9999;
+}
+
+.trail-dot {
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	background: rgb(147, 51, 234);
+	border-radius: 50%;
+	mix-blend-mode: multiply;
+	pointer-events: none;
+	transition: transform 0.1s ease-out;
+}
+
+.linjelinjelinjelinje {
+	background: #7e22ce; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #7e22ce, fuchsia, red, orange, yellow, green, #7e22ce);
+    background: -o-linear-gradient(right, #7e22ce, fuchsia, red, orange, yellow, green, #7e22ce);
+    background: -moz-linear-gradient(right, #7e22ce, fuchsia, red, orange, yellow, green, #7e22ce);
+    background: linear-gradient(to right, #7e22ce, fuchsia, red, orange, yellow, green, #7e22ce);
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+}
+
+/* Tekststørrelse i afsnit fra CMS'et (se src/_components/afsnit.vto).
+   --mobil er størrelsen i px på en almindelig telefon (390px bred, hvor tekstspalten er 292px).
+   Den skalerer med tekstspalten, så digte brydes ved de samme ord på alle telefoner og tablets,
+   men bliver aldrig større end computer-størrelsen (eller --mobil selv).
+   Fra 1024px er tekstspalten fast, og --computer bruges direkte.
+   Er en variabel ikke sat, arves tekststørrelsen bare som før. */
+.afsnit {
+	container-type: inline-size;
+}
+
+.afsnit-tekst {
+	font-size: min(
+		calc(var(--mobil) * 100cqw / 292),
+		max(calc(var(--mobil) * 1px), calc(var(--computer, 16) * 1px))
+	);
+}
+
+@media (min-width: 1024px) {
+	.afsnit-tekst {
+		font-size: calc(var(--computer) * 1px);
+	}
+}

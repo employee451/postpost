@@ -17,7 +17,7 @@ import checkUrls from "lume/plugins/check_urls.ts";
 import { markdownIt } from "lume/deps/markdown_it.ts";
 
 // Skift navnet her (og omdøb filen i src/) når browsere skal hente et nyt stilark
-const stilark = "/kodederskalsmukkificereting-2026-08-20.css";
+const stilark = "/kodederskalsmukkificereting-2026-10-19.css";
 
 const site = lume({
 	src: './src',
