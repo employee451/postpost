@@ -88,3 +88,16 @@
 		font-size: calc(var(--computer) * 1px);
 	}
 }
+
+/* Forfatterkortet under et opslag følger opslagets "tekststørrelse mobil" (--mobil) på telefoner:
+   teksten får samme størrelse som opslaget og navnet 1,5 gange den, skaleret med skærmen
+   ligesom digtene. De bliver aldrig større end normalt. */
+@media (max-width: 1023px) {
+	.kort-tekst {
+		font-size: min(calc(var(--mobil) * 100vw / 390), 1rem);
+	}
+
+	.kort-navn {
+		font-size: min(calc(var(--mobil) * 1.5 * 100vw / 390), 1.5rem);
+	}
+}

@@ -137,6 +137,13 @@ const linjeafstand = {
 	],
 } satisfies Lume.CMS.Field;
 
+const kassecss = {
+	name: "kassecss",
+	type: "code",
+	label: "css",
+	attributes: { data: { language: "CSS" } },
+} satisfies Lume.CMS.Field;
+
 const afsnit = {
 	name: "afsnit",
 	type: "choose-list",
@@ -190,7 +197,10 @@ const afsnit = {
 			name: "kasse",
 			type: "object",
 			label: "ny kasse",
-			fields: [{ name: "overskrift", type: "text", label: "overskrift" }],
+			fields: [
+				{ name: "overskrift", type: "text", label: "overskrift" },
+				kassecss,
+			],
 		},
 		{
 			name: "skillelinje",
@@ -267,6 +277,7 @@ cms.collection({
 		tekststoerrelseMobil,
 		tekststoerrelseComputer,
 		linjeafstand,
+		kassecss,
 		sang,
 		itsanamechanger,
 		html,
@@ -295,6 +306,7 @@ cms.collection({
 		udgivet,
 		uddrag,
 		afsnit,
+		kassecss,
 		sang,
 		html,
 	],
@@ -339,6 +351,7 @@ cms.collection({
 		tekststoerrelseMobil,
 		tekststoerrelseComputer,
 		linjeafstand,
+		kassecss,
 		html,
 	],
 });

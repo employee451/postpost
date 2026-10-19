@@ -12,7 +12,7 @@ layout: layout.vto
 {{ set kasser = [{ afsnit: [] }] }}
 {{ for blok of afsnit ?? [] }}
   {{ if blok.type === "kasse" }}
-    {{> kasser.push({ overskrift: blok.overskrift, afsnit: [] }) }}
+    {{> kasser.push({ ...blok, afsnit: [] }) }}
   {{ else }}
     {{> kasser.at(-1).afsnit.push(blok) }}
   {{ /if }}
@@ -32,7 +32,7 @@ layout: layout.vto
       <div class="whitespace-pre-wrap">{{ intro }}</div>
     {{ /if }}
     {{ if content || kasser[0].afsnit.length || type === "korrespondance" }}
-    {{ comp Indholdskasseindhold }}
+    {{ comp Indholdskasseindhold { css: kassecss } }}
       <div class="overflow-x-hidden">
         {{ content }}
         {{ if kasser[0].afsnit.length }}
@@ -63,7 +63,7 @@ layout: layout.vto
           <h2 class="font-serif text-3xl mb-2">{{ kasse.overskrift }}</h2>
         {{ /comp }}
       {{ /if }}
-      {{ comp Indholdskasseindhold }}
+      {{ comp Indholdskasseindhold { css: kasse.kassecss || kassecss } }}
         <div class="overflow-x-hidden">
           {{ comp Afsnit { afsnit: kasse.afsnit, tekststoerrelse, tekststoerrelse_mobil, tekststoerrelse_computer, linjeafstand } }}
           {{ /comp }}
@@ -84,7 +84,7 @@ layout: layout.vto
               <time>{{ svar.dato |> date("HUMAN_DATE", "da") }}</time>
             {{ /comp }}
           {{ /comp }}
-          {{ comp Indholdskasseindhold }}
+          {{ comp Indholdskasseindhold { css: svar.kassecss } }}
             <div class="overflow-x-hidden">
               {{ svar.content }}
               {{ if svar.afsnit }}
@@ -116,11 +116,11 @@ layout: layout.vto
         {{ comp Kunstnerbillede { kunstner, klasse: "w-20 h-20" } }}
         {{ /comp }}
         <div>
-          <h2 class="font-serif text-2xl">{{ kunstner.titel }}</h2>
+          <h2 class="font-serif text-2xl{{ tekststoerrelse_mobil ? ' kort-navn' : '' }}"{{ if tekststoerrelse_mobil }} style="--mobil: {{ tekststoerrelse_mobil }}"{{ /if }}>{{ kunstner.titel }}</h2>
         </div>
       </div>
 
-      <div class="px-2 lg:px-0 font-serif leading-relaxed text-zinc-700 mb-4">
+      <div class="px-2 lg:px-0 font-serif leading-relaxed text-zinc-700 mb-4{{ tekststoerrelse_mobil ? ' kort-tekst' : '' }}"{{ if tekststoerrelse_mobil }} style="--mobil: {{ tekststoerrelse_mobil }}"{{ /if }}>
         {{ kunstner.hurtigtekst |> md(true) }}
       </div>
 
