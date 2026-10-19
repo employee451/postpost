@@ -1,10 +1,18 @@
 {{# Opslagets indhold bygget af afsnit (front matter "afsnit", som redigeres i CMS'et).
   Tekst vises præcis som den er skrevet: linjeskift og mellemrum bliver bevaret. #}}
-{{# linjeafstand er et tal ganget med tekststørrelsen, fx 1.5. Opslaget giver standarden, et tekst-afsnit kan have sin egen #}}
-<div class="space-y-8 {{ tekststoerrelse === 'lille' ? 'text-[10px] sm:text-xs md:text-sm lg:text-base' : '' }}"{{ if linjeafstand }} style="line-height: {{ linjeafstand }}"{{ /if }}>
+{{# Opslaget giver standarden for tekststørrelse (mobil/computer, i px) og linjeafstand (tal ganget med tekststørrelsen),
+  og hvert tekst-afsnit kan have sine egne. Selve størrelserne regnes ud i stilarket (.afsnit / .afsnit-tekst). #}}
+{{ set stil = (s) => [
+  s.tekststoerrelse_mobil ? `--mobil: ${s.tekststoerrelse_mobil}` : "",
+  s.tekststoerrelse_computer ? `--computer: ${s.tekststoerrelse_computer}` : "",
+  s.linjeafstand ? `line-height: ${s.linjeafstand}` : "",
+].filter(Boolean).join("; ") }}
+{{ set opslagsstil = stil({ tekststoerrelse_mobil, tekststoerrelse_computer, linjeafstand }) }}
+<div class="afsnit space-y-8 {{ tekststoerrelse === 'lille' ? 'text-[10px] sm:text-xs md:text-sm lg:text-base' : '' }}"{{ if opslagsstil }} style="{{ opslagsstil }}"{{ /if }}>
   {{ for blok of afsnit }}
     {{ if blok.type === "tekst" }}
-      <div{{ if blok.linjeafstand }} style="line-height: {{ blok.linjeafstand }}"{{ /if }}>
+      {{ set blokstil = stil(blok) }}
+      <div class="afsnit-tekst"{{ if blokstil }} style="{{ blokstil }}"{{ /if }}>
         {{ if blok.titel }}<h2 class="font-bold mb-4">{{ blok.titel }}</h2>{{ /if }}
         <p class="whitespace-pre-wrap [&_a]:underline">{{ blok.tekst |> tekst }}</p>
       </div>

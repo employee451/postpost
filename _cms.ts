@@ -107,17 +107,24 @@ const sang = {
 	label: "sang",
 } satisfies Lume.CMS.Field;
 
-const tekststoerrelse = {
-	name: "tekststoerrelse",
+const stoerrelser = [...Array.from({ length: 43 }, (_, i) => i + 6), 56, 64, 72, 80, 96]
+	.map((n) => ({ value: String(n), label: `${n} px` }));
+
+const tekststoerrelseMobil = {
+	name: "tekststoerrelse_mobil",
 	type: "select",
-	label: "tekststørrelse",
-	options: [
-		{ value: "", label: "normal" },
-		{ value: "lille", label: "lille" },
-	],
+	label: "tekststørrelse mobil",
+	options: [{ value: "", label: "16 px (standard)" }, ...stoerrelser],
 } satisfies Lume.CMS.Field;
 
-const linjeafstande = ["1", "1.1", "1.15", "1.25", "1.5", "1.625", "1.75", "2", "2.5", "3"]
+const tekststoerrelseComputer = {
+	name: "tekststoerrelse_computer",
+	type: "select",
+	label: "tekststørrelse computer",
+	options: [{ value: "", label: "16 px (standard)" }, ...stoerrelser],
+} satisfies Lume.CMS.Field;
+
+const linjeafstande = ["0.8", "0.9", "1", "1.05", "1.1", "1.15", "1.2", "1.25", "1.3", "1.4", "1.5", "1.625", "1.75", "1.9", "2", "2.25", "2.5", "3", "4"]
 	.map((value) => ({ value, label: value.replace(".", ",") }));
 
 const linjeafstand = {
@@ -142,6 +149,8 @@ const afsnit = {
 			fields: [
 				{ name: "titel", type: "text", label: "overskrift" },
 				{ name: "tekst", type: "markdown", label: "tekst", upload: "billeder" },
+				{ ...tekststoerrelseMobil, options: [{ value: "", label: "som opslaget" }, ...stoerrelser] },
+				{ ...tekststoerrelseComputer, options: [{ value: "", label: "som opslaget" }, ...stoerrelser] },
 				{
 					name: "linjeafstand",
 					type: "select",
@@ -255,7 +264,8 @@ cms.collection({
 		uddrag,
 		intro,
 		afsnit,
-		tekststoerrelse,
+		tekststoerrelseMobil,
+		tekststoerrelseComputer,
 		linjeafstand,
 		sang,
 		itsanamechanger,
@@ -326,7 +336,8 @@ cms.collection({
 		kunstner,
 		udgivet,
 		afsnit,
-		tekststoerrelse,
+		tekststoerrelseMobil,
+		tekststoerrelseComputer,
 		linjeafstand,
 		html,
 	],

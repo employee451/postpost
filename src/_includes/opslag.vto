@@ -36,7 +36,7 @@ layout: layout.vto
       <div class="overflow-x-hidden">
         {{ content }}
         {{ if kasser[0].afsnit.length }}
-          {{ comp Afsnit { afsnit: kasser[0].afsnit, tekststoerrelse, linjeafstand } }}
+          {{ comp Afsnit { afsnit: kasser[0].afsnit, tekststoerrelse, tekststoerrelse_mobil, tekststoerrelse_computer, linjeafstand } }}
           {{ /comp }}
         {{ /if }}
         {{ if type === "korrespondance" }}
@@ -65,7 +65,7 @@ layout: layout.vto
       {{ /if }}
       {{ comp Indholdskasseindhold }}
         <div class="overflow-x-hidden">
-          {{ comp Afsnit { afsnit: kasse.afsnit, tekststoerrelse, linjeafstand } }}
+          {{ comp Afsnit { afsnit: kasse.afsnit, tekststoerrelse, tekststoerrelse_mobil, tekststoerrelse_computer, linjeafstand } }}
           {{ /comp }}
         </div>
       {{ /comp }}
@@ -88,7 +88,7 @@ layout: layout.vto
             <div class="overflow-x-hidden">
               {{ svar.content }}
               {{ if svar.afsnit }}
-                {{ comp Afsnit { afsnit: svar.afsnit, tekststoerrelse: svar.tekststoerrelse, linjeafstand: svar.linjeafstand } }}
+                {{ comp Afsnit { afsnit: svar.afsnit, tekststoerrelse: svar.tekststoerrelse, tekststoerrelse_mobil: svar.tekststoerrelse_mobil, tekststoerrelse_computer: svar.tekststoerrelse_computer, linjeafstand: svar.linjeafstand } }}
                 {{ /comp }}
               {{ /if }}
             </div>

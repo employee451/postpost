@@ -65,3 +65,26 @@
 	-webkit-background-clip: text;
 	color: transparent;
 }
+
+/* Tekststørrelse i afsnit fra CMS'et (se src/_components/afsnit.vto).
+   --mobil er størrelsen i px på en almindelig telefon (390px bred, hvor tekstspalten er 292px).
+   Den skalerer med tekstspalten, så digte brydes ved de samme ord på alle telefoner og tablets,
+   men bliver aldrig større end computer-størrelsen (eller --mobil selv).
+   Fra 1024px er tekstspalten fast, og --computer bruges direkte.
+   Er en variabel ikke sat, arves tekststørrelsen bare som før. */
+.afsnit {
+	container-type: inline-size;
+}
+
+.afsnit-tekst {
+	font-size: min(
+		calc(var(--mobil) * 100cqw / 292),
+		max(calc(var(--mobil) * 1px), calc(var(--computer, 16) * 1px))
+	);
+}
+
+@media (min-width: 1024px) {
+	.afsnit-tekst {
+		font-size: calc(var(--computer) * 1px);
+	}
+}
