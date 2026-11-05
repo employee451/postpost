@@ -51,11 +51,16 @@
     <div class="mx-auto max-w-5xl py-8 px-2 md:px-8">
       <header class="relative mb-12 text-center">
         <div class="mb-4 md:mb-0 w-full grid grid-cols-2 md:grid-cols-4 gap-4 font-mono">
-            <div class="border border-zinc-700 flex items-center justify-center {{ baggrund ? `bg-[${baggrund}]` : 'bg-gray-300' }} p-3 shadow-inner hover:border-violet-700 transition-all">
-              <div>
-                <div class="font-[ur] text-xl mb-1 text-zinc-900" id="klok1">Hvad er klokken?</div>
-                <div class="text-xs opacity-80" id="dato1">Idk</div>
+            <div class="grid grid-rows-2 md:grid-rows-1 gap-4">
+              <div class="border border-zinc-700 flex items-center justify-center {{ baggrund ? `bg-[${baggrund}]` : 'bg-gray-300' }} p-1 md:p-3 shadow-inner hover:border-violet-700 transition-all">
+                <div>
+                  <div class="font-[ur] text-base leading-none md:leading-normal md:text-xl md:mb-1 text-zinc-900" id="klok1">Hvad er klokken?</div>
+                  <div class="text-[10px] leading-tight md:text-xs opacity-80" id="dato1">Idk</div>
+                </div>
               </div>
+              <a href="/postruten/" class="md:hidden underline text-violet-700 border border-zinc-700 {{ baggrund ? `bg-[${baggrund}]` : 'bg-gray-300' }} px-2 py-1 text-sm shadow-inner hover:border-violet-700 transition-all flex items-center justify-center">
+                postruten: nyhedsbrev
+              </a>
             </div>
             
             <div class="grid grid-rows-2 gap-4">
@@ -99,17 +104,13 @@
               </div>
             </div>
           
-            <div class="border border-zinc-700 {{ baggrund ? `bg-[${baggrund}]` : 'bg-gray-300' }} px-3 py-1 shadow-inner hover:border-violet-700 transition-all flex items-center justify-center">
-              <div>
+            <div class="border border-zinc-700 {{ baggrund ? `bg-[${baggrund}]` : 'bg-gray-300' }} shadow-inner hover:border-violet-700 transition-all flex flex-col">
+              <div class="flex-1 flex items-center justify-center px-3 py-1 text-sm md:text-base">
                 <span><span class="text-orange-600">⚡</span> <span id="hvor-mange-er-online"></span> online</span>
-                <div class="w-full flex justify-center">
-                  <div class="relative w-full flex items-center">
-                    <span class="absolute inline-flex h-2 w-2 rounded-full bg-red-500 animate-ping"></span>
-                    <span class="relative inline-flex h-2 w-2 rounded-full bg-red-500"></span>
-                    <span class="ml-3">live</span>
-                  </div>
-                </div>
               </div>
+              <a href="/postruten/" class="hidden md:flex flex-1 items-center justify-center border-t border-zinc-700 px-3 py-1 underline text-violet-700">
+                postruten: nyhedsbrev
+              </a>
             </div>
             <a href="/indsend" class="underline text-violet-700 border border-zinc-700 {{ baggrund ? `bg-[${baggrund}]` : 'bg-gray-300' }} px-3 py-1 shadow-inner hover:border-violet-700 transition-all flex items-center justify-center">
               INDSEND!!!
@@ -135,6 +136,9 @@
           <a href="/indsend/" class="hover:text-violet-800 cursor-pointer transition-colors">Indsend</a>
           <div class="hidden lg:block h-4 w-px bg-current"></div>
           <a href="/vedtaegter.pdf" target="_blank" class="hover:text-violet-800 cursor-pointer transition-colors">Vedtægter</a>
+        </div>
+        <div class="mt-4 font-serif text-sm tracking-widest justify-center flex flex-col gap-4 flex-wrap lg:flex-row opacity-80">
+          <div>CVR: 46494571</div>
         </div>
       </footer>
     </div>
